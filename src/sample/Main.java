@@ -1,23 +1,23 @@
 package sample;
 
+import Scenes.TrialScene;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
+import Scenes.EntryScene;
 
 public class Main extends Application {
 
+    public static Stage mainStage;
+
+    public static void main(String[] args) { launch(args); }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        mainStage = primaryStage;
+        primaryStage.setTitle("Super Quadrillion");
+
+        TrialScene trialScene = new TrialScene();
+        primaryStage.setScene(trialScene);
         primaryStage.show();
-    }
-
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }
