@@ -4,12 +4,13 @@ package Scenes;
         import javafx.scene.control.Button;
         import javafx.scene.layout.Pane;
         import javafx.scene.layout.VBox;
+        import sample.Glob;
         import sample.Main;
 
 public class EntryScene extends Scene {
 
     public EntryScene() {
-        super(new Pane(), 900, 600);
+        super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
         VBox mainLayout = new VBox();
         setRoot(mainLayout);
 

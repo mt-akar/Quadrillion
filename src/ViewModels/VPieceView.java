@@ -1,28 +1,26 @@
 package ViewModels;
 
 import DataModels.VPiece;
+import javafx.animation.RotateTransition;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Translate;
+import javafx.util.Duration;
 
-public class VPieceModel extends PieceModel {
+public class VPieceView extends PieceView {
 
-    VPiece p;
-    boolean rotating;
-
-    public VPieceModel(){
-        super();
-
-        // Create the piece model
+    public VPieceView(){
+        // Create the piece
         p = new VPiece();
 
         // Draw the shape
-        this.getPoints().addAll(new Double[]{
-                gl*-1, gl*-2,
+        this.getPoints().addAll(gl*-1, gl*-2,
                 gl*0, gl*-2,
                 gl*0, gl*0,
                 gl*2, gl*0,
                 gl*2, gl*1,
-                gl*-1, gl*1});
+                gl*-1, gl*1);
+
+        // Fix the pivot for rotation
         this.getTransforms().add(new Translate(gl/2, -gl/2));
         this.setTranslateX(-gl/2);
         this.setTranslateY(gl/2);
@@ -46,15 +44,4 @@ public class VPieceModel extends PieceModel {
         //this.setFill(Color.rgb(148,0,211));
         //placed = true;
     }
-
-    @Override
-    public void Rotate() {
-        if (p.getRotationEnum() != 3)
-            p.setRotationEnum(p.getRotationEnum() + 1);
-        else
-            p.setRotationEnum(0);
-
-        p.SetStructure();
-    }
-
 }

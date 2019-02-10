@@ -3,10 +3,19 @@ package DataModels;
 public class VPiece extends Piece {
 
     public VPiece(){
-        SetStructure();
+        setStructure();
     }
 
-    public void SetStructure(){
+    public void rotate(){
+        if (rotationEnum != 3)
+            rotationEnum++;
+        else
+            rotationEnum = 0;
+
+        setStructure();
+    }
+
+    public void setStructure(){
         if(rotationEnum == 0){
             structure = new boolean[][] {{false, true, false, false},
                     {false, true, false, false},
