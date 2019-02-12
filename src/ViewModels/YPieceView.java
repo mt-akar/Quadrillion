@@ -54,8 +54,6 @@ public class YPieceView extends PieceView {
             else
                 rotating = false;
         });
-
-
     }
 
     public void displace(){

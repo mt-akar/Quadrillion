@@ -17,10 +17,10 @@ public class YPiece extends Piece {
 
     public void setStructure(){
         if(rotationEnum == 0){
-            structure = new boolean[][] {{false, false, false, false},
+            structure = new boolean[][] {{false, false, true, false},
                     {false, false, true, false},
-                    {true, true, true, true},
-                    {false, false, false, false}};
+                    {false, true, true, false},
+                    {false, false, true, false}};
         }
         else if(rotationEnum == 1){
             structure = new boolean[][] {{false, true, false, false},

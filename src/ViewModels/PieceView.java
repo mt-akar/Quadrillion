@@ -10,9 +10,9 @@ public abstract class PieceView extends Polygon{
 
     double gl = Glob.gl();
     double animationTime = .15;
-    Piece p;
+    public Piece p;
     boolean rotating;
-    //public boolean placed = false;
+    public boolean placed;
 
     public void rotate(){
         RotateTransition rot = new RotateTransition();
@@ -30,4 +30,8 @@ public abstract class PieceView extends Polygon{
     public boolean getRotating(){
         return rotating;
     }
+
+    public abstract void place();
+
+    public abstract void displace();
 }

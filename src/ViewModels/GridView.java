@@ -1,20 +1,24 @@
 package ViewModels;
 
 import DataModels.Grid;
+import javafx.animation.RotateTransition;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 import sample.Glob;
 
 public class GridView extends Group {
 
     static double gl = Glob.gl();
 
-    Grid g;
+    public Grid g;
 
     boolean rotating;
+
+    public boolean placed;
 
     public GridView(double x, double y){
         setLayoutX(x);
@@ -83,7 +87,17 @@ public class GridView extends Group {
         return rotating;
     }
 
-    public void setRotating(boolean rot){
-        rotating = rot;
+    public void rotate(){
+        RotateTransition rot = new RotateTransition();
+        rot.setDuration(Duration.seconds(.5));
+        rot.setByAngle(90);
+        rot.setNode(this);
+        rot.play();
+        rotating = true;
+        rot.setOnFinished(e -> {
+            rotating = false;
+        });
+
+        g.rotate();
     }
 }
