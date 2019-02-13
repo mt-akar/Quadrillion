@@ -1,10 +1,7 @@
 package Scenes;
 
-import ViewModels.GridView;
-import ViewModels.PieceView;
-import ViewModels.VPieceView;
-import ViewModels.YPieceView;
-import javafx.scene.image.Image;
+import ViewModels.*;
+import ViewModels.PieceViews.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import sample.*;
@@ -16,20 +13,19 @@ import javafx.scene.Scene;
 import javafx.scene.transform.Translate;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
-import javafx.scene.shape.Shape;
 
 
 public class TrialScene extends Scene {
 
-    static double mousePrevX, mousePrevY;
-    double gl = Glob.gl();
+    private static double mousePrevX, mousePrevY;
+    private double gl = Glob.gl;
 
-    double gameBoardOffsetX = Glob.windowWidth() / 2 - gl * 8;
-    double gameBoardOffsetY = 30;
+    private double gameBoardOffsetX = Glob.windowWidth() / 2 - gl * 8;
+    private  double gameBoardOffsetY = 30;
 
-    boolean[][] gameBoardLayout = new boolean[16][16];
-    int[][] gridPositions = new int[4][2];
-    Button startGamePhase;
+    private boolean[][] gameBoardLayout = new boolean[16][16];
+    private int[][] gridPositions = new int[4][2];
+    private Button startGamePhase;
 
     public TrialScene() {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
@@ -117,15 +113,6 @@ public class TrialScene extends Scene {
             });
             g4.setOnMouseReleased(e -> {
             });
-
-            VPieceView v1 = new VPieceView();
-            v1.setLayoutX(100);
-            v1.setLayoutY(600);
-            v1.setOnMousePressed(OnMousePressedOnPieceEventHandler);
-            v1.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
-            v1.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
-            trialLayout.getChildren().add(v1);
-
             for (int i = 0; i < 4; i++) {
                 YPieceView y1 = new YPieceView();
                 y1.setLayoutX(120);
@@ -136,7 +123,7 @@ public class TrialScene extends Scene {
                 trialLayout.getChildren().add(y1);
             }
             for (int i = 0; i < 4; i++) {
-                YPieceView y1 = new YPieceView();
+                WPieceView y1 = new WPieceView();
                 y1.setLayoutX(350);
                 y1.setLayoutY(100 + i * 180);
                 y1.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -145,7 +132,7 @@ public class TrialScene extends Scene {
                 trialLayout.getChildren().add(y1);
             }
             for (int i = 0; i < 4; i++) {
-                YPieceView y1 = new YPieceView();
+                LPieceView y1 = new LPieceView();
                 y1.setLayoutX(1270);
                 y1.setLayoutY(100 + i * 180);
                 y1.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -154,7 +141,7 @@ public class TrialScene extends Scene {
                 trialLayout.getChildren().add(y1);
             }
             for (int i = 0; i < 4; i++) {
-                YPieceView y1 = new YPieceView();
+                VPieceView y1 = new VPieceView();
                 y1.setLayoutX(1480);
                 y1.setLayoutY(100 + i * 180);
                 y1.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -164,11 +151,12 @@ public class TrialScene extends Scene {
             }
 
             monitorGameBoardLayout(); // change
+            startGamePhase.setDisable(true);
         });
-        //startGamePhase.setDisable(true); // change
+        startGamePhase.setDisable(true);
     }
 
-    public EventHandler<MouseEvent> OnMousePressedOnGridEventHandler =
+    private EventHandler<MouseEvent> OnMousePressedOnGridEventHandler =
             new EventHandler<MouseEvent>() {
 
                 @Override
@@ -183,8 +171,23 @@ public class TrialScene extends Scene {
                     // If left button pressed, rotate
                     if (t.getButton() == MouseButton.SECONDARY && !gw.getRotating()) {
                         gw.rotate();
+
+                        // If grid was placed, update gameBoardLayout
+                        if(gw.placed){
+                            // Calculate grid position enumerator which can be 1 through 13
+                            int positionX = (int) ((gw.getLayoutX() - gameBoardOffsetX) / gl) - 1;
+                            int positionY = (int) ((gw.getLayoutY() - gameBoardOffsetY) / gl) - 1;
+
+                            // Update gameBoardLayout
+                            for (int i = 0; i < 4; i++)
+                                for (int j = 0; j < 4; j++)
+                                    gameBoardLayout[i + positionX - 1][j + positionY - 1] = gw.g.layout[i][j];
+                        }
                         return;
                     }
+
+                    // If left button pressed, disable startGamePhase button
+                    startGamePhase.setDisable(true);
 
                     // Save the mouse position when the dragging starts
                     mousePrevX = t.getSceneX();
@@ -198,7 +201,7 @@ public class TrialScene extends Scene {
                         for (int i = 0; i < 4; i++) {
 
                             // Find the grid's positions
-                            if (Math.abs((t.getSceneX() - gameBoardOffsetX) / gl - 1 - gridPositions[i][0]) < 2 && Math.abs((t.getSceneY() - gameBoardOffsetY) / gl - 1 - gridPositions[i][1]) < 2) {
+                            if (gridPositions[i][0] == gw.coordX && gridPositions[i][1] == gw.coordY) {
 
                                 // Update gameBoardLayout
                                 for (int j = gridPositions[i][0] - 1; j <= gridPositions[i][0] + 2; j++)
@@ -208,6 +211,8 @@ public class TrialScene extends Scene {
                                 // Update gridPositions
                                 gridPositions[i][0] = 0;
                                 gridPositions[i][1] = 0;
+                                gw.coordX = 0;
+                                gw.coordY = 0;
 
                                 return;
                             }
@@ -218,7 +223,7 @@ public class TrialScene extends Scene {
                 }
             };
 
-    public EventHandler<MouseEvent> OnMouseDraggedGridEventHandler =
+    private EventHandler<MouseEvent> OnMouseDraggedGridEventHandler =
             new EventHandler<MouseEvent>() {
 
                 @Override
@@ -241,7 +246,7 @@ public class TrialScene extends Scene {
                 }
             };
 
-    public EventHandler<MouseEvent> OnMouseReleasedGridEventHandler =
+    private EventHandler<MouseEvent> OnMouseReleasedGridEventHandler =
             new EventHandler<MouseEvent>() {
 
                 @Override
@@ -260,8 +265,8 @@ public class TrialScene extends Scene {
                         return;
 
                     // Calculate grid position enumerator which can be 1 through 13
-                    int positionX = (int) ((NearestGL(gw.getLayoutX() - gameBoardOffsetX)) / gl) - 1;
-                    int positionY = (int) ((NearestGL(gw.getLayoutY() - gameBoardOffsetY)) / gl) - 1;
+                    int positionX = windowToXCoordinate(gw.getLayoutX());
+                    int positionY = windowToYCoordinate(gw.getLayoutY());
 
                     // Check if the grid can be placed
                     for (int i = 0; i < 4; i++) {
@@ -295,12 +300,14 @@ public class TrialScene extends Scene {
                             continue;
                         gridPositions[i][0] = positionX;
                         gridPositions[i][1] = positionY;
+                        gw.coordX = positionX;
+                        gw.coordY = positionY;
                         break;
                     }
 
-                    // CHANGE gameStartButton ACTIVITY - Feel free to optimize this section //
-                    int[] gridNeghbours = new int[4];
+                    // CHANGE GAME START BUTTON ACTIVITY - Feel free to optimize this section //
                     boolean active = true;
+                    int[] gridNeighbours = new int[4];
 
                     // If any piece is not placed yet
                     for (int i = 0; i < 4; i++) {
@@ -315,24 +322,27 @@ public class TrialScene extends Scene {
                             int a = Math.abs(gridPositions[i][0] - gridPositions[j][0]);
                             int b = Math.abs(gridPositions[i][1] - gridPositions[j][1]);
                             if ((a == 4 && (b == 0 || b == 2)) || (b == 4 && (a == 0 || a == 2))) {
-                                gridNeghbours[i]++;
-                                gridNeghbours[j]++;
+                                gridNeighbours[i]++;
+                                gridNeighbours[j]++;
                             }
                         }
                     }
                     // If any grid is apart from the set
                     for (int i = 0; i < 4; i++) {
-                        if (gridNeghbours[i] == 0)
+                        if (gridNeighbours[i] == 0)
                             active = false;
                     }
                     // If grids are grouped in couples
-                    if (gridNeghbours[0] + gridNeghbours[1] + gridNeghbours[2] + gridNeghbours[3] < 6)
+                    if (gridNeighbours[0] + gridNeighbours[1] + gridNeighbours[2] + gridNeighbours[3] < 6)
                         active = false;
+
+                    // Final call
                     startGamePhase.setDisable(!active);
+                    // Optimize up to here //
                 }
             };
 
-    public EventHandler<MouseEvent> OnMousePressedOnPieceEventHandler =
+    private EventHandler<MouseEvent> OnMousePressedOnPieceEventHandler =
             new EventHandler<MouseEvent>() {
 
                 @Override
@@ -343,6 +353,21 @@ public class TrialScene extends Scene {
 
                     // Bring piece to front
                     pv.toFront();
+
+                    // REMOVE
+                    if (pv.placed){
+                        // Update gameBoardLayout
+                        for (int i = 0; i < 4; i++)
+                            for (int j = 0; j < 4; j++)
+                                if (pv.p.structure[i][j])
+                                    gameBoardLayout[i + pv.coordX - 1][j + pv.coordY - 1] = true;
+
+                        // Update pv members
+                        pv.placed = false;
+                        pv.displace();
+
+                        monitorGameBoardLayout();
+                    }
 
                     // If left button pressed, rotate
                     if (t.getButton() == MouseButton.SECONDARY && !pv.getRotating()) {
@@ -356,7 +381,7 @@ public class TrialScene extends Scene {
                 }
             };
 
-    public EventHandler<MouseEvent> OnMouseDraggedPieceEventHandler =
+    private EventHandler<MouseEvent> OnMouseDraggedPieceEventHandler =
             new EventHandler<MouseEvent>() {
 
                 @Override
@@ -379,57 +404,74 @@ public class TrialScene extends Scene {
                 }
             };
 
-    public EventHandler<MouseEvent> OnMouseReleasedPieceEventHandler =
+    private EventHandler<MouseEvent> OnMouseReleasedPieceEventHandler =
             new EventHandler<MouseEvent>() {
 
                 @Override
                 public void handle(MouseEvent t) {
-                    System.out.println("release");
 
                     // If right button is released, return
                     if (t.getButton() == MouseButton.SECONDARY)
                         return;
 
                     // Define a pointer to PieceView object
-                    PieceView pw = ((PieceView) (t.getSource()));
+                    PieceView pv = ((PieceView) (t.getSource()));
 
                     // Calculate grid position enumerator which can be 1 through 13
-                    int piecePositionX = (int) ((NearestGL(pw.getLayoutX() - gameBoardOffsetX)) / gl) - 1;
-                    int piecePositionY = (int) ((NearestGL(pw.getLayoutY() - gameBoardOffsetY)) / gl) - 1;
-
-                    System.out.println("before check");
+                    int piecePositionX = windowToXCoordinate(pv.getLayoutX());
+                    int piecePositionY = windowToYCoordinate(pv.getLayoutY());
 
                     // Check if the piece can be placed
                     for (int i = 0; i < 4; i++) {
                         for (int j = 0; j < 4; j++) {
-                            System.out.println("1");
                             // If the corresponding square is not a part of piece, continue
-                            if (!pw.p.structure[i][j])
+                            if (!pv.p.structure[i][j])
                                 continue;
-                            System.out.println("2");
                             // If the corresponding square of the piece is outside the area, return
                             if (i + piecePositionX - 1 < 0 || i + piecePositionX - 1 > 15 || j + piecePositionY - 1 < 0 || j + piecePositionY - 1 > 15)
                                 return;
-                            System.out.println("3" + " " + i + " " + j + " " + (i + piecePositionX - 1) + " " + (j + piecePositionY - 1));
                             // If the corresponding square of the piece cannot be placed, return
                             if (!gameBoardLayout[i + piecePositionX - 1][j + piecePositionY - 1])
                                 return;
-                            System.out.println("4");
                         }
                     }
 
-                    System.out.println("after check before place");
+                    // PLACE //
 
-                    // Place the piece
-                    for (int i = 0; i < 4; i++) {
-                        for (int j = 0; j < 4; j++) {
-                            if (pw.p.structure[i][j])
+                    // Snap the grid to game board guidelines
+                    pv.setLayoutX(NearestGL(pv.getLayoutX() - gameBoardOffsetX) + gameBoardOffsetX);
+                    pv.setLayoutY(NearestGL(pv.getLayoutY() - gameBoardOffsetY) + gameBoardOffsetY);
+
+                    // Update gameBoardLayout
+                    for (int i = 0; i < 4; i++)
+                        for (int j = 0; j < 4; j++)
+                            if (pv.p.structure[i][j])
                                 gameBoardLayout[i + piecePositionX - 1][j + piecePositionY - 1] = false;
-                        }
-                    }
-                    pw.place();
+
+                    // Update pv members
+                    pv.coordX = piecePositionX;
+                    pv.coordY = piecePositionY;
+                    pv.placed = true;
+
+                    // Change color
+                    pv.place();
 
                     monitorGameBoardLayout();
+
+                    // GAME ENDED CHECK //
+
+                    boolean ended = true;
+                    for (int i = 0; i < 4; i++){
+                        for (int j = -1; j <= 2; j++){
+                            for (int k = -1; k <= 2; k++){
+                                if (gameBoardLayout[gridPositions[i][0] + k][gridPositions[i][1] + j]){
+                                    ended = false;
+                                }
+                            }
+                        }
+                    }
+                    if(ended)
+                        System.out.println("Game over");
                 }
             };
 
@@ -444,11 +486,21 @@ public class TrialScene extends Scene {
     private void monitorGameBoardLayout() {
         for (int i = 0; i < 16; i++) {
             for (int j = 0; j < 16; j++) {
-                System.out.print((gameBoardLayout[j][i] ? "true " : "false") + " ");
+                System.out.print((gameBoardLayout[j][i] ? "O" : "-") + " ");
             }
             System.out.println();
         }
         System.out.println("------------------------------------------------");
+    }
+
+    // This method takes a window position and converts it to board coordinates.
+    // Coordinate 1, 1 means corresponds to the left-top-most 4 by 4 grid.
+    // There are 13x13 different coordinates on the board.
+    private int windowToXCoordinate(double pos){
+        return (int) ((NearestGL(pos - gameBoardOffsetX)) / gl) - 1;
+    }
+    private int windowToYCoordinate(double pos){
+        return (int) ((NearestGL(pos - gameBoardOffsetY)) / gl) - 1;
     }
 
 }

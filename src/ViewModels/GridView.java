@@ -12,11 +12,14 @@ import sample.Glob;
 
 public class GridView extends Group {
 
-    static double gl = Glob.gl();
+    private static double gl = Glob.gl;
+
+    public int coordX;
+    public int coordY;
 
     public Grid g;
 
-    boolean rotating;
+    private boolean rotating;
 
     public boolean placed;
 
@@ -94,9 +97,9 @@ public class GridView extends Group {
         rot.setNode(this);
         rot.play();
         rotating = true;
-        rot.setOnFinished(e -> {
-            rotating = false;
-        });
+        rot.setOnFinished(e ->
+                rotating = false
+        );
 
         g.rotate();
     }

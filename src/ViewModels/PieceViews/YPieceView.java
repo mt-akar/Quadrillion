@@ -1,11 +1,12 @@
-package ViewModels;
+package ViewModels.PieceViews;
 
-import DataModels.YPiece;
+import DataModels.PieceModels.YPiece;
 import javafx.animation.RotateTransition;
 import javafx.animation.ScaleTransition;
 import javafx.geometry.Point3D;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
+import sample.Glob;
 
 public class YPieceView extends PieceView {
 
@@ -23,12 +24,9 @@ public class YPieceView extends PieceView {
                 gl*-2, gl*0,
                 gl*0, gl*0);
 
-        // Fill the piece
-        this.setFill(Color.rgb(255, 115, 222));
+        // Paint the piece
+        this.setFill(Glob.YPieceDisplacedColor);
         this.setStroke(Color.BLACK);
-
-        //Initialize members
-        rotating = false;
     }
 
     public void rotate(){
@@ -37,7 +35,7 @@ public class YPieceView extends PieceView {
         rot.setByAngle(90);
         rot.setAxis(new Point3D(0, 0, 1));
         rot.setNode(this);
-        p.rotate();
+        p.incrementRotationEnum();
         rot.play();
         rotating = true;
         rot.setOnFinished(e -> {
@@ -48,7 +46,7 @@ public class YPieceView extends PieceView {
                 sca.setNode(this);
                 sca.play();
                 sca.setOnFinished(e2 ->
-                    rotating = false
+                        rotating = false
                 );
             }
             else
@@ -56,16 +54,12 @@ public class YPieceView extends PieceView {
         });
     }
 
-    public void displace(){
-        //ff73de
-        //this.setFill(Color.rgb(202, 127, 233));
-        //placed = false;
+    public void place(){
+        this.setFill(Glob.YPiecePlacedColor);
     }
 
-    public void place(){
-        //ff96e7
-        //this.setFill(Color.rgb(148,0,211));
-        //placed = true;
+    public void displace(){
+        this.setFill(Glob.YPieceDisplacedColor);
     }
 }
 

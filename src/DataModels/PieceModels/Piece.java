@@ -1,4 +1,4 @@
-package DataModels;
+package DataModels.PieceModels;
 
 public abstract class Piece {
 
@@ -8,7 +8,7 @@ public abstract class Piece {
 
     public abstract void setStructure();
 
-    public abstract void rotate();
+    public abstract void incrementRotationEnum();
 
     public int getRotationEnum(){
         return rotationEnum;

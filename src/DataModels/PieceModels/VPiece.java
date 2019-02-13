@@ -1,4 +1,4 @@
-package DataModels;
+package DataModels.PieceModels;
 
 public class VPiece extends Piece {
 
@@ -6,7 +6,7 @@ public class VPiece extends Piece {
         setStructure();
     }
 
-    public void rotate(){
+    public void incrementRotationEnum(){
         if (rotationEnum != 3)
             rotationEnum++;
         else
@@ -17,10 +17,10 @@ public class VPiece extends Piece {
 
     public void setStructure(){
         if(rotationEnum == 0){
-            structure = new boolean[][] {{false, true, false, false},
-                    {false, true, false, false},
-                    {false, true, true, true},
-                    {false, false, false, false}};
+            structure = new boolean[][] {{false, false, false, false},
+                    {true, true, true, false},
+                    {false, false, true, false},
+                    {false, false, true, false}};
         }
         else if(rotationEnum == 1){
             structure = new boolean[][] {{false, false, false, false},
@@ -29,10 +29,10 @@ public class VPiece extends Piece {
                     {false, true, false, false}};
         }
         else if(rotationEnum == 2){
-            structure = new boolean[][] {{false, false, false, false},
-                    {true, true, true, false},
-                    {false, false, true, false},
-                    {false, false, true, false}};
+            structure = new boolean[][] {{false, true, false, false},
+                    {false, true, false, false},
+                    {false, true, true, true},
+                    {false, false, false, false}};
         }
         else if(rotationEnum == 3){
             structure = new boolean[][] {{false, false, true, false},
