@@ -1,4 +1,4 @@
-**Quadrillion** (name to be decided)
+**My Little Quadrillion** (name to be decided)
 
 This is a tarm project for *CS 319 - Object-Oriented Software Engineering* Course Spring 2019
 
