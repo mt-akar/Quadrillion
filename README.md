@@ -1,12 +1,8 @@
-**My Little Quadrillion** (name to be decided)
+**My Little Quadrillion**
 
-This is a tarm project for *CS 319 - Object-Oriented Software Engineering* Course Spring 2019
+This is a tarm project for *CS 319 - Object-Oriented Software Engineering* Course - Spring 2019
 
-Following are some videos of the original game:
-
-https://www.youtube.com/watch?v=bmIKRLYTepc
-
-https://www.smartgames.eu/uk/one-player-games/quadrillion
+Group 1.C
 
 Project members are
 * Alemdar 21500430
@@ -15,3 +11,9 @@ Project members are
 * Gökçe Sefa 21400596
 * Mustafa Azyoksul 21501426
 * Talha Şen 21502663
+
+Following are some videos of the original game:
+
+https://www.youtube.com/watch?v=bmIKRLYTepc
+
+https://www.smartgames.eu/uk/one-player-games/quadrillion
