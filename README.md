@@ -29,9 +29,9 @@ This is the term project for *CS 319 - Object-Oriented Software Engineering* Cou
 
 ### Gameplay
 
-Quadrillion is single-player puzzle board game. The objective is to connect the grids and put all the pieces on the grids so that every piece is placed and every slot on the grids is occupied.
+Quadrillion is single-player, puzzle board game. The objective is to connect the grids and put all the pieces on the grids so that every piece is placed and every slot on the grids is occupied.
 
-Handbook contains puzzle in varying difficultilty levels. In the puzzles grid positions and some of the pieces are placed. Player tries to place remaining pieces to remaining places. Player may solve the puzzles in no spesific order.
+Handbook contains puzzles in varying difficultilty levels. In the puzzles; grid positions and some of the pieces are placed. Player tries to place remaining pieces to remaining places. Player may solve the puzzles in no spesific order.
 
 #### Following are some videos of the original game:
 
