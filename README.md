@@ -39,7 +39,11 @@ https://www.youtube.com/watch?v=bmIKRLYTepc
 
 https://www.smartgames.eu/uk/one-player-games/quadrillion
 
-## Additional Features
+## My Little Quadrillion
+
+My little quadrillion is a digital version of the quadrillion game with some changes. The game is intended to be term project of CS 319 course.
+
+## Additional features
 
 ### Timer and Music*
 
