@@ -1,10 +1,11 @@
 # My Little Quadrillion
 
-This is a tarm project for *CS 319 - Object-Oriented Software Engineering* Course - Spring 2019
+This is the term project for *CS 319 - Object-Oriented Software Engineering* Course - Spring 2019
 
 ## Group 1.C
 
-### Project members are
+### Project members
+
 * Alemdar 21500430
 * Ece Çanga 21600851
 * Erkin Beşer 21400961
