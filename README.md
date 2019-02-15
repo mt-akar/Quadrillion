@@ -15,18 +15,16 @@ This is the term project for *CS 319 - Object-Oriented Software Engineering* Cou
 
 ## Original game - Quadrillion
 
-Following are some videos of the original game:
-
-https://www.youtube.com/watch?v=bmIKRLYTepc
-
-https://www.smartgames.eu/uk/one-player-games/quadrillion
-
 ### Pieces
 
 4 x Magnetic 4 by 4 grids
+
 10 x Pentamino
+
 1 x Tetramino
+
 1 x Trimino
+
 1 x Puzzle handbook
 
 ### Gameplay
@@ -34,6 +32,12 @@ https://www.smartgames.eu/uk/one-player-games/quadrillion
 Quadrillion is single-player puzzle board game. The objective is to connect the grids and put all the pieces on the grids so that every piece is placed and every slot on the grids is occupied.
 
 Handbook contains puzzle in varying difficultilty levels. In the puzzles grid positions and some of the pieces are placed. Player tries to place remaining pieces to remaining places. Player may solve the puzzles in no spesific order.
+
+#### Following are some videos of the original game:
+
+https://www.youtube.com/watch?v=bmIKRLYTepc
+
+https://www.smartgames.eu/uk/one-player-games/quadrillion
 
 ## Additional Features
 
