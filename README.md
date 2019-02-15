@@ -13,7 +13,7 @@ This is the term project for *CS 319 - Object-Oriented Software Engineering* Cou
 * Mustafa Azyoksul 21501426
 * Talha Şen 21502663
 
-## Original game
+## Original game - Quadrillion
 
 Following are some videos of the original game:
 
