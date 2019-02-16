@@ -7,6 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 import sample.Glob;
 
@@ -23,6 +24,7 @@ public class GridView extends Group {
 
     public boolean placed;
 
+    // Grid view without dots
     public GridView(double x, double y){
         setLayoutX(x);
         setLayoutY(y);
@@ -43,6 +45,7 @@ public class GridView extends Group {
         g = new Grid();
     }
 
+    // Grid view with dots, from the original game
     public GridView(double x, double y, int type) {
         setLayoutX(x);
         setLayoutY(y);
@@ -101,6 +104,15 @@ public class GridView extends Group {
                 rotating = false
         );
 
+        g.rotate();
+    }
+
+    // Rotate without animating
+    public void rotateWOAnimating(){
+        // Rotate the visual
+        this.getTransforms().add(new Rotate(90));
+
+        // Rotate the structure
         g.rotate();
     }
 }

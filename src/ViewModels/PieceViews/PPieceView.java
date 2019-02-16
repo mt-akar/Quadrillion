@@ -1,32 +1,42 @@
 package ViewModels.PieceViews;
 
-import DataModels.PieceModels.LPiece;
+import DataModels.PieceModels.PPiece;
 import javafx.animation.RotateTransition;
 import javafx.animation.ScaleTransition;
 import javafx.geometry.Point3D;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Scale;
+import javafx.scene.transform.Translate;
 import javafx.util.Duration;
 import sample.Glob;
 
-public class LPieceView extends PieceView {
+public class PPieceView extends PieceView {
 
-    public LPieceView(){
+    public PPieceView(){
         // Create the piece
-        p = new LPiece();
+        p = new PPiece();
 
+//change
         // Draw the shape
-        this.getPoints().addAll(gl*-1, gl*-2,
-                gl*0, gl*-2,
-                gl*0, gl*1,
+        this.getPoints().addAll(gl*-1, gl*-1,
+                gl*1, gl*-1,
                 gl*1, gl*1,
-                gl*1, gl*2,
+                gl*0, gl*1,
+                gl*0, gl*2,
                 gl*-1, gl*2);
 
+        // Fix the axis for rotation. Refer to ref/axis_fix.png
+
+        // Next line visually translates the polygon while leaving the rotation axis unchanged. Step 1
+        this.getTransforms().add(new Translate(0, gl/2));
+
+        // Next two lines also visually translate the polygon and changes the rotation axis at the same time. Step 2
+        this.setTranslateY(-gl/2);
+
         // Paint the piece
-        this.setFill(Glob.LPieceDisplacedColor);
-        this.setStroke(Glob.LPiecePlacedColor);
+        this.setFill(Glob.PPieceDisplacedColor);
+        this.setStroke(Glob.PPiecePlacedColor);
     }
 
     public void rotate(){
@@ -67,8 +77,8 @@ public class LPieceView extends PieceView {
 
     public void adjustColor(){
         if (placed)
-            this.setFill(Glob.LPiecePlacedColor);
+            this.setFill(Glob.PPiecePlacedColor);
         else
-            this.setFill(Glob.LPieceDisplacedColor);
+            this.setFill(Glob.PPieceDisplacedColor);
     }
 }

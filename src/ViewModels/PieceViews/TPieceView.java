@@ -1,33 +1,31 @@
 package ViewModels.PieceViews;
 
-import DataModels.PieceModels.WPiece;
+import DataModels.PieceModels.TPiece;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
 import sample.Glob;
 
-public class WPieceView extends PieceView {
+public class TPieceView extends PieceView {
 
-    public WPieceView(){
+    public TPieceView(){
         // Create the piece
-        p = new WPiece();
+        p = new TPiece();
 
 //change
         // Draw the shape
         this.getPoints().addAll(gl*-2, gl*-2,
-                gl*-1, gl*-2,
-                gl*-1, gl*-1,
+                gl*1, gl*-2,
+                gl*1, gl*-1,
                 gl*0, gl*-1,
-                gl*0, gl*0,
-                gl*1, gl*0,
-                gl*1, gl*1,
+                gl*0, gl*1,
                 gl*-1, gl*1,
-                gl*-1, gl*0,
-                gl*-2, gl*0);
+                gl*-1, gl*-1,
+                gl*-2, gl*-1);
 
         // Paint the piece
-        this.setFill(Glob.WPieceDisplacedColor);
-        this.setStroke(Glob.WPiecePlacedColor);
+        this.setFill(Glob.TPieceDisplacedColor);
+        this.setStroke(Glob.TPiecePlacedColor);
     }
 
     public void rotateWOAnimating(){
@@ -43,8 +41,8 @@ public class WPieceView extends PieceView {
 
     public void adjustColor(){
         if (placed)
-            this.setFill(Glob.WPiecePlacedColor);
+            this.setFill(Glob.TPiecePlacedColor);
         else
-            this.setFill(Glob.WPieceDisplacedColor);
+            this.setFill(Glob.TPieceDisplacedColor);
     }
 }

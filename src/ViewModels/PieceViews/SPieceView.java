@@ -1,6 +1,7 @@
 package ViewModels.PieceViews;
 
-import DataModels.PieceModels.LPiece;
+import DataModels.PieceModels.SPiece;
+import DataModels.PieceModels.YPiece;
 import javafx.animation.RotateTransition;
 import javafx.animation.ScaleTransition;
 import javafx.geometry.Point3D;
@@ -10,23 +11,25 @@ import javafx.scene.transform.Scale;
 import javafx.util.Duration;
 import sample.Glob;
 
-public class LPieceView extends PieceView {
+public class SPieceView extends PieceView {
 
-    public LPieceView(){
+    public SPieceView(){
         // Create the piece
-        p = new LPiece();
+        p = new SPiece();
 
         // Draw the shape
-        this.getPoints().addAll(gl*-1, gl*-2,
-                gl*0, gl*-2,
-                gl*0, gl*1,
+        this.getPoints().addAll(gl*0, gl*-1,
+                gl*2, gl*-1,
+                gl*2, gl*0,
+                gl*1, gl*0,
                 gl*1, gl*1,
-                gl*1, gl*2,
-                gl*-1, gl*2);
+                gl*-2, gl*1,
+                gl*-2, gl*0,
+                gl*0, gl*0);
 
         // Paint the piece
-        this.setFill(Glob.LPieceDisplacedColor);
-        this.setStroke(Glob.LPiecePlacedColor);
+        this.setFill(Glob.SPieceDisplacedColor);
+        this.setStroke(Glob.SPiecePlacedColor);
     }
 
     public void rotate(){
@@ -46,7 +49,7 @@ public class LPieceView extends PieceView {
                 sca.setNode(this);
                 sca.play();
                 sca.setOnFinished(e2 ->
-                        rotating = false
+                    rotating = false
                 );
             }
             else
@@ -67,8 +70,8 @@ public class LPieceView extends PieceView {
 
     public void adjustColor(){
         if (placed)
-            this.setFill(Glob.LPiecePlacedColor);
+            this.setFill(Glob.SPiecePlacedColor);
         else
-            this.setFill(Glob.LPieceDisplacedColor);
+            this.setFill(Glob.SPieceDisplacedColor);
     }
 }

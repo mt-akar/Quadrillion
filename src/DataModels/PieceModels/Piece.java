@@ -8,7 +8,7 @@ public abstract class Piece {
 
     public abstract void setStructure();
 
-    public abstract void incrementRotationEnum();
+    public abstract void rotate();
 
     public int getRotationEnum(){
         return rotationEnum;

@@ -1,5 +1,6 @@
 package Scenes;
 
+        import DataModels.GameLevel;
         import javafx.scene.Scene;
         import javafx.scene.control.Button;
         import javafx.scene.layout.Pane;
@@ -15,15 +16,19 @@ public class EntryScene extends Scene {
         setRoot(mainLayout);
 
         Button tutorialButton = new Button("Tutorial");
-        Button resumeButton = new Button("Resume");
         Button playButton = new Button("Play");
+        Button levelEditorButton = new Button("Level Editor");
         Button optionsButton = new Button("Options");
         Button trialButton = new Button("Trial");
 
-        mainLayout.getChildren().addAll(tutorialButton, resumeButton, playButton, optionsButton, trialButton);
+        mainLayout.getChildren().addAll(tutorialButton, playButton, levelEditorButton, optionsButton, trialButton);
 
-        trialButton.setOnAction(e -> {
-            Main.mainStage.setScene(new TrialScene());
+        playButton.setOnAction(e -> {
+            Main.mainStage.setScene(new GameScene(new GameLevel()));
+        });
+
+        levelEditorButton.setOnAction(e -> {
+            Main.mainStage.setScene(new LevelEditorScene());
         });
     }
 }

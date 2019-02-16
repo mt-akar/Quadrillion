@@ -1,8 +1,8 @@
 package DataModels.PieceModels;
 
-public class WPiece extends Piece {
+public class UPiece extends Piece {
 
-    public WPiece(){
+    public UPiece(){
         setStructure();
     }
 
@@ -18,26 +18,26 @@ public class WPiece extends Piece {
     public void setStructure(){
         if(rotationEnum == 0){
             structure = new boolean[][] {{true, true, false, false},
-                    {false, true, true, false},
-                    {false, false, true, false},
+                    {false, true, false, false},
+                    {true, true, false, false},
                     {false, false, false, false}};
         }
         else if(rotationEnum == 1){
-            structure = new boolean[][] {{false, true, true, false},
-                    {true, true, false, false},
-                    {true, false, false, false},
+            structure = new boolean[][] {{false, false, false, false},
+                    {true, true, true, false},
+                    {true, false, true, false},
                     {false, false, false, false}};
         }
         else if(rotationEnum == 2){
-            structure = new boolean[][] {{true, false, false, false},
-                    {true, true, false, false},
+            structure = new boolean[][] {{false, true, true, false},
+                    {false, true, false, false},
                     {false, true, true, false},
                     {false, false, false, false}};
         }
         else if(rotationEnum == 3){
-            structure = new boolean[][] {{false, false, true, false},
-                    {false, true, true, false},
-                    {true, true, false, false},
+            structure = new boolean[][] {{true, false, true, false},
+                    {true, true, true, false},
+                    {false, false, false, false},
                     {false, false, false, false}};
         }
     }

@@ -30,14 +30,13 @@ public class VPieceView extends PieceView {
 
         // Paint the piece
         this.setFill(Glob.VPieceDisplacedColor);
-        this.setStroke(Color.BLACK);
+        this.setStroke(Glob.VPiecePlacedColor);
     }
 
-    public void place(){
-        this.setFill(Glob.VPiecePlacedColor);
-    }
-
-    public void displace(){
-        this.setFill(Glob.VPieceDisplacedColor);
+    public void adjustColor(){
+        if (placed)
+            this.setFill(Glob.VPiecePlacedColor);
+        else
+            this.setFill(Glob.VPieceDisplacedColor);
     }
 }

@@ -2,6 +2,7 @@ package Scenes;
 
 import ViewModels.*;
 import ViewModels.PieceViews.*;
+import javafx.geometry.Insets;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import sample.*;
@@ -10,12 +11,9 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.Scene;
-import javafx.scene.transform.Translate;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.Polygon;
 
-
-public class TrialScene extends Scene {
+public class LevelEditorScene extends Scene {
 
     private static double mousePrevX, mousePrevY;
     private double gl = Glob.gl;
@@ -27,68 +25,51 @@ public class TrialScene extends Scene {
     private int[][] gridPositions = new int[4][2];
     private Button startGamePhase;
 
-    public TrialScene() {
+    public LevelEditorScene() {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
-        Pane trialLayout = new Pane();
-        setRoot(trialLayout);
-        //trialLayout.setBackground(new Background(new BackgroundImage(new Image("../Images/bg.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+        Pane levelEditorLayout = new Pane();
+        setRoot(levelEditorLayout);
 
-        // Background image
-        //trialLayout.setId("pane");
-        //getStylesheets().addAll(this.getClass().getResource("../Images/style.css").toExternalForm());
+        levelEditorLayout.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(0), new Insets(0))));
 
         for (int i = 0; i <= 16; i++) {
             Line l1 = new Line(gameBoardOffsetX, gameBoardOffsetY + gl * i, gameBoardOffsetX + gl * 16, gameBoardOffsetY + gl * i);
             Line l2 = new Line(gameBoardOffsetX + gl * i, gameBoardOffsetY, gameBoardOffsetX + gl * i, gameBoardOffsetY + gl * 16);
             l1.setStroke(Color.rgb(200, 200, 200));
             l2.setStroke(Color.rgb(200, 200, 200));
-            trialLayout.getChildren().addAll(l1, l2);
+            levelEditorLayout.getChildren().addAll(l1, l2);
         }
-
-        Polygon polygon1 = new Polygon();
-        polygon1.setLayoutX(100);
-        polygon1.setLayoutY(100);
-        polygon1.getPoints().addAll(0.0, 0.0,
-                50.0, 0.0,
-                300.0, 100.0,
-                0.0, 100.0);
-        polygon1.getTransforms().add(new Translate(150, 50));
-        polygon1.setTranslateX(-150);
-        polygon1.setTranslateY(-50);
-        polygon1.setOnMousePressed(OnMousePressedOnPieceEventHandler);
-        polygon1.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
-        //trialLayout.getChildren().add(polygon1);
 
         GridView g1 = new GridView(gameBoardOffsetX + gl * 9 / 2, gameBoardOffsetY + gl * 9 / 2, 1);
         g1.setOnMousePressed(OnMousePressedOnGridEventHandler);
         g1.setOnMouseDragged(OnMouseDraggedGridEventHandler);
         g1.setOnMouseReleased(OnMouseReleasedGridEventHandler);
-        trialLayout.getChildren().add(g1);
+        levelEditorLayout.getChildren().add(g1);
 
         GridView g2 = new GridView(gameBoardOffsetX + gl * 23 / 2, gameBoardOffsetY + gl * 9 / 2, 2);
         g2.setOnMousePressed(OnMousePressedOnGridEventHandler);
         g2.setOnMouseDragged(OnMouseDraggedGridEventHandler);
         g2.setOnMouseReleased(OnMouseReleasedGridEventHandler);
-        trialLayout.getChildren().add(g2);
+        levelEditorLayout.getChildren().add(g2);
 
         GridView g3 = new GridView(gameBoardOffsetX + gl * 9 / 2, gameBoardOffsetY + gl * 23 / 2, 3);
         g3.setOnMousePressed(OnMousePressedOnGridEventHandler);
         g3.setOnMouseDragged(OnMouseDraggedGridEventHandler);
         g3.setOnMouseReleased(OnMouseReleasedGridEventHandler);
-        trialLayout.getChildren().add(g3);
+        levelEditorLayout.getChildren().add(g3);
 
         GridView g4 = new GridView(gameBoardOffsetX + gl * 23 / 2, gameBoardOffsetY + gl * 23 / 2, 4);
         g4.setOnMousePressed(OnMousePressedOnGridEventHandler);
         g4.setOnMouseDragged(OnMouseDraggedGridEventHandler);
         g4.setOnMouseReleased(OnMouseReleasedGridEventHandler);
-        trialLayout.getChildren().add(g4);
+        levelEditorLayout.getChildren().add(g4);
 
         startGamePhase = new Button("Start the game");
         startGamePhase.setLayoutX(100);
         startGamePhase.setLayoutY(800);
-        trialLayout.getChildren().add(startGamePhase);
+        levelEditorLayout.getChildren().add(startGamePhase);
         startGamePhase.setOnAction(e0 -> {
-            trialLayout.getChildren().remove(2, 32);
+            levelEditorLayout.getChildren().remove(2, 32);
             g1.setOnMousePressed(e -> {
             });
             g1.setOnMouseDragged(e -> {
@@ -113,42 +94,102 @@ public class TrialScene extends Scene {
             });
             g4.setOnMouseReleased(e -> {
             });
-            for (int i = 0; i < 4; i++) {
-                YPieceView y1 = new YPieceView();
-                y1.setLayoutX(120);
-                y1.setLayoutY(100 + i * 180);
-                y1.setOnMousePressed(OnMousePressedOnPieceEventHandler);
-                y1.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
-                y1.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
-                trialLayout.getChildren().add(y1);
-            }
-            for (int i = 0; i < 4; i++) {
-                WPieceView y1 = new WPieceView();
-                y1.setLayoutX(350);
-                y1.setLayoutY(100 + i * 180);
-                y1.setOnMousePressed(OnMousePressedOnPieceEventHandler);
-                y1.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
-                y1.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
-                trialLayout.getChildren().add(y1);
-            }
-            for (int i = 0; i < 4; i++) {
-                LPieceView y1 = new LPieceView();
-                y1.setLayoutX(1270);
-                y1.setLayoutY(100 + i * 180);
-                y1.setOnMousePressed(OnMousePressedOnPieceEventHandler);
-                y1.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
-                y1.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
-                trialLayout.getChildren().add(y1);
-            }
-            for (int i = 0; i < 4; i++) {
-                VPieceView y1 = new VPieceView();
-                y1.setLayoutX(1480);
-                y1.setLayoutY(100 + i * 180);
-                y1.setOnMousePressed(OnMousePressedOnPieceEventHandler);
-                y1.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
-                y1.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
-                trialLayout.getChildren().add(y1);
-            }
+
+            LPieceView l = new LPieceView();
+            l.setLayoutX(120);
+            l.setLayoutY(200);
+            l.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+            l.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+            l.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+            levelEditorLayout.getChildren().add(l);
+
+            YPieceView y = new YPieceView();
+            y.setLayoutX(120);
+            y.setLayoutY(380);
+            y.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+            y.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+            y.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+            levelEditorLayout.getChildren().add(y);
+
+            PPieceView p = new PPieceView();
+            p.setLayoutX(120);
+            p.setLayoutY(560);
+            p.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+            p.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+            p.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+            levelEditorLayout.getChildren().add(p);
+
+            UPieceView u = new UPieceView();
+            u.setLayoutX(350);
+            u.setLayoutY(200);
+            u.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+            u.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+            u.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+            levelEditorLayout.getChildren().add(u);
+
+            ZPieceView z = new ZPieceView();
+            z.setLayoutX(350);
+            z.setLayoutY(380);
+            z.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+            z.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+            z.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+            levelEditorLayout.getChildren().add(z);
+
+            FPieceView f = new FPieceView();
+            f.setLayoutX(350);
+            f.setLayoutY(560);
+            f.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+            f.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+            f.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+            levelEditorLayout.getChildren().add(f);
+
+            TPieceView t = new TPieceView();
+            t.setLayoutX(1270);
+            t.setLayoutY(200);
+            t.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+            t.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+            t.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+            levelEditorLayout.getChildren().add(t);
+
+            WPieceView w = new WPieceView();
+            w.setLayoutX(1270);
+            w.setLayoutY(380);
+            w.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+            w.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+            w.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+            levelEditorLayout.getChildren().add(w);
+
+            SPieceView s = new SPieceView();
+            s.setLayoutX(1270);
+            s.setLayoutY(560);
+            s.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+            s.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+            s.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+            levelEditorLayout.getChildren().add(s);
+
+            VPieceView y1 = new VPieceView();
+            y1.setLayoutX(1480);
+            y1.setLayoutY(200);
+            y1.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+            y1.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+            y1.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+            levelEditorLayout.getChildren().add(y1);
+
+            NPieceView n = new NPieceView();
+            n.setLayoutX(1480);
+            n.setLayoutY(380);
+            n.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+            n.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+            n.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+            levelEditorLayout.getChildren().add(n);
+
+            RPieceView r = new RPieceView();
+            r.setLayoutX(1480);
+            r.setLayoutY(560);
+            r.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+            r.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+            r.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+            levelEditorLayout.getChildren().add(r);
 
             monitorGameBoardLayout(); // change
             startGamePhase.setDisable(true);
@@ -236,9 +277,9 @@ public class TrialScene extends Scene {
                     // Define a pointer to GridView object
                     GridView gw = ((GridView) (t.getSource()));
 
-                    // Move the piece
-                    gw.setLayoutX(Math.max(gw.getLayoutX() + t.getSceneX() - mousePrevX, 0));
-                    gw.setLayoutY(Math.max(gw.getLayoutY() + t.getSceneY() - mousePrevY, 0));
+                    // Move the GridView
+                    gw.setLayoutX(Math.min(Math.max(0, gw.getLayoutX() + t.getSceneX() - mousePrevX), Glob.windowWidth()));
+                    gw.setLayoutY(Math.min(Math.max(0, gw.getLayoutY() + t.getSceneY() - mousePrevY), Glob.windowHeight()));
 
                     // Update the mouse position AFTER the drag happens
                     mousePrevX = t.getSceneX();
@@ -357,14 +398,14 @@ public class TrialScene extends Scene {
                     // REMOVE
                     if (pv.placed){
                         // Update gameBoardLayout
-                        for (int i = 0; i < 4; i++)
-                            for (int j = 0; j < 4; j++)
+                        for (int i = 0; i < pv.p.structure.length; i++)
+                            for (int j = 0; j < pv.p.structure[0].length; j++)
                                 if (pv.p.structure[i][j])
                                     gameBoardLayout[i + pv.coordX - 1][j + pv.coordY - 1] = true;
 
                         // Update pv members
                         pv.placed = false;
-                        pv.displace();
+                        pv.adjustColor();
 
                         monitorGameBoardLayout();
                     }
@@ -395,8 +436,8 @@ public class TrialScene extends Scene {
                     PieceView pw = ((PieceView) (t.getSource()));
 
                     // Move the piece
-                    pw.setLayoutX(Math.max(pw.getLayoutX() + t.getSceneX() - mousePrevX, gl / 2));
-                    pw.setLayoutY(Math.max(pw.getLayoutY() + t.getSceneY() - mousePrevY, gl * 3 / 2));
+                    pw.setLayoutX(Math.min(Math.max(gl / 2, pw.getLayoutX() + t.getSceneX() - mousePrevX), Glob.windowWidth() - gl / 2));
+                    pw.setLayoutY(Math.min(Math.max(gl / 2, pw.getLayoutY() + t.getSceneY() - mousePrevY), Glob.windowHeight() - gl / 2));
 
                     // Update the mouse position AFTER the drag happens
                     mousePrevX = t.getSceneX();
@@ -422,8 +463,8 @@ public class TrialScene extends Scene {
                     int piecePositionY = windowToYCoordinate(pv.getLayoutY());
 
                     // Check if the piece can be placed
-                    for (int i = 0; i < 4; i++) {
-                        for (int j = 0; j < 4; j++) {
+                    for (int i = 0; i < pv.p.structure.length; i++) {
+                        for (int j = 0; j < pv.p.structure[0].length; j++) {
                             // If the corresponding square is not a part of piece, continue
                             if (!pv.p.structure[i][j])
                                 continue;
@@ -443,8 +484,8 @@ public class TrialScene extends Scene {
                     pv.setLayoutY(NearestGL(pv.getLayoutY() - gameBoardOffsetY) + gameBoardOffsetY);
 
                     // Update gameBoardLayout
-                    for (int i = 0; i < 4; i++)
-                        for (int j = 0; j < 4; j++)
+                    for (int i = 0; i < pv.p.structure.length; i++)
+                        for (int j = 0; j < pv.p.structure[0].length; j++)
                             if (pv.p.structure[i][j])
                                 gameBoardLayout[i + piecePositionX - 1][j + piecePositionY - 1] = false;
 
@@ -454,7 +495,7 @@ public class TrialScene extends Scene {
                     pv.placed = true;
 
                     // Change color
-                    pv.place();
+                    pv.adjustColor();
 
                     monitorGameBoardLayout();
 

@@ -6,8 +6,8 @@ public class LPiece extends Piece {
         setStructure();
     }
 
-    public void incrementRotationEnum(){
-        if (rotationEnum != 3)
+    public void rotate(){
+        if (rotationEnum != 7)
             rotationEnum++;
         else
             rotationEnum = 0;

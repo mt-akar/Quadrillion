@@ -3,6 +3,7 @@ package ViewModels.PieceViews;
 import DataModels.PieceModels.Piece;
 import javafx.animation.RotateTransition;
 import javafx.scene.shape.Polygon;
+import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 import sample.Glob;
 
@@ -21,7 +22,8 @@ public abstract class PieceView extends Polygon{
         rot.setDuration(Duration.seconds(animationTime));
         rot.setByAngle(90);
         rot.setNode(this);
-        p.incrementRotationEnum();
+        // Rotate the structure
+        p.rotate();
         rot.play();
         rotating = true;
         rot.setOnFinished(e ->
@@ -29,11 +31,17 @@ public abstract class PieceView extends Polygon{
         );
     }
 
+    public void rotateWOAnimating(){
+        // Rotate the visual
+        this.getTransforms().add(new Rotate(90));
+
+        // Rotate the structure
+        p.rotate();
+    }
+
     public boolean getRotating(){
         return rotating;
     }
 
-    public abstract void place();
-
-    public abstract void displace();
+    public abstract void adjustColor();
 }

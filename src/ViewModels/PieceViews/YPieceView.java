@@ -5,6 +5,8 @@ import javafx.animation.RotateTransition;
 import javafx.animation.ScaleTransition;
 import javafx.geometry.Point3D;
 import javafx.scene.paint.Color;
+import javafx.scene.transform.Rotate;
+import javafx.scene.transform.Scale;
 import javafx.util.Duration;
 import sample.Glob;
 
@@ -26,7 +28,7 @@ public class YPieceView extends PieceView {
 
         // Paint the piece
         this.setFill(Glob.YPieceDisplacedColor);
-        this.setStroke(Color.BLACK);
+        this.setStroke(Glob.YPiecePlacedColor);
     }
 
     public void rotate(){
@@ -35,7 +37,7 @@ public class YPieceView extends PieceView {
         rot.setByAngle(90);
         rot.setAxis(new Point3D(0, 0, 1));
         rot.setNode(this);
-        p.incrementRotationEnum();
+        p.rotate();
         rot.play();
         rotating = true;
         rot.setOnFinished(e -> {
@@ -46,7 +48,7 @@ public class YPieceView extends PieceView {
                 sca.setNode(this);
                 sca.play();
                 sca.setOnFinished(e2 ->
-                        rotating = false
+                    rotating = false
                 );
             }
             else
@@ -54,12 +56,22 @@ public class YPieceView extends PieceView {
         });
     }
 
-    public void place(){
-        this.setFill(Glob.YPiecePlacedColor);
+    public void rotateWOAnimating(){
+        // Rotate the visual
+        this.getTransforms().add(new Rotate(90));
+        if (p.getRotationEnum() == 3 || p.getRotationEnum() == 7) {
+            this.getTransforms().add(new Scale(1, p.getRotationEnum() == 3 ? -1 : 1));
+        }
+
+        // Rotate the structure
+        p.rotate();
     }
 
-    public void displace(){
-        this.setFill(Glob.YPieceDisplacedColor);
+    public void adjustColor(){
+        if (placed)
+            this.setFill(Glob.YPiecePlacedColor);
+        else
+            this.setFill(Glob.YPieceDisplacedColor);
     }
 }
 

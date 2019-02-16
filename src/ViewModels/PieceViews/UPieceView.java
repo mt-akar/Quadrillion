@@ -1,16 +1,16 @@
 package ViewModels.PieceViews;
 
-import DataModels.PieceModels.WPiece;
+import DataModels.PieceModels.UPiece;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
 import sample.Glob;
 
-public class WPieceView extends PieceView {
+public class UPieceView extends PieceView {
 
-    public WPieceView(){
+    public UPieceView(){
         // Create the piece
-        p = new WPiece();
+        p = new UPiece();
 
 //change
         // Draw the shape
@@ -18,16 +18,22 @@ public class WPieceView extends PieceView {
                 gl*-1, gl*-2,
                 gl*-1, gl*-1,
                 gl*0, gl*-1,
-                gl*0, gl*0,
+                gl*0, gl*-2,
+                gl*1, gl*-2,
                 gl*1, gl*0,
-                gl*1, gl*1,
-                gl*-1, gl*1,
-                gl*-1, gl*0,
                 gl*-2, gl*0);
 
+        // Fix the axis for rotation. Refer to ref/axis_fix.png
+
+        // Next line visually translates the polygon while leaving the rotation axis unchanged. Step 1
+        this.getTransforms().add(new Translate(0, -gl/2));
+
+        // Next two lines also visually translate the polygon and changes the rotation axis at the same time. Step 2
+        this.setTranslateY(gl/2);
+
         // Paint the piece
-        this.setFill(Glob.WPieceDisplacedColor);
-        this.setStroke(Glob.WPiecePlacedColor);
+        this.setFill(Glob.UPieceDisplacedColor);
+        this.setStroke(Glob.UPiecePlacedColor);
     }
 
     public void rotateWOAnimating(){
@@ -43,8 +49,8 @@ public class WPieceView extends PieceView {
 
     public void adjustColor(){
         if (placed)
-            this.setFill(Glob.WPiecePlacedColor);
+            this.setFill(Glob.UPiecePlacedColor);
         else
-            this.setFill(Glob.WPieceDisplacedColor);
+            this.setFill(Glob.UPieceDisplacedColor);
     }
 }

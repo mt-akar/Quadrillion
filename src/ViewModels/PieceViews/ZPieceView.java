@@ -1,32 +1,36 @@
 package ViewModels.PieceViews;
 
-import DataModels.PieceModels.LPiece;
+import DataModels.PieceModels.VPiece;
+import DataModels.PieceModels.ZPiece;
 import javafx.animation.RotateTransition;
 import javafx.animation.ScaleTransition;
 import javafx.geometry.Point3D;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Scale;
+import javafx.scene.transform.Translate;
 import javafx.util.Duration;
 import sample.Glob;
 
-public class LPieceView extends PieceView {
+public class ZPieceView extends PieceView {
 
-    public LPieceView(){
+    public ZPieceView(){
         // Create the piece
-        p = new LPiece();
+        p = new ZPiece();
 
         // Draw the shape
-        this.getPoints().addAll(gl*-1, gl*-2,
+        this.getPoints().addAll(gl*-2, gl*-2,
                 gl*0, gl*-2,
-                gl*0, gl*1,
+                gl*0, gl*0,
+                gl*1, gl*0,
                 gl*1, gl*1,
-                gl*1, gl*2,
-                gl*-1, gl*2);
+                gl*-1, gl*1,
+                gl*-1, gl*-1,
+                gl*-2, gl*-1);
 
         // Paint the piece
-        this.setFill(Glob.LPieceDisplacedColor);
-        this.setStroke(Glob.LPiecePlacedColor);
+        this.setFill(Glob.ZPieceDisplacedColor);
+        this.setStroke(Glob.ZPiecePlacedColor);
     }
 
     public void rotate(){
@@ -39,14 +43,14 @@ public class LPieceView extends PieceView {
         rot.play();
         rotating = true;
         rot.setOnFinished(e -> {
-            if (p.getRotationEnum() == 4 || p.getRotationEnum() == 0) {
+            if (p.getRotationEnum() == 2 || p.getRotationEnum() == 0) {
                 ScaleTransition sca = new ScaleTransition();
                 sca.setDuration(Duration.seconds(animationTime / 2));
-                sca.setToX(p.getRotationEnum() == 4 ? -1 : 1);
+                sca.setToX(p.getRotationEnum() == 2 ? -1 : 1);
                 sca.setNode(this);
                 sca.play();
                 sca.setOnFinished(e2 ->
-                        rotating = false
+                    rotating = false
                 );
             }
             else
@@ -57,8 +61,8 @@ public class LPieceView extends PieceView {
     public void rotateWOAnimating(){
         // Rotate the visual
         this.getTransforms().add(new Rotate(90));
-        if (p.getRotationEnum() == 3 || p.getRotationEnum() == 7) {
-            this.getTransforms().add(new Scale(1, p.getRotationEnum() == 3 ? -1 : 1));
+        if (p.getRotationEnum() == 2 || p.getRotationEnum() == 0) {
+            this.getTransforms().add(new Scale(p.getRotationEnum() == 2 ? -1 : 1, 0));
         }
 
         // Rotate the structure
@@ -67,8 +71,8 @@ public class LPieceView extends PieceView {
 
     public void adjustColor(){
         if (placed)
-            this.setFill(Glob.LPiecePlacedColor);
+            this.setFill(Glob.ZPiecePlacedColor);
         else
-            this.setFill(Glob.LPieceDisplacedColor);
+            this.setFill(Glob.ZPieceDisplacedColor);
     }
 }
