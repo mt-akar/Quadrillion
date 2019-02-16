@@ -49,6 +49,10 @@ My little quadrillion is a digital version of the quadrillion game with some cha
 
 Standart stuff.
 
+### Achivements
+
+Standart stuff.
+
 ### Tutorial*
 
 When loggen in with a new user name, players will be asked to play a simple tutorial.
@@ -56,6 +60,10 @@ When loggen in with a new user name, players will be asked to play a simple tuto
 ### Personnel Career
 
 Players will be able to play 40 preset levels in 4 different difficulties. First puzzle in each difficulty will be playable for everyone. Once a puzzle is solved, players cunlock the the next puzzle in the same difficulty. Player proggress will be saved and can be accessed again with the same user name on the same computer.
+
+### Hint*
+
+Give position of a piece for A solution. Takıng hints decrease the stars taken by solving puzzle.
 
 ### Level Editor*
 
@@ -68,5 +76,19 @@ Players will be able to place grids and pieces at will, without much restriction
 ### Multiplayer Mode
 
 The game will have a multiplayer mode and 20 multiplayer levels. In this mode players compete againts each other trying to solve the same puzzle faster than their opponent. Game will be played on a single screen and players will use different set of keyboard inputs to place the pieces and complete the puzzle.
+
+### Rush Mode
+
+Players will be given limited time. Players will try to solve as many random puzzles in increasing difficulty as possible in the given time. Game will calculate a high score depending on the number of puzzles solved.
+
+### Visual Themes / Night Mode
+
+rotatable board
+the board is not shown when paused
+User can change the theme and background.
+
+
+### Move Count
+
 
 *These features are not final decision
