@@ -41,7 +41,7 @@ https://www.smartgames.eu/uk/one-player-games/quadrillion
 
 ## My Little Quadrillion
 
-My little quadrillion is a digital version of the quadrillion game with some changes. The game is intended to be term project of CS 319 course.
+My little quadrillion is a digital version of the quadrillion game with awsome additions.
 
 ### Additional features
 
