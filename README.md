@@ -45,7 +45,7 @@ My little quadrillion is a digital version of the quadrillion game with some cha
 
 ### Additional features
 
-### Timer and Music*
+### Timer and Music
 
 Standart stuff.
 
@@ -53,42 +53,44 @@ Standart stuff.
 
 Standart stuff.
 
-### Tutorial*
+### Tutorial
 
-When loggen in with a new user name, players will be asked to play a simple tutorial.
+Game offers tutorials for players who are new to the game. Tutorials will be at top of the play menu and can be played any time.
 
-### Personnel Career
+### Campaign (please find a better name for this!)
 
-Players will be able to play 40 preset levels in 4 different difficulties. First puzzle in each difficulty will be playable for everyone. Once a puzzle is solved, players cunlock the the next puzzle in the same difficulty. Player proggress will be saved and can be accessed again with the same user name on the same computer.
-
-### Hint*
-
-Give position of a piece for A solution. Takıng hints decrease the stars taken by solving puzzle.
-
-### Level Editor*
-
-Players will be able to create custom levels using the level editor. Players will have to solve the puzzle before finalizing the creation proccess.
-
-### Sandbox Mode*
-
-Players will be able to place grids and pieces at will, without much restriction.
-
-### Multiplayer Mode
-
-The game will have a multiplayer mode and 20 multiplayer levels. In this mode players compete againts each other trying to solve the same puzzle faster than their opponent. Game will be played on a single screen and players will use different set of keyboard inputs to place the pieces and complete the puzzle.
+Players will be able to play 40 preset levels in 4 different difficulties. First puzzle in each difficulty will be playable for everyone. Once a puzzle is solved, players unlock the the next puzzle in the same difficulty. Player proggress will be saved and can be accessed again with the same user name on the same computer.
 
 ### Rush Mode
 
-Players will be given limited time. Players will try to solve as many random puzzles in increasing difficulty as possible in the given time. Game will calculate a high score depending on the number of puzzles solved.
+Rush mode has 2 versions. In first, players will be given limited time. Players will try to solve as many random puzzles as possible in the given time. Game will calculate a high score based on the number of puzzles solved.
 
-### Visual Themes / Night Mode
+In the second, players will be given set number of puzzles. Players will try to solve these puzzles as fast as possible. Game will calculate a high score based on time elapsed.
 
-rotatable board
-the board is not shown when paused
-User can change the theme and background.
+### Level Editor
 
+Players will be able to create custom levels using the level editor. Players will have to solve the puzzle before finalizing the creation proccess. Then, players will be able to access these levels with their user name and challenge other people to solve them.
+
+### Sandbox Mode
+
+Players will be able to place grids and pieces at will, without any restriction.
+
+### Hint*
+
+Give position of a piece for the solution. Taking hints will decrease the stars earned by solving puzzle.
+
+### Pause
+
+The board will be obstructed when paused
 
 ### Move Count
 
+The game will count number of moves for every play mode. This will be shown after a level is complete.
 
-*These features are not final decision
+### Visual Themes
+
+The game will offer different backgrounds and color themes for pieces and boards.
+
+### Night Mode
+
+Nothing would be complete without the good'ol night mode.
