@@ -94,3 +94,5 @@ The game will offer different backgrounds and color themes for pieces and boards
 ### Night Mode
 
 Nothing would be complete without the good'ol night mode.
+
+*The feature is not decided upon
