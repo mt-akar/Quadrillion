@@ -51,7 +51,7 @@ Standart stuff.
 
 ### Achivements
 
-Standart stuff.
+Cuz every game has to have them.
 
 ### Tutorial
 
