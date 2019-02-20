@@ -73,7 +73,7 @@ Players will be able to create custom levels using the level editor. Players wil
 
 ### Sandbox Mode
 
-Players will be able to place grids and pieces at will, without any restriction.
+Players will be able to place grids and pieces at will, without any restrictions.
 
 ### Hint*
 
