@@ -6,7 +6,7 @@ This is the term project for *CS 319 - Object-Oriented Software Engineering* Cou
 
 ### Project members
 
-* Alemdar S 21500430
+* Alemdar Salmoor 21500430
 * Ece Çanga 21600851
 * Erkin Beşer 21400961
 * Gökçe Sefa 21400596
@@ -47,7 +47,7 @@ My little quadrillion is a digital version of the quadrillion game with awsome a
 
 ### Timer and Music
 
-Standart stuff.
+Standard stuff.
 
 ### Achivements
 
@@ -63,7 +63,7 @@ Players will be able to play 40 preset levels in 4 different difficulties. First
 
 ### Rush Mode
 
-Rush mode has 2 versions. In first, players will be given limited time. Players will try to solve as many random puzzles as possible in the given time. Game will calculate a high score based on the number of puzzles solved.
+Rush mode has 2 versions. In first, player will be given a limited time. Player will try to solve as many random puzzles as possible in a given time. Game will calculate a high score based on the number of puzzles solved.
 
 In the second, players will be given set number of puzzles. Players will try to solve these puzzles as fast as possible. Game will calculate a high score based on time elapsed.
 
