@@ -57,7 +57,7 @@ Cuz every game has to have them.
 
 Game offers tutorials for players who are new to the game. Tutorials will be at top of the play menu and can be played any time.
 
-### Campaign (please find a better name for this!)
+### Arcade Mode
 
 Players will be able to play 40 preset levels in 4 different difficulties. First puzzle in each difficulty will be playable for everyone. Once a puzzle is solved, players unlock the next puzzle in the same difficulty. Player progress will be saved and can be accessed again with the same user name on the same computer.
 
