@@ -41,7 +41,7 @@ https://www.smartgames.eu/uk/one-player-games/quadrillion
 
 ## My Little Quadrillion
 
-My little quadrillion is a digital version of the Quadrillion game with awesome additions.
+My Little Quadrillion is a digital version of the Quadrillion game with awesome additions.
 
 ### Additional features
 
