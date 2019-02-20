@@ -41,7 +41,7 @@ https://www.smartgames.eu/uk/one-player-games/quadrillion
 
 ## My Little Quadrillion
 
-My little quadrillion is a digital version of the quadrillion game with awsome additions.
+My little quadrillion is a digital version of the Quadrillion game with awsome additions.
 
 ### Additional features
 
@@ -59,7 +59,7 @@ Game offers tutorials for players who are new to the game. Tutorials will be at 
 
 ### Campaign (please find a better name for this!)
 
-Players will be able to play 40 preset levels in 4 different difficulties. First puzzle in each difficulty will be playable for everyone. Once a puzzle is solved, players unlock the the next puzzle in the same difficulty. Player proggress will be saved and can be accessed again with the same user name on the same computer.
+Players will be able to play 40 preset levels in 4 different difficulties. First puzzle in each difficulty will be playable for everyone. Once a puzzle is solved, players unlock the next puzzle in the same difficulty. Player progress will be saved and can be accessed again with the same user name on the same computer.
 
 ### Rush Mode
 
@@ -69,7 +69,7 @@ In the second, players will be given set number of puzzles. Players will try to 
 
 ### Level Editor
 
-Players will be able to create custom levels using the level editor. Players will have to solve the puzzle before finalizing the creation proccess. Then, players will be able to access these levels with their user name and challenge other people to solve them.
+Players will be able to create custom levels using the level editor. Players will have to solve the puzzle before finalizing the creation process. Then, players will be able to access these levels with their user name and challenge other people to solve them.
 
 ### Sandbox Mode
 
@@ -85,7 +85,7 @@ The board will be obstructed when paused
 
 ### Move Count
 
-The game will count number of moves for every play mode. This will be shown after a level is complete.
+The game will count number of moves for every play mode. The number of moves are shown after the level is complete.
 
 ### Visual Themes
 
