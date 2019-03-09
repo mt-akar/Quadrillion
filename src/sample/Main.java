@@ -1,16 +1,19 @@
 package sample;
 
-import DataModels.GameLevel;
 import Scenes.EntryScene;
-import Scenes.GameScene;
-import Scenes.LevelEditorScene;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
 public class Main extends Application {
 
     // We will need this
     public static Stage mainStage;
+
+    boolean nightMode = false;
+    boolean colorBlindMode = false;
+    int theme;
+    float volume;
 
     public static void main(String[] args) { launch(args); }
 

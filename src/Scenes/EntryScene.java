@@ -24,11 +24,11 @@ public class EntryScene extends Scene {
         mainLayout.getChildren().addAll(tutorialButton, playButton, levelEditorButton, optionsButton, trialButton);
 
         playButton.setOnAction(e -> {
-            Main.mainStage.setScene(new GameScene(new GameLevel()));
+            Main.mainStage.setScene(new ArcadeGameScene(new GameLevel()));
         });
 
         levelEditorButton.setOnAction(e -> {
-            Main.mainStage.setScene(new LevelEditorScene());
+            Main.mainStage.setScene(new SandboxScene());
         });
     }
 }
