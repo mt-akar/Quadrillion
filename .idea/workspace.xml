@@ -1,43 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Game physics almost done.">
-      <change afterPath="$PROJECT_DIR$/src/DataModels/GameLevel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataModels/GridOnBoardInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataModels/PieceModels/FPiece.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataModels/PieceModels/NPiece.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataModels/PieceModels/PPiece.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataModels/PieceModels/RPiece.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataModels/PieceModels/SPiece.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataModels/PieceModels/TPiece.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataModels/PieceModels/UPiece.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataModels/PieceModels/ZPiece.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataModels/PieceOnBoardInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Scenes/GameScene.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/FPieceView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/NPieceView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/PPieceView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/RPieceView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/SPieceView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/TPieceView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/UPieceView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/ZPieceView.java" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Level editor and play scene">
+      <change afterPath="$PROJECT_DIR$/src/DataModels/Achivement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataModels/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Scenes/AchivementsScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Scenes/ArcadeScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Scenes/CreateLevelScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Scenes/LoginScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Scenes/RegisterScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Scenes/RushModeRestrictedScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Scenes/RushModeSelectionScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Scenes/RushModeThreeMinuteScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Scenes/RushModeThreePuzzleScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Scenes/SandboxScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Scenes/SettingsScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Scenes/TutorialScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ref/Piece References.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/ref/Piece References.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataModels/PieceModels/LPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/PieceModels/LPiece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataModels/PieceModels/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/PieceModels/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataModels/PieceModels/VPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/PieceModels/VPiece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataModels/PieceModels/WPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/PieceModels/WPiece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataModels/PieceModels/YPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/PieceModels/YPiece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataModels/PieceModels/FPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/PieceDataModels/FPiece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataModels/PieceModels/LPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/PieceDataModels/LPiece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataModels/PieceModels/NPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/PieceDataModels/NPiece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataModels/PieceModels/PPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/PieceDataModels/PPiece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataModels/PieceModels/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/PieceDataModels/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataModels/PieceModels/RPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/PieceDataModels/RPiece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataModels/PieceModels/SPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/PieceDataModels/SPiece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataModels/PieceModels/TPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/PieceDataModels/TPiece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataModels/PieceModels/UPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/PieceDataModels/UPiece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataModels/PieceModels/VPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/PieceDataModels/VPiece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataModels/PieceModels/WPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/PieceDataModels/WPiece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataModels/PieceModels/YPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/PieceDataModels/YPiece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataModels/PieceModels/ZPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataModels/PieceDataModels/ZPiece.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Scenes/EntryScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scenes/EntryScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Scenes/TrialScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scenes/LevelEditorScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ViewModels/GridView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewModels/GridView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Scenes/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scenes/ArcadeGameScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Scenes/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scenes/LevelEditorScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ViewModels/PieceViews/FPieceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/FPieceView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ViewModels/PieceViews/LPieceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/LPieceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ViewModels/PieceViews/NPieceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/NPieceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ViewModels/PieceViews/PPieceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/PPieceView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ViewModels/PieceViews/PieceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/PieceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ViewModels/PieceViews/RPieceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/RPieceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ViewModels/PieceViews/SPieceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/SPieceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ViewModels/PieceViews/TPieceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/TPieceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ViewModels/PieceViews/UPieceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/UPieceView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ViewModels/PieceViews/VPieceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/VPieceView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ViewModels/PieceViews/WPieceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/WPieceView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ViewModels/PieceViews/YPieceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/YPieceView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Glob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Glob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ViewModels/PieceViews/ZPieceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewModels/PieceViews/ZPieceView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -102,20 +110,22 @@
     <session id="-248921481">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="3" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="iml" value="1" />
-          <entry key="java" value="178" />
+          <entry key="java" value="200" />
           <entry key="kt" value="1" />
           <entry key="txt" value="6" />
         </counts>
@@ -123,22 +133,22 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="178" />
+          <entry key="JAVA" value="200" />
           <entry key="Kotlin" value="1" />
           <entry key="PLAIN_TEXT" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="20" />
-          <entry key="java" value="14457" />
-          <entry key="txt" value="82" />
+          <entry key="dummy" value="50" />
+          <entry key="java" value="14535" />
+          <entry key="txt" value="109" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="14457" />
-          <entry key="PLAIN_TEXT" value="102" />
+          <entry key="JAVA" value="14535" />
+          <entry key="PLAIN_TEXT" value="159" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -154,59 +164,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Scenes/EntryScene.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="18" column="47" lean-forward="true" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Scenes/LevelEditorScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
-              <caret line="469" column="41" lean-forward="true" selection-start-line="469" selection-start-column="41" selection-end-line="469" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="34">
+              <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Scenes/GameScene.java">
+        <entry file="file://$PROJECT_DIR$/src/Scenes/TutorialScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
+            <state relative-caret-position="34">
+              <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Scenes/ArcadeGameScene.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="701">
               <caret line="287" column="54" selection-start-line="287" selection-start-column="45" selection-end-line="287" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#13372#13373#0" expanded="true" />
-                <element signature="e#13425#13426#0" expanded="true" />
-                <element signature="e#14038#14039#0" expanded="true" />
-                <element signature="e#14113#14114#0" expanded="true" />
-                <element signature="e#14162#14163#0" expanded="true" />
-                <element signature="e#14237#14238#0" expanded="true" />
-                <element signature="e#14342#14343#0" expanded="true" />
-                <element signature="e#14398#14399#0" expanded="true" />
-                <element signature="e#14447#14448#0" expanded="true" />
-                <element signature="e#14503#14504#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -216,43 +198,61 @@
         <entry file="file://$PROJECT_DIR$/src/DataModels/GameLevel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="493">
-              <caret line="29" column="56" lean-forward="true" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+              <caret line="29" column="56" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ViewModels/PieceViews/PPieceView.java">
+        <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="34">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sample/Glob.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ViewModels/PieceViews/YPieceView.java">
+        <entry file="file://$PROJECT_DIR$/src/Scenes/RushModeThreeMinuteScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="34">
+              <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ViewModels/PieceViews/PieceView.java">
+        <entry file="file://$PROJECT_DIR$/src/Scenes/RushModeRestrictedScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="34">
+              <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DataModels/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DataModels/Achivement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -290,10 +290,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/ViewModels/Grid.java" />
-        <option value="$PROJECT_DIR$/.gitignore.txt" />
-        <option value="$PROJECT_DIR$/../javafxTrial/src/Scenes/GameScene.java" />
-        <option value="$PROJECT_DIR$/src/DataModels/Grid.java" />
         <option value="$PROJECT_DIR$/src/DataModels/YPiece.java" />
         <option value="$PROJECT_DIR$/src/DataModels/VPiece.java" />
         <option value="$PROJECT_DIR$/src/DataModels/WPiece.java" />
@@ -341,6 +337,10 @@
         <option value="$PROJECT_DIR$/src/Scenes/LevelEditorScene.java" />
         <option value="$PROJECT_DIR$/src/Scenes/GameScene.java" />
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/C.java" />
+        <option value="$PROJECT_DIR$/src/Scenes/SandboxScene.java" />
+        <option value="$PROJECT_DIR$/src/Scenes/ArcadeGameScene.java" />
+        <option value="$PROJECT_DIR$/src/Scenes/RushModeThreeMinuteScene.java" />
       </list>
     </option>
   </component>
@@ -379,7 +379,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -397,13 +396,6 @@
               <item name="Quadrillion" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="DataModels" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Quadrillion" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Quadrillion" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="DataModels" type="462c0819:PsiDirectoryNode" />
-              <item name="PieceModels" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Quadrillion" type="b2602c69:ProjectViewProjectNode" />
@@ -441,6 +433,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -452,12 +445,12 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550317418627" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552138113471" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/GitHub/SuperKatamino/Code/SuperKatamino/SuperKatamino.iml" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="xslt.associations" />
   </component>
@@ -568,7 +561,14 @@
       <option name="project" value="LOCAL" />
       <updated>1550069980029</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Level editor and play scene">
+      <created>1550317476931</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1550317476931</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -578,7 +578,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.119936034" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.195629" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -587,7 +587,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3449024" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3449024" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.33188722" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -598,7 +598,7 @@
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.3286334" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.17570499" />
+      <window_info anchor="bottom" id="Messages" order="13" visible="true" weight="0.17570499" />
       <window_info anchor="bottom" id="Terminal" order="14" weight="0.329718" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -655,7 +655,8 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="Game physics almost done." />
-    <option name="LAST_COMMIT_MESSAGE" value="Game physics almost done." />
+    <MESSAGE value="Level editor and play scene" />
+    <option name="LAST_COMMIT_MESSAGE" value="Level editor and play scene" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -671,110 +672,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/javafx-src.zip!/javafx/scene/Parent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="80" column="39" selection-start-line="80" selection-start-column="39" selection-end-line="80" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/javafx-src.zip!/javafx/scene/Group.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/javafx-src.zip!/javafx/scene/shape/Shape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="117" column="22" selection-start-line="117" selection-start-column="22" selection-end-line="117" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/javafx-src.zip!/javafx/scene/shape/Polygon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="55" column="33" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ViewModels/RotetableNode.java" />
-    <entry file="file://$PROJECT_DIR$/src/ViewModels/Rotatable.java" />
-    <entry file="file://$PROJECT_DIR$/../javafxTrial/src/Pentaminoes/VPiece.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="37" column="29" lean-forward="true" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../javafxTrial/src/Pentaminoes/Pentamino.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/javafx-src.zip!/javafx/event/EventHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../javafxTrial/src/Scenes/GameScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3366">
-          <caret line="206" selection-start-line="206" selection-end-line="210" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/Grid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/GridOnBoardInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="747" selection-start-line="747" selection-end-line="747" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceOnBoardInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceModels/Piece.java">
+    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceDataModels/Piece.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-          <folding>
-            <element signature="e#232#233#0" expanded="true" />
-            <element signature="e#268#269#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -782,20 +683,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="109" column="31" selection-start-line="109" selection-start-column="31" selection-end-line="109" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceModels/RPiece.java">
+    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceDataModels/RPiece.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="40" column="50" lean-forward="true" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceModels/FPiece.java">
+    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceDataModels/FPiece.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
@@ -803,67 +701,57 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DataModels/PieceModels/ZPiece.kt" />
-    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceModels/ZPiece.java">
+    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceDataModels/ZPiece.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
           <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceModels/LPiece.java">
+    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceDataModels/LPiece.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceModels/VPiece.java">
+    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceDataModels/VPiece.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="31" lean-forward="true" selection-end-line="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceModels/PPiece.java">
+    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceDataModels/PPiece.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1054">
           <caret line="64" column="32" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceModels/YPiece.java">
+    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceDataModels/YPiece.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="10" column="27" lean-forward="true" selection-end-line="68" />
-          <folding>
-            <element signature="e#89#90#0" expanded="true" />
-            <element signature="e#119#120#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ViewModels/PieceViews/NPiece.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceModels/UPiece.java">
+    <entry file="file://$PROJECT_DIR$/src/ViewModels/PieceViews/NPiece.java" />
+    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceDataModels/UPiece.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceModels/NPiece.java">
+    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceDataModels/NPiece.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceModels/WPiece.java">
+    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceDataModels/WPiece.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
           <caret line="40" column="50" lean-forward="true" selection-end-line="44" />
@@ -874,9 +762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="45" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -884,9 +769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
           <caret line="34" column="47" lean-forward="true" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -894,9 +776,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
           <caret line="39" column="48" lean-forward="true" selection-start-line="39" selection-start-column="48" selection-end-line="40" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -904,9 +783,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="424">
           <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -914,34 +790,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="509">
           <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Glob.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceModels/TPiece.java">
+    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceDataModels/TPiece.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
           <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceModels/SPiece.java">
+    <entry file="file://$PROJECT_DIR$/src/DataModels/PieceDataModels/SPiece.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
           <caret line="39" column="46" lean-forward="true" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
-          <folding>
-            <element signature="e#89#90#0" expanded="true" />
-            <element signature="e#119#120#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -949,9 +811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
           <caret line="61" column="49" lean-forward="true" selection-start-line="61" selection-start-column="49" selection-end-line="64" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -959,9 +818,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="605">
           <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -969,9 +825,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="37" column="55" lean-forward="true" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -979,9 +832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -989,6 +839,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/C.java" />
+    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ViewModels/PieceViews/PPieceView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -997,8 +862,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ViewModels/PieceViews/YPieceView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+        <state relative-caret-position="816">
+          <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1007,7 +872,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ViewModels/PieceViews/PieceView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
+        <state relative-caret-position="578">
           <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1015,70 +880,152 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ViewModels/PieceViews/PPieceView.java">
+    <entry file="file://$PROJECT_DIR$/src/Scenes/AchivementsScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="34">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataModels/GameLevel.java">
+    <entry file="file://$PROJECT_DIR$/src/Scenes/SettingsScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="56" lean-forward="true" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+        <state relative-caret-position="34">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scenes/ArcadeScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scenes/RushModeSelectionScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scenes/RushModeThreePuzzleScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scenes/RegisterScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scenes/LoginScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scenes/CreateLevelScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scenes/SandboxScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="448" column="12" selection-start-line="448" selection-start-column="12" selection-end-line="448" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Scenes/EntryScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="18" column="47" lean-forward="true" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+        <state relative-caret-position="255">
+          <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scenes/GameScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="287" column="54" selection-start-line="287" selection-start-column="45" selection-end-line="287" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#13372#13373#0" expanded="true" />
-            <element signature="e#13425#13426#0" expanded="true" />
-            <element signature="e#14038#14039#0" expanded="true" />
-            <element signature="e#14113#14114#0" expanded="true" />
-            <element signature="e#14162#14163#0" expanded="true" />
-            <element signature="e#14237#14238#0" expanded="true" />
-            <element signature="e#14342#14343#0" expanded="true" />
-            <element signature="e#14398#14399#0" expanded="true" />
-            <element signature="e#14447#14448#0" expanded="true" />
-            <element signature="e#14503#14504#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Scenes/LevelEditorScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="469" column="41" lean-forward="true" selection-start-line="469" selection-start-column="41" selection-end-line="469" selection-end-column="41" />
+        <state relative-caret-position="34">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scenes/TutorialScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scenes/ArcadeGameScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="701">
+          <caret line="287" column="54" selection-start-line="287" selection-start-column="45" selection-end-line="287" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/Scenes/RushModeThreeMinuteScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="34">
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scenes/RushModeRestrictedScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataModels/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataModels/Achivement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataModels/GameLevel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="56" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Glob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>

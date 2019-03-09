@@ -1,11 +1,9 @@
 package ViewModels.PieceViews;
 
-import DataModels.PieceModels.SPiece;
-import DataModels.PieceModels.YPiece;
+import DataModels.PieceDataModels.SPiece;
 import javafx.animation.RotateTransition;
 import javafx.animation.ScaleTransition;
 import javafx.geometry.Point3D;
-import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Scale;
 import javafx.util.Duration;

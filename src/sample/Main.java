@@ -1,9 +1,6 @@
 package sample;
 
-import DataModels.GameLevel;
 import Scenes.EntryScene;
-import Scenes.GameScene;
-import Scenes.LevelEditorScene;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;

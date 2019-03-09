@@ -1,7 +1,6 @@
 package ViewModels.PieceViews;
 
-import DataModels.PieceModels.RPiece;
-import javafx.scene.paint.Color;
+import DataModels.PieceDataModels.RPiece;
 import sample.Glob;
 
 public class RPieceView extends PieceView {
