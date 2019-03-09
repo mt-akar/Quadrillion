@@ -5,9 +5,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import sample.Glob;
 
-public class SettingsScene extends Scene {
+public class CreditsScene extends Scene {
 
-    public SettingsScene() {
+    public CreditsScene() {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
         VBox mainLayout = new VBox();
         setRoot(mainLayout);
