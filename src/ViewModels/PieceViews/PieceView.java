@@ -1,6 +1,6 @@
 package ViewModels.PieceViews;
 
-import DataModels.PieceModels.Piece;
+import DataModels.PieceDataModels.Piece;
 import javafx.animation.RotateTransition;
 import javafx.scene.shape.Polygon;
 import javafx.scene.transform.Rotate;

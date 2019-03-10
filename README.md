@@ -95,4 +95,8 @@ The game will offer different backgrounds and color themes for pieces and boards
 
 Nothing is complete without the good'ol night mode.
 
+### Color blind mode
+
+Color palette of the game gets replaced by a color blind friendly one.
+
 *The feature is not decided upon

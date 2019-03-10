@@ -1,7 +1,6 @@
 package ViewModels.PieceViews;
 
-import DataModels.PieceModels.TPiece;
-import javafx.scene.paint.Color;
+import DataModels.PieceDataModels.TPiece;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
 import sample.Glob;
