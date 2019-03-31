@@ -37,7 +37,7 @@ public class PlayScene extends QuadScene {
 		});
 
 		optionsButton.setOnAction(e -> {
-			Main.mainStage.setScene(new SettingsScene());
+			Main.mainStage.setScene(new SettingsScene(view));
 		});
 	}
 }
