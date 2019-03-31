@@ -1,6 +1,7 @@
 package sample;
 
 import Scenes.LoginScene;
+import Scenes.PlayScene;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -22,7 +23,7 @@ public class Main extends Application {
         mainStage = primaryStage;
 
         //LevelEditorScene gameScene = new LevelEditorScene();
-        LoginScene EntryScene = new LoginScene();
+        PlayScene EntryScene = new PlayScene();
         primaryStage.setScene(EntryScene);
 
         primaryStage.setTitle("My Little Quadrillion - v0.01");

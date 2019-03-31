@@ -21,7 +21,7 @@ public class PlayScene extends QuadScene {
 		Button tutorialButton = new Button("Tutorial");
 		Button playButton = new Button("Play");
 		Button levelEditorButton = new Button("Level Editor");
-		Button optionsButton = new Button("Options");
+		Button optionsButton = new Button("Settings");
 		Button trialButton = new Button("Trial");
 
 		mainLayout.getChildren().addAll(tutorialButton, playButton, levelEditorButton, optionsButton, trialButton);
@@ -32,6 +32,10 @@ public class PlayScene extends QuadScene {
 
 		levelEditorButton.setOnAction(e -> {
 			Main.mainStage.setScene(new SandboxScene());
+		});
+
+		optionsButton.setOnAction(e -> {
+			Main.mainStage.setScene(new SettingsScene());
 		});
 	}
 }
