@@ -29,7 +29,7 @@ public class PlayScene extends QuadScene {
 		mainLayout.getChildren().addAll(tutorialButton, playButton, levelEditorButton, optionsButton, trialButton, view);
 
 		playButton.setOnAction(e -> {
-			Main.mainStage.setScene(new ArcadeGameScene(new GameLevel()));
+			Main.mainStage.setScene(new ArcadeScene());
 		});
 
 		levelEditorButton.setOnAction(e -> {
