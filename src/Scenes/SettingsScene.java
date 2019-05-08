@@ -28,6 +28,7 @@ public class SettingsScene extends QuadScene {
 
     public SettingsScene(MediaView view) {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
+        //MediaView view = new MediaView();
         VBox settingsLayout = new VBox(8);
         setRoot(settingsLayout);
 

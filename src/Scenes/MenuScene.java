@@ -1,16 +1,19 @@
 package Scenes;
 
+import DataModels.GameLevel;
 import ViewModels.QuadButton;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.MediaView;
 import sample.Glob;
+import sample.Main;
 
 public class MenuScene extends QuadScene {
 
 	public QuadButton[] buttons;
 
-	public MenuScene() {
+	public MenuScene(MediaView view) {
 		super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
 		VBox mainLayout = new VBox();
 		setRoot(mainLayout);
@@ -23,14 +26,16 @@ public class MenuScene extends QuadScene {
 
 		mainLayout.getChildren().addAll(tutorialButton, playButton, levelEditorButton, optionsButton, trialButton);
 
-		/* Delete this
 		playButton.setOnAction(e -> {
-			Main.mainStage.setScene(new ArcadeGameScene(new GameLevel()));
-		});
+            Main.mainStage.setScene(new ArcadeGameScene(new GameLevel()));
+        });
 
-		levelEditorButton.setOnAction(e -> {
-			Main.mainStage.setScene(new SandboxScene());
-		});
-		*/
+        levelEditorButton.setOnAction(e -> {
+            Main.mainStage.setScene(new SandboxScene());
+        });
+
+        /*optionsButton.setOnAction(e -> {
+            Main.mainStage.setScene(new SettingsScene(view));
+        });*/
 	}
 }

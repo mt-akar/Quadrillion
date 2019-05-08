@@ -1,0 +1,5 @@
+<root>
+    <item name='javafx.fxml.FXMLLoader'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>

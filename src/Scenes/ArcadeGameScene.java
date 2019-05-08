@@ -19,10 +19,12 @@ public class ArcadeGameScene extends QuadScene {
     private double gameBoardOffsetX = Glob.windowWidth() / 2 - gl * 8;
     private  double gameBoardOffsetY = 30;
 
+
     private boolean[][] gameBoardLayout = new boolean[16][16];
     private int[][] gridPositions;
 
     public ArcadeGameScene(GameLevel level) {
+        //super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
         Pane gameSceneLayout = new Pane();
         setRoot(gameSceneLayout);
