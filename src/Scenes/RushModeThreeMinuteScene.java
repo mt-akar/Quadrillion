@@ -39,7 +39,9 @@ public class RushModeThreeMinuteScene extends QuadScene {
     TimerTask secTask = new TimerTask() {
         @Override
         public void run() {
-            sec--;
+            if(sec>0) {
+                sec--;
+            }
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
@@ -62,7 +64,7 @@ public class RushModeThreeMinuteScene extends QuadScene {
     Label CounterTextLabel = new Label("Move Counter");
     Label TimerLabel = new Label("Start");
     Label SecondsLabel = new Label("Seconds");
-    Label ElapsedLabel = new Label("Elapsed Time");
+    Label RemainingLabel = new Label("Remaining Time");
 
     public RushModeThreeMinuteScene() {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
@@ -76,10 +78,10 @@ public class RushModeThreeMinuteScene extends QuadScene {
         SecondsLabel.setScaleY(2);
         SecondsLabel.setLayoutX(300);
         SecondsLabel.setLayoutY(100);
-        ElapsedLabel.setScaleX(2.5);
-        ElapsedLabel.setScaleY(2.5);
-        ElapsedLabel.setLayoutX(200);
-        ElapsedLabel.setLayoutY(50);
+        RemainingLabel.setScaleX(2.5);
+        RemainingLabel.setScaleY(2.5);
+        RemainingLabel.setLayoutX(200);
+        RemainingLabel.setLayoutY(50);
         CounterLabel.setScaleX(2.5);
         CounterLabel.setScaleY(2.5);
         CounterLabel.setLayoutX(1225);
@@ -95,7 +97,7 @@ public class RushModeThreeMinuteScene extends QuadScene {
         gameSceneLayout.getChildren().add(CounterTextLabel);
         gameSceneLayout.getChildren().add(TimerLabel);
         gameSceneLayout.getChildren().add(SecondsLabel);
-        gameSceneLayout.getChildren().add(ElapsedLabel);
+        gameSceneLayout.getChildren().add(RemainingLabel);
 
         // Generate a random level
         Random r = new Random();

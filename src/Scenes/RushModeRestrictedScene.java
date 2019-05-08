@@ -499,7 +499,9 @@ public class RushModeRestrictedScene extends QuadScene {
 
                     // PLACE //
                     IntegerProperty CounterProperty = new SimpleIntegerProperty(0);
-                    moveCounter--;
+                    if(moveCounter>0) {
+                        moveCounter--;
+                    }
                     CounterProperty.set(moveCounter);
                     CounterLabel.textProperty().bind(CounterProperty.asString());
                     // Snap the grid to game board guidelines
