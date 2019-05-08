@@ -36,7 +36,7 @@ public class RushModeThreeMinuteScene extends QuadScene {
     private Label puzzleCountLabel;
     private Button nextButton;
     int moveCounter = 0;
-    int sec = 3;
+    int sec = 180;
     Timer myTimer = new Timer();
     TimerTask secTask = new TimerTask() {
         @Override
@@ -45,8 +45,6 @@ public class RushModeThreeMinuteScene extends QuadScene {
                 sec--;
             }
             else{
-                Popup popup = new Popup();
-
             }
             Platform.runLater(new Runnable() {
                 @Override
