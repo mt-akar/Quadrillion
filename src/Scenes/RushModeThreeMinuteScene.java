@@ -3,6 +3,9 @@ package Scenes;
 import DataModels.GameLevel;
 import ViewModels.*;
 import ViewModels.PieceViews.*;
+import javafx.application.Platform;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
@@ -13,6 +16,8 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class RushModeThreeMinuteScene extends QuadScene {
 
@@ -28,11 +33,69 @@ public class RushModeThreeMinuteScene extends QuadScene {
     private int puzzleCount = 0;
     private Label puzzleCountLabel;
     private Button nextButton;
+    int moveCounter = 0;
+    int sec = 180;
+    Timer myTimer = new Timer();
+    TimerTask secTask = new TimerTask() {
+        @Override
+        public void run() {
+            sec--;
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    property.set(sec);
+                    start();
+                }
+
+            });
+
+
+        }
+
+    };
+    IntegerProperty property = new SimpleIntegerProperty();
+    public void start(){
+        myTimer.scheduleAtFixedRate(secTask,1000,1000);
+    };
+
+    Label CounterLabel = new Label("0");
+    Label CounterTextLabel = new Label("Move Counter");
+    Label TimerLabel = new Label("Start");
+    Label SecondsLabel = new Label("Seconds");
+    Label ElapsedLabel = new Label("Elapsed Time");
 
     public RushModeThreeMinuteScene() {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
+        property.set(180);
+        TimerLabel.textProperty().bind(property.asString());
+        TimerLabel.setScaleX(4);
+        TimerLabel.setScaleY(4);
+        TimerLabel.setLayoutX(200);
+        TimerLabel.setLayoutY(100);
+        SecondsLabel.setScaleX(2);
+        SecondsLabel.setScaleY(2);
+        SecondsLabel.setLayoutX(300);
+        SecondsLabel.setLayoutY(100);
+        ElapsedLabel.setScaleX(2.5);
+        ElapsedLabel.setScaleY(2.5);
+        ElapsedLabel.setLayoutX(200);
+        ElapsedLabel.setLayoutY(50);
+        CounterLabel.setScaleX(2.5);
+        CounterLabel.setScaleY(2.5);
+        CounterLabel.setLayoutX(1225);
+        CounterLabel.setLayoutY(115);
+        CounterTextLabel.setScaleX(2.75);
+        CounterTextLabel.setScaleY(2.75);
+        CounterTextLabel.setLayoutX(1200);
+        CounterTextLabel.setLayoutY(75);
+        start();
         Pane gameSceneLayout = new Pane();
         setRoot(gameSceneLayout);
+        gameSceneLayout.getChildren().add(CounterLabel);
+        gameSceneLayout.getChildren().add(CounterTextLabel);
+        gameSceneLayout.getChildren().add(TimerLabel);
+        gameSceneLayout.getChildren().add(SecondsLabel);
+        gameSceneLayout.getChildren().add(ElapsedLabel);
 
         // Generate a random level
         Random r = new Random();
@@ -483,7 +546,10 @@ public class RushModeThreeMinuteScene extends QuadScene {
                     }
 
                     // PLACE //
-
+                    IntegerProperty CounterProperty = new SimpleIntegerProperty(0);
+                    moveCounter++;
+                    CounterProperty.set(moveCounter);
+                    CounterLabel.textProperty().bind(CounterProperty.asString());
                     // Snap the grid to game board guidelines
                     pv.setLayoutX(NearestGL(pv.getLayoutX() - gameBoardOffsetX) + gameBoardOffsetX);
                     pv.setLayoutY(NearestGL(pv.getLayoutY() - gameBoardOffsetY) + gameBoardOffsetY);

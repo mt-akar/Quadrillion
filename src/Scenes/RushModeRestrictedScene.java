@@ -3,6 +3,8 @@ package Scenes;
 import DataModels.GameLevel;
 import ViewModels.*;
 import ViewModels.PieceViews.*;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
@@ -28,11 +30,24 @@ public class RushModeRestrictedScene extends QuadScene {
     private int puzzleCount = 0;
     private Label puzzleCountLabel;
     private Button nextButton;
+    int moveCounter = 30;
+    Label CounterLabel = new Label("30");
+    Label CounterTextLabel = new Label("Move Counter");
 
     public RushModeRestrictedScene() {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
+        CounterLabel.setScaleX(2.5);
+        CounterLabel.setScaleY(2.5);
+        CounterLabel.setLayoutX(1225);
+        CounterLabel.setLayoutY(115);
+        CounterTextLabel.setScaleX(2.75);
+        CounterTextLabel.setScaleY(2.75);
+        CounterTextLabel.setLayoutX(1200);
+        CounterTextLabel.setLayoutY(75);
         Pane gameSceneLayout = new Pane();
         setRoot(gameSceneLayout);
+        gameSceneLayout.getChildren().add(CounterLabel);
+        gameSceneLayout.getChildren().add(CounterTextLabel);
 
         // Generate a random level
         Random r = new Random();
@@ -483,7 +498,10 @@ public class RushModeRestrictedScene extends QuadScene {
                     }
 
                     // PLACE //
-
+                    IntegerProperty CounterProperty = new SimpleIntegerProperty(0);
+                    moveCounter--;
+                    CounterProperty.set(moveCounter);
+                    CounterLabel.textProperty().bind(CounterProperty.asString());
                     // Snap the grid to game board guidelines
                     pv.setLayoutX(NearestGL(pv.getLayoutX() - gameBoardOffsetX) + gameBoardOffsetX);
                     pv.setLayoutY(NearestGL(pv.getLayoutY() - gameBoardOffsetY) + gameBoardOffsetY);
