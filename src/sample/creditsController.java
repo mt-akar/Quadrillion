@@ -23,7 +23,8 @@ public class creditsController implements Initializable {
         System.out.println("back button is now loaded!");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/FXMLDeneme/FirstPageLoginRegister.fxml"));
-        Scene scene = new Scene(loader.load(), 1600, 900);
+        Scene scene = new Scene(loader.load(), 800, 600);
+        scene.getStylesheets().add("Style.css");
         Main.mainStage.setTitle("My Little Quadrillion - v0.01");
         Main.mainStage.setScene(scene);
         Main.mainStage.show();

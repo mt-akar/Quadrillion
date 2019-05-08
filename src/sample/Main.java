@@ -31,7 +31,8 @@ public class Main extends Application {
             primaryStage.setTitle("My Little Quadrillion - v0.01");
             primaryStage.getIcons().add(new Image("file:src/Images/logo.png"));
             primaryStage.setResizable(false);
-            primaryStage.setScene(new Scene(root, 1200 , 900));
+            primaryStage.setScene(new Scene(root, 800 , 600));
+            
             Media media = new Media(new File("src/Playlist/tetris.mp3").toURI().toString());
             MediaPlayer player = new MediaPlayer(media);
             MediaView view = new MediaView(player);
