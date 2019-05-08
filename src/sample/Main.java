@@ -11,7 +11,6 @@ import javafx.scene.Scene;
 import java.io.File;
 
 public class Main extends Application {
-
     // We will need this
     public static Stage mainStage;
 
@@ -37,7 +36,6 @@ public class Main extends Application {
             MediaPlayer player = new MediaPlayer(media);
             MediaView view = new MediaView(player);
             player.setAutoPlay(true);
-            primaryStage.setMaximized(true);
             primaryStage.show();
 
         }

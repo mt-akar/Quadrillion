@@ -17,6 +17,8 @@ import javafx.stage.Stage;
 
 import javafx.fxml.Initializable;
 
+//THIS CONTROLLER MANAGES FirstPageLoginRegister.fxml & LOGINPAGE.fxml & REGISTERPAGE.fxml
+
 public class firstPageController implements Initializable {
 
     Button loginButton, registerButton, creditsButton, backButton;
@@ -36,7 +38,7 @@ public class firstPageController implements Initializable {
             e.printStackTrace();
         }
         Main.mainStage.setScene(scene);
-        Main.mainStage.setMaximized(true);
+        //Main.mainStage.setMaximized(true);
         Main.mainStage.show();
     }
     public void registerButton(){
@@ -52,7 +54,7 @@ public class firstPageController implements Initializable {
 
         Main.mainStage.setTitle("My Little Quadrillion - v0.01");
         Main.mainStage.setScene(scene);
-        Main.mainStage.setMaximized(true);
+        //Main.mainStage.setMaximized(true);
         Main.mainStage.show();
     }
 
@@ -68,7 +70,7 @@ public class firstPageController implements Initializable {
         }
         Main.mainStage.setTitle("My Little Quadrillion - v0.01");
         Main.mainStage.setScene(scene);
-        Main.mainStage.setMaximized(true);
+        //Main.mainStage.setMaximized(true);
         Main.mainStage.show();
     }
     public void sendMenuButton(ActionEvent event){
@@ -83,7 +85,7 @@ public class firstPageController implements Initializable {
         }
         Main.mainStage.setTitle("My Little Quadrillion - v0.01");
         Main.mainStage.setScene(scene);
-        Main.mainStage.setMaximized(true);
+        //Main.mainStage.setMaximized(true);
         Main.mainStage.show();
     }
     public void backButton(ActionEvent event) throws IOException {
@@ -93,7 +95,7 @@ public class firstPageController implements Initializable {
         Scene scene = new Scene(loader.load(), 1600, 900);
         Main.mainStage.setTitle("My Little Quadrillion - v0.01");
         Main.mainStage.setScene(scene);
-        Main.mainStage.setMaximized(true);
+        //Main.mainStage.setMaximized(true);
         Main.mainStage.show();
         Stage stg2 = (Stage) backButton.getScene().getWindow();
         stg2.close();
