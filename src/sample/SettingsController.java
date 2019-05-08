@@ -34,7 +34,7 @@ public class SettingsController implements Initializable{
             scene = new Scene(loader.load(), 800, 600);
             scene.getStylesheets().add("Style.css");
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); 
         }
         Main.mainStage.setTitle("My Little Quadrillion - v0.01");
         Main.mainStage.setScene(scene);
