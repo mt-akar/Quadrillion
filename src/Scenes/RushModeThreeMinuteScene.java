@@ -6,10 +6,12 @@ import ViewModels.PieceViews.*;
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.stage.Popup;
 import sample.*;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseButton;
@@ -34,13 +36,17 @@ public class RushModeThreeMinuteScene extends QuadScene {
     private Label puzzleCountLabel;
     private Button nextButton;
     int moveCounter = 0;
-    int sec = 180;
+    int sec = 3;
     Timer myTimer = new Timer();
     TimerTask secTask = new TimerTask() {
         @Override
         public void run() {
             if(sec>0) {
                 sec--;
+            }
+            else{
+                Popup popup = new Popup();
+
             }
             Platform.runLater(new Runnable() {
                 @Override
