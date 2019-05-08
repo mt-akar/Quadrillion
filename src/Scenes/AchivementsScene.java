@@ -12,5 +12,7 @@ public class AchivementsScene extends Scene {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
         VBox mainLayout = new VBox();
         setRoot(mainLayout);
+
+        
     }
 }
