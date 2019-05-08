@@ -11,7 +11,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.Scene;
 
-public class ArcadeGameScene extends Scene {
+public class ArcadeGameScene extends QuadScene {
 
     private static double mousePrevX, mousePrevY;
     private double gl = Glob.gl;
@@ -19,10 +19,12 @@ public class ArcadeGameScene extends Scene {
     private double gameBoardOffsetX = Glob.windowWidth() / 2 - gl * 8;
     private  double gameBoardOffsetY = 30;
 
+
     private boolean[][] gameBoardLayout = new boolean[16][16];
     private int[][] gridPositions;
 
     public ArcadeGameScene(GameLevel level) {
+        //super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
         Pane gameSceneLayout = new Pane();
         setRoot(gameSceneLayout);

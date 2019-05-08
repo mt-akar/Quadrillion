@@ -13,7 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.Scene;
 import javafx.scene.shape.Line;
 
-public class SandboxScene extends Scene {
+public class SandboxScene extends QuadScene {
 
     private static double mousePrevX, mousePrevY;
     private double gl = Glob.gl;

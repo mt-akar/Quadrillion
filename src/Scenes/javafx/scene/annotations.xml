@@ -1,0 +1,5 @@
+<root>
+    <item name='javafx.scene.Parent'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>
