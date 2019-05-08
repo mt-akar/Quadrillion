@@ -37,7 +37,7 @@ public class Main extends Application {
             MediaPlayer player = new MediaPlayer(media);
             MediaView view = new MediaView(player);
             player.setAutoPlay(true);
-            primaryStage.setMaximized(true);
+            //primaryStage.setMaximized(true);
             primaryStage.show();
 
         }

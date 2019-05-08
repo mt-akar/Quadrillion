@@ -81,7 +81,7 @@ public class Controller implements Initializable {
         Scene scene = new Scene(loader.load(), 1600, 900);
         Main.mainStage.setTitle("My Little Quadrillion - v0.01");
         Main.mainStage.setScene(scene);
-        Main.mainStage.setMaximized(true);
+        //Main.mainStage.setMaximized(true);
         Main.mainStage.show();
         Stage stg2 = (Stage) backButton.getScene().getWindow();
         stg2.close();

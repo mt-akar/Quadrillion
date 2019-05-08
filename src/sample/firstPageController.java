@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.TextField;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
@@ -38,6 +38,7 @@ public class firstPageController implements Initializable {
         Main.mainStage.setScene(scene);
         Main.mainStage.setMaximized(true);
         Main.mainStage.show();
+
     }
     public void registerButton(){
         FXMLLoader loader = new FXMLLoader();
@@ -58,6 +59,7 @@ public class firstPageController implements Initializable {
 
     public void creditsButton(ActionEvent event){
         FXMLLoader loader = new FXMLLoader();
+
         loader.setLocation(getClass().getResource("/FXMLDeneme/creditsPage.fxml"));
         System.out.println("settings is now loaded!");
         Scene scene = null;
@@ -68,11 +70,17 @@ public class firstPageController implements Initializable {
         }
         Main.mainStage.setTitle("My Little Quadrillion - v0.01");
         Main.mainStage.setScene(scene);
-        Main.mainStage.setMaximized(true);
+        //Main.mainStage.setMaximized(true);
         Main.mainStage.show();
+    }
+    public void getUserName() {
+        TextField username = new TextField();
+
+
     }
     public void sendMenuButton(ActionEvent event){
         FXMLLoader loader = new FXMLLoader();
+
         loader.setLocation(getClass().getResource("/FXMLDeneme/samplex.fxml"));
         System.out.println("settings is now loaded!");
         Scene scene = null;
@@ -83,7 +91,7 @@ public class firstPageController implements Initializable {
         }
         Main.mainStage.setTitle("My Little Quadrillion - v0.01");
         Main.mainStage.setScene(scene);
-        Main.mainStage.setMaximized(true);
+        //Main.mainStage.setMaximized(true);
         Main.mainStage.show();
     }
     public void backButton(ActionEvent event) throws IOException {
@@ -93,7 +101,7 @@ public class firstPageController implements Initializable {
         Scene scene = new Scene(loader.load(), 1600, 900);
         Main.mainStage.setTitle("My Little Quadrillion - v0.01");
         Main.mainStage.setScene(scene);
-        Main.mainStage.setMaximized(true);
+        //Main.mainStage.setMaximized(true);
         Main.mainStage.show();
         Stage stg2 = (Stage) backButton.getScene().getWindow();
         stg2.close();
