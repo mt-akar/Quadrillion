@@ -15,6 +15,10 @@ public class ZPiece extends Piece {
         setStructure();
     }
 
+    public int getType(){
+        return 5;
+    }
+
     public void setStructure(){
         if(rotationEnum == 0){
             structure = new boolean[][] {{true, false, false, false},

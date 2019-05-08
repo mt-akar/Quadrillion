@@ -15,6 +15,10 @@ public class WPiece extends Piece {
         setStructure();
     }
 
+    public int getType(){
+        return 8;
+    }
+
     public void setStructure(){
         if(rotationEnum == 0){
             structure = new boolean[][] {{true, true, false, false},

@@ -25,7 +25,7 @@ public class GridView extends Group {
     public boolean placed;
 
     // Grid view without dots
-    public GridView(double x, double y){
+    public GridView(double x, double y) {
         setLayoutX(x);
         setLayoutY(y);
         Rectangle border = new Rectangle();
@@ -36,9 +36,9 @@ public class GridView extends Group {
         border.setFill(Color.WHITE);
         border.setStroke(Color.BLACK);
         getChildren().add(border);
-        for (int i = - 1; i <= 1; i++) {
-            Line l1 = new Line(i*gl, -2*gl, i*gl, 2*gl);
-            Line l2 = new Line(-2*gl, i*gl, 2*gl, i*gl);
+        for (int i = -1; i <= 1; i++) {
+            Line l1 = new Line(i * gl, -2 * gl, i * gl, 2 * gl);
+            Line l2 = new Line(-2 * gl, i * gl, 2 * gl, i * gl);
             getChildren().addAll(l1, l2);
         }
 
@@ -57,43 +57,100 @@ public class GridView extends Group {
         border.setFill(Color.WHITE);
         border.setStroke(Color.BLACK);
         getChildren().add(border);
-        for (int i = - 1; i <= 1; i++) {
-            Line l1 = new Line(i*gl, -2*gl, i*gl, 2*gl);
-            Line l2 = new Line(-2*gl, i*gl, 2*gl, i*gl);
+        for (int i = -1; i <= 1; i++) {
+            Line l1 = new Line(i * gl, -2 * gl, i * gl, 2 * gl);
+            Line l2 = new Line(-2 * gl, i * gl, 2 * gl, i * gl);
             getChildren().addAll(l1, l2);
         }
 
-        if(type == 1) {
+        if (type == 1) {
             Circle c1 = new Circle(-gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
             Circle c2 = new Circle(gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
             getChildren().addAll(c1, c2);
-        }
-        else if(type == 2) {
+        } else if (type == 2) {
             Circle c1 = new Circle(-3 * gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
             Circle c2 = new Circle(3 * gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
             getChildren().addAll(c1, c2);
-        }
-        else if(type == 3) {
+        } else if (type == 3) {
             Circle c1 = new Circle(-3 * gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
             Circle c2 = new Circle(gl / 2, 3 * gl / 2, gl / 3, Color.BLACK);
             getChildren().addAll(c1, c2);
-        }
-        else if(type == 4) {
+        } else if (type == 4) {
             Circle c1 = new Circle(-gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
             getChildren().add(c1);
-        }
-        else{
+        } else if (type == 5) {
+            Circle c1 = new Circle(-3 * gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
+            Circle c2 = new Circle(gl / 2, -gl / 2, gl / 3, Color.BLACK);
+            getChildren().addAll(c1, c2);
+        } else if (type == 6) {
+            Circle c1 = new Circle(-gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
+            Circle c2 = new Circle(3 * gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
+            getChildren().addAll(c1, c2);
+        } else if (type == 7) {
+            Circle c1 = new Circle(-3 * gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
+            Circle c2 = new Circle(-gl / 2, gl / 2, gl / 3, Color.BLACK);
+            getChildren().addAll(c1, c2);
+        } else if (type == 8) {
+            Circle c1 = new Circle(gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
+            getChildren().addAll(c1);
+        } else {
             System.out.println("Invalid grid type");
         }
 
         g = new Grid(type);
     }
 
-    public boolean getRotating(){
+    void changeType(int type) {
+
+        getChildren().remove(7);
+        if(getChildren().size() > 7){
+            getChildren().remove(7);
+        }
+
+        if (type == 1) {
+            Circle c1 = new Circle(-gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
+            Circle c2 = new Circle(gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
+            getChildren().addAll(c1, c2);
+        } else if (type == 2) {
+            Circle c1 = new Circle(-3 * gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
+            Circle c2 = new Circle(3 * gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
+            getChildren().addAll(c1, c2);
+        } else if (type == 3) {
+            Circle c1 = new Circle(-3 * gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
+            Circle c2 = new Circle(gl / 2, 3 * gl / 2, gl / 3, Color.BLACK);
+            getChildren().addAll(c1, c2);
+        } else if (type == 4) {
+            Circle c1 = new Circle(-gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
+            getChildren().add(c1);
+        } else if (type == 5) {
+            Circle c1 = new Circle(-3 * gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
+            Circle c2 = new Circle(gl / 2, -gl / 2, gl / 3, Color.BLACK);
+            getChildren().addAll(c1, c2);
+        } else if (type == 6) {
+            Circle c1 = new Circle(-gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
+            Circle c2 = new Circle(3 * gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
+            getChildren().addAll(c1, c2);
+        } else if (type == 7) {
+            Circle c1 = new Circle(-3 * gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
+            Circle c2 = new Circle(-gl / 2, gl / 2, gl / 3, Color.BLACK);
+            getChildren().addAll(c1, c2);
+        } else if (type == 8) {
+            Circle c1 = new Circle(gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
+            getChildren().addAll(c1);
+        } else {
+            System.out.println("Invalid grid type");
+        }
+    }
+
+    public boolean getRotating() {
         return rotating;
     }
 
-    public void rotate(){
+    public void rotate() {
+        if (g.rotate()) {
+            changeType(g.type);
+        }
+
         RotateTransition rot = new RotateTransition();
         rot.setDuration(Duration.seconds(.5));
         rot.setByAngle(90);
@@ -103,12 +160,10 @@ public class GridView extends Group {
         rot.setOnFinished(e ->
                 rotating = false
         );
-
-        g.rotate();
     }
 
     // Rotate without animating
-    public void rotateWOAnimating(){
+    public void rotateWOAnimating() {
         // Rotate the visual
         this.getTransforms().add(new Rotate(90));
 

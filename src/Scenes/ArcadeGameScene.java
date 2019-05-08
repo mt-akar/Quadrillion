@@ -3,6 +3,7 @@ package Scenes;
 import DataModels.GameLevel;
 import ViewModels.*;
 import ViewModels.PieceViews.*;
+import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import sample.*;
@@ -11,7 +12,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.Scene;
 
-public class ArcadeGameScene extends Scene {
+public class ArcadeGameScene extends QuadScene {
 
     private static double mousePrevX, mousePrevY;
     private double gl = Glob.gl;
@@ -203,6 +204,12 @@ public class ArcadeGameScene extends Scene {
             gameSceneLayout.getChildren().add(pv);
             placeOnScreenOffset++;
         }
+
+        Button backButton = new Button("Back");
+        gameSceneLayout.getChildren().add(backButton);
+        backButton.setOnAction(e -> {
+            Main.mainStage.setScene(new ArcadeScene());
+        });
     }
 
     private EventHandler<MouseEvent> OnMousePressedOnPieceEventHandler =

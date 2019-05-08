@@ -5,7 +5,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import sample.Glob;
 
-public class RegisterScene extends Scene {
+public class RegisterScene extends QuadScene {
 
     public RegisterScene() {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());

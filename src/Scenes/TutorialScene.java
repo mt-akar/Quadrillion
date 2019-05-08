@@ -5,7 +5,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import sample.Glob;
 
-public class TutorialScene extends Scene {
+public class TutorialScene extends QuadScene {
+	
+	public String videoLink;
 
     public TutorialScene() {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
