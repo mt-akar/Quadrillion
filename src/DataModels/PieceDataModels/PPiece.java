@@ -15,6 +15,10 @@ public class PPiece extends Piece {
         setStructure();
     }
 
+    public int getType(){
+        return 3;
+    }
+
     public void setStructure(){
         if(rotationEnum == 0){
             structure = new boolean[][] {{false, false, false, false},

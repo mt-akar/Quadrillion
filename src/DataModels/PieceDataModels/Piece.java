@@ -13,4 +13,6 @@ public abstract class Piece {
     public int getRotationEnum(){
         return rotationEnum;
     }
+
+    public abstract int getType();
 }

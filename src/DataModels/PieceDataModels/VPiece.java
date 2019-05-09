@@ -15,6 +15,10 @@ public class VPiece extends Piece {
         setStructure();
     }
 
+    public int getType(){
+        return 10;
+    }
+
     public void setStructure(){
         if(rotationEnum == 0){
             structure = new boolean[][] {{false, false, false, false},

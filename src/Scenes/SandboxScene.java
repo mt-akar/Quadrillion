@@ -13,13 +13,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.Scene;
 import javafx.scene.shape.Line;
 
-public class SandboxScene extends Scene {
+public class SandboxScene extends QuadScene {
 
     private static double mousePrevX, mousePrevY;
     private double gl = Glob.gl;
 
     private double gameBoardOffsetX = Glob.windowWidth() / 2 - gl * 8;
-    private  double gameBoardOffsetY = 30;
+    private double gameBoardOffsetY = 30;
 
     private boolean[][] gameBoardLayout = new boolean[16][16];
     private int[][] gridPositions = new int[4][2];
@@ -40,31 +40,31 @@ public class SandboxScene extends Scene {
             levelEditorLayout.getChildren().addAll(l1, l2);
         }
 
-        GridView g1 = new GridView(gameBoardOffsetX + gl * 9 / 2, gameBoardOffsetY + gl * 9 / 2, 1);
+        GridView g1 = new GridView(gameBoardOffsetX + gl * 9 / 2, gameBoardOffsetY + gl * 9 / 2);
         g1.setOnMousePressed(OnMousePressedOnGridEventHandler);
         g1.setOnMouseDragged(OnMouseDraggedGridEventHandler);
         g1.setOnMouseReleased(OnMouseReleasedGridEventHandler);
         levelEditorLayout.getChildren().add(g1);
 
-        GridView g2 = new GridView(gameBoardOffsetX + gl * 23 / 2, gameBoardOffsetY + gl * 9 / 2, 2);
+        GridView g2 = new GridView(gameBoardOffsetX + gl * 23 / 2, gameBoardOffsetY + gl * 9 / 2);
         g2.setOnMousePressed(OnMousePressedOnGridEventHandler);
         g2.setOnMouseDragged(OnMouseDraggedGridEventHandler);
         g2.setOnMouseReleased(OnMouseReleasedGridEventHandler);
         levelEditorLayout.getChildren().add(g2);
 
-        GridView g3 = new GridView(gameBoardOffsetX + gl * 9 / 2, gameBoardOffsetY + gl * 23 / 2, 3);
+        GridView g3 = new GridView(gameBoardOffsetX + gl * 9 / 2, gameBoardOffsetY + gl * 23 / 2);
         g3.setOnMousePressed(OnMousePressedOnGridEventHandler);
         g3.setOnMouseDragged(OnMouseDraggedGridEventHandler);
         g3.setOnMouseReleased(OnMouseReleasedGridEventHandler);
         levelEditorLayout.getChildren().add(g3);
 
-        GridView g4 = new GridView(gameBoardOffsetX + gl * 23 / 2, gameBoardOffsetY + gl * 23 / 2, 4);
+        GridView g4 = new GridView(gameBoardOffsetX + gl * 23 / 2, gameBoardOffsetY + gl * 23 / 2);
         g4.setOnMousePressed(OnMousePressedOnGridEventHandler);
         g4.setOnMouseDragged(OnMouseDraggedGridEventHandler);
         g4.setOnMouseReleased(OnMouseReleasedGridEventHandler);
         levelEditorLayout.getChildren().add(g4);
 
-        startGamePhase = new Button("Start the game");
+        startGamePhase = new Button("Get me the pieces");
         startGamePhase.setLayoutX(100);
         startGamePhase.setLayoutY(800);
         levelEditorLayout.getChildren().add(startGamePhase);
@@ -95,101 +95,103 @@ public class SandboxScene extends Scene {
             g4.setOnMouseReleased(e -> {
             });
 
-            LPieceView l = new LPieceView();
-            l.setLayoutX(120);
-            l.setLayoutY(200);
-            l.setOnMousePressed(OnMousePressedOnPieceEventHandler);
-            l.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
-            l.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
-            levelEditorLayout.getChildren().add(l);
+            for (int i = 0; i < 10; i++) {
+                LPieceView l = new LPieceView();
+                l.setLayoutX(120);
+                l.setLayoutY(200);
+                l.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+                l.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+                l.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+                levelEditorLayout.getChildren().add(l);
 
-            YPieceView y = new YPieceView();
-            y.setLayoutX(120);
-            y.setLayoutY(380);
-            y.setOnMousePressed(OnMousePressedOnPieceEventHandler);
-            y.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
-            y.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
-            levelEditorLayout.getChildren().add(y);
+                YPieceView y = new YPieceView();
+                y.setLayoutX(120);
+                y.setLayoutY(380);
+                y.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+                y.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+                y.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+                levelEditorLayout.getChildren().add(y);
 
-            PPieceView p = new PPieceView();
-            p.setLayoutX(120);
-            p.setLayoutY(560);
-            p.setOnMousePressed(OnMousePressedOnPieceEventHandler);
-            p.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
-            p.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
-            levelEditorLayout.getChildren().add(p);
+                PPieceView p = new PPieceView();
+                p.setLayoutX(120);
+                p.setLayoutY(560);
+                p.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+                p.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+                p.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+                levelEditorLayout.getChildren().add(p);
 
-            UPieceView u = new UPieceView();
-            u.setLayoutX(350);
-            u.setLayoutY(200);
-            u.setOnMousePressed(OnMousePressedOnPieceEventHandler);
-            u.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
-            u.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
-            levelEditorLayout.getChildren().add(u);
+                UPieceView u = new UPieceView();
+                u.setLayoutX(350);
+                u.setLayoutY(200);
+                u.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+                u.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+                u.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+                levelEditorLayout.getChildren().add(u);
 
-            ZPieceView z = new ZPieceView();
-            z.setLayoutX(350);
-            z.setLayoutY(380);
-            z.setOnMousePressed(OnMousePressedOnPieceEventHandler);
-            z.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
-            z.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
-            levelEditorLayout.getChildren().add(z);
+                ZPieceView z = new ZPieceView();
+                z.setLayoutX(350);
+                z.setLayoutY(380);
+                z.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+                z.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+                z.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+                levelEditorLayout.getChildren().add(z);
 
-            FPieceView f = new FPieceView();
-            f.setLayoutX(350);
-            f.setLayoutY(560);
-            f.setOnMousePressed(OnMousePressedOnPieceEventHandler);
-            f.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
-            f.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
-            levelEditorLayout.getChildren().add(f);
+                FPieceView f = new FPieceView();
+                f.setLayoutX(350);
+                f.setLayoutY(560);
+                f.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+                f.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+                f.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+                levelEditorLayout.getChildren().add(f);
 
-            TPieceView t = new TPieceView();
-            t.setLayoutX(1270);
-            t.setLayoutY(200);
-            t.setOnMousePressed(OnMousePressedOnPieceEventHandler);
-            t.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
-            t.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
-            levelEditorLayout.getChildren().add(t);
+                TPieceView t = new TPieceView();
+                t.setLayoutX(1270);
+                t.setLayoutY(200);
+                t.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+                t.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+                t.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+                levelEditorLayout.getChildren().add(t);
 
-            WPieceView w = new WPieceView();
-            w.setLayoutX(1270);
-            w.setLayoutY(380);
-            w.setOnMousePressed(OnMousePressedOnPieceEventHandler);
-            w.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
-            w.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
-            levelEditorLayout.getChildren().add(w);
+                WPieceView w = new WPieceView();
+                w.setLayoutX(1270);
+                w.setLayoutY(380);
+                w.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+                w.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+                w.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+                levelEditorLayout.getChildren().add(w);
 
-            SPieceView s = new SPieceView();
-            s.setLayoutX(1270);
-            s.setLayoutY(560);
-            s.setOnMousePressed(OnMousePressedOnPieceEventHandler);
-            s.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
-            s.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
-            levelEditorLayout.getChildren().add(s);
+                SPieceView s = new SPieceView();
+                s.setLayoutX(1270);
+                s.setLayoutY(560);
+                s.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+                s.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+                s.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+                levelEditorLayout.getChildren().add(s);
 
-            VPieceView y1 = new VPieceView();
-            y1.setLayoutX(1480);
-            y1.setLayoutY(200);
-            y1.setOnMousePressed(OnMousePressedOnPieceEventHandler);
-            y1.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
-            y1.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
-            levelEditorLayout.getChildren().add(y1);
+                VPieceView y1 = new VPieceView();
+                y1.setLayoutX(1480);
+                y1.setLayoutY(200);
+                y1.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+                y1.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+                y1.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+                levelEditorLayout.getChildren().add(y1);
 
-            NPieceView n = new NPieceView();
-            n.setLayoutX(1480);
-            n.setLayoutY(380);
-            n.setOnMousePressed(OnMousePressedOnPieceEventHandler);
-            n.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
-            n.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
-            levelEditorLayout.getChildren().add(n);
+                NPieceView n = new NPieceView();
+                n.setLayoutX(1480);
+                n.setLayoutY(380);
+                n.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+                n.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+                n.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+                levelEditorLayout.getChildren().add(n);
 
-            RPieceView r = new RPieceView();
-            r.setLayoutX(1480);
-            r.setLayoutY(560);
-            r.setOnMousePressed(OnMousePressedOnPieceEventHandler);
-            r.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
-            r.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
-            levelEditorLayout.getChildren().add(r);
+                RPieceView r = new RPieceView();
+                r.setLayoutX(1480);
+                r.setLayoutY(560);
+                r.setOnMousePressed(OnMousePressedOnPieceEventHandler);
+                r.setOnMouseDragged(OnMouseDraggedPieceEventHandler);
+                r.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
+                levelEditorLayout.getChildren().add(r);
+            }
 
             monitorGameBoardLayout(); // change
             startGamePhase.setDisable(true);
@@ -214,7 +216,7 @@ public class SandboxScene extends Scene {
                         gw.rotate();
 
                         // If grid was placed, update gameBoardLayout
-                        if(gw.placed){
+                        if (gw.placed) {
                             // Calculate grid position enumerator which can be 1 through 13
                             int positionX = (int) ((gw.getLayoutX() - gameBoardOffsetX) / gl) - 1;
                             int positionY = (int) ((gw.getLayoutY() - gameBoardOffsetY) / gl) - 1;
@@ -396,7 +398,7 @@ public class SandboxScene extends Scene {
                     pv.toFront();
 
                     // REMOVE
-                    if (pv.placed){
+                    if (pv.placed) {
                         // Update gameBoardLayout
                         for (int i = 0; i < pv.p.structure.length; i++)
                             for (int j = 0; j < pv.p.structure[0].length; j++)
@@ -502,21 +504,19 @@ public class SandboxScene extends Scene {
                     // GAME ENDED CHECK //
 
                     boolean ended = true;
-                    for (int i = 0; i < 4; i++){
-                        for (int j = -1; j <= 2; j++){
-                            for (int k = -1; k <= 2; k++){
-                                if (gameBoardLayout[gridPositions[i][0] + k][gridPositions[i][1] + j]){
+                    for (int i = 0; i < 4; i++) {
+                        for (int j = -1; j <= 2; j++) {
+                            for (int k = -1; k <= 2; k++) {
+                                if (gameBoardLayout[gridPositions[i][0] + k][gridPositions[i][1] + j]) {
                                     ended = false;
                                 }
                             }
                         }
                     }
-                    if(ended)
+                    if (ended)
                         System.out.println("Game over");
                 }
             };
-
-
 
 
     // Helper func that gives the nearest multiple of 'gl' to a given double
@@ -537,10 +537,11 @@ public class SandboxScene extends Scene {
     // This method takes a window position and converts it to board coordinates.
     // Coordinate 1, 1 means corresponds to the left-top-most 4 by 4 grid.
     // There are 13x13 different coordinates on the board.
-    private int windowToXCoordinate(double pos){
+    private int windowToXCoordinate(double pos) {
         return (int) ((NearestGL(pos - gameBoardOffsetX)) / gl) - 1;
     }
-    private int windowToYCoordinate(double pos){
+
+    private int windowToYCoordinate(double pos) {
         return (int) ((NearestGL(pos - gameBoardOffsetY)) / gl) - 1;
     }
 

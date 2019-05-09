@@ -15,6 +15,10 @@ public class NPiece extends Piece {
         setStructure();
     }
 
+    public int getType(){
+        return 11;
+    }
+
     public void setStructure(){
         if(rotationEnum == 0){
             structure = new boolean[][]

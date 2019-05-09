@@ -1,5 +1,6 @@
 package Scenes;
 
+import DataModels.GameLevel;
 import ViewModels.GridView;
 import ViewModels.PieceViews.PieceView;
 import javafx.event.EventHandler;
@@ -10,7 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import sample.Glob;
 
-public class CreateLevelScene extends Scene {
+public class CreateLevelScene extends QuadScene {
 
     private static double mousePrevX, mousePrevY;
     private double gl = Glob.gl;
@@ -20,12 +21,19 @@ public class CreateLevelScene extends Scene {
 
     private boolean[][] gameBoardLayout = new boolean[16][16];
     private int[][] gridPositions;
+    
+    private GameLevel level;
 
     public CreateLevelScene() {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
         VBox mainLayout = new VBox();
         setRoot(mainLayout);
     }
+    
+    public GameLevel getLevel() {
+    	return null;
+    }
+    
     private EventHandler<MouseEvent> OnMousePressedOnGridEventHandler;
 
     private EventHandler<MouseEvent> OnMouseDraggedGridEventHandler;
