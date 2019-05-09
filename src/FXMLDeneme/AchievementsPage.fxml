@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.AchievementsController">
+   <center>
+      <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="256.0" prefWidth="492.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="232.0" prefWidth="492.0">
+               <children>
+                  <Label prefHeight="52.0" prefWidth="493.0" text="Star Collector - Collected 15 stars in easy mode">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="42.0" prefWidth="497.0" text="Rock'n State -3 stars from different 20 hardship level">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="53.0" prefWidth="449.0" text="Ruler of Quadrillion - Completed all levels">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="39.0" prefWidth="492.0" text="Quadrillion Engineer - You created your first game">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="103.0" prefHeight="46.0" prefWidth="492.0" text="Rush or Go Home - Completed 5 game in RushMode">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+               </children></VBox>
+         </children></FlowPane>
+   </center>
+   <left>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="236.0" prefWidth="58.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="39.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="39.0" fitWidth="59.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="39.0" fitWidth="59.0" layoutX="10.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="39.0" fitWidth="59.0" layoutX="10.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="39.0" fitWidth="59.0" layoutX="10.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="45.0" fitWidth="59.0" layoutX="10.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true" />
+         </children></VBox>
+   </left>
+   <top>
+      <Button fx:id="sfgs" mnemonicParsing="false" onAction="#backButton" prefHeight="45.0" prefWidth="100.0" text="Back" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets right="500.0" top="15.0" />
+         </BorderPane.margin>
+      </Button>
+   </top>
+</BorderPane>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane blendMode="DARKEN" cache="true" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <center>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="257.0" prefWidth="177.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="play1" mnemonicParsing="false" onAction="#sendPlayMenuButton" prefHeight="65.0" prefWidth="181.0" text="PLAY" textAlignment="CENTER">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="182.0" text="ACHIEVEMENTS">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="setting1" mnemonicParsing="false" onAction="#settingsButton" prefHeight="62.0" prefWidth="182.0" text="SETTINGS" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="op1" mnemonicParsing="false" onAction="#exitButton" prefHeight="65.0" prefWidth="182.0" text="QUIT">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <Label contentDisplay="CENTER" prefHeight="109.0" prefWidth="578.0" text="      My Little Quadrillion" textAlignment="CENTER" textFill="#cd1e21" textOverrun="CENTER_ELLIPSIS" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Comic Sans MS Bold" size="42.0" />
+         </font>
+      </Label>
+   </top>
+   <bottom>
+      <Button fx:id="back2" mnemonicParsing="false" onAction="#backButton" text="Back" BorderPane.alignment="BOTTOM_RIGHT" />
+   </bottom>
+</BorderPane>

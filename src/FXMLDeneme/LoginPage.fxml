@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.firstPageController">
+   <center>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="290.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="288.0" promptText="enter your name" />
+            <TextArea layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="288.0" promptText="enter your password" />
+            <Button fx:id="login2" alignment="BOTTOM_RIGHT" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#sendMenuButton" prefHeight="45.0" prefWidth="91.0" text="Login" textAlignment="RIGHT" textOverrun="CENTER_ELLIPSIS">
+               <VBox.margin>
+                  <Insets left="200.0" top="10.0" />
+               </VBox.margin></Button>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <Button fx:id="back3" mnemonicParsing="false" onAction="#backButton" text="Back" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="600.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+</BorderPane>

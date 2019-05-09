@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RushController">
+   <center>
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="201.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="srgd" alignment="CENTER" mnemonicParsing="false" onAction="#ThreePuzzlesButton" text="Three Puzzles">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="sfgdsfs" mnemonicParsing="false" onAction="#ThreeMinutesButton" text="Three Minutes">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="adfs" mnemonicParsing="false" onAction="#RestrictedModeButton" text="Restricted Mode" />
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <Button fx:id="dffbgdf" mnemonicParsing="false" onAction="#backButton" text="Back" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets right="500.0" top="15.0" />
+         </BorderPane.margin>
+      </Button>
+   </top>
+</BorderPane>

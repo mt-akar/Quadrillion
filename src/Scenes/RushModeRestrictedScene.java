@@ -11,7 +11,6 @@ import sample.*;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-
 import java.util.Random;
 
 public class RushModeRestrictedScene extends QuadScene {
@@ -29,10 +28,36 @@ public class RushModeRestrictedScene extends QuadScene {
     private Label puzzleCountLabel;
     private Button nextButton;
 
+    int moveCounter = 30;
+    Label CounterLabel = new Label("30");
+    Label CounterTextLabel = new Label("Move Counter");
+
     public RushModeRestrictedScene() {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
         Pane gameSceneLayout = new Pane();
         setRoot(gameSceneLayout);
+
+        CounterLabel.setScaleX(2.5);
+
+        CounterLabel.setScaleY(2.5);
+
+        CounterLabel.setLayoutX(1225);
+
+        CounterLabel.setLayoutY(115);
+
+        CounterTextLabel.setScaleX(2.75);
+
+        CounterTextLabel.setScaleY(2.75);
+
+        CounterTextLabel.setLayoutX(1200);
+
+        CounterTextLabel.setLayoutY(75);
+
+        setRoot(gameSceneLayout);
+
+        gameSceneLayout.getChildren().add(CounterLabel);
+
+        gameSceneLayout.getChildren().add(CounterTextLabel);
 
         // Generate a random level
         Random r = new Random();
