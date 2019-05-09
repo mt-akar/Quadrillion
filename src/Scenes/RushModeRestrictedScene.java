@@ -3,14 +3,24 @@ package Scenes;
 import DataModels.GameLevel;
 import ViewModels.*;
 import ViewModels.PieceViews.*;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
+import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import sample.*;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+
+import java.io.IOException;
 import java.util.Random;
 
 public class RushModeRestrictedScene extends QuadScene {
@@ -27,36 +37,24 @@ public class RushModeRestrictedScene extends QuadScene {
     private int puzzleCount = 0;
     private Label puzzleCountLabel;
     private Button nextButton;
-
     int moveCounter = 30;
+    int fixedMove = moveCounter;
     Label CounterLabel = new Label("30");
     Label CounterTextLabel = new Label("Move Counter");
 
     public RushModeRestrictedScene() {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
+        CounterLabel.setScaleX(2.5);
+        CounterLabel.setScaleY(2.5);
+        CounterLabel.setLayoutX(1225);
+        CounterLabel.setLayoutY(115);
+        CounterTextLabel.setScaleX(2.75);
+        CounterTextLabel.setScaleY(2.75);
+        CounterTextLabel.setLayoutX(1200);
+        CounterTextLabel.setLayoutY(75);
         Pane gameSceneLayout = new Pane();
         setRoot(gameSceneLayout);
-
-        CounterLabel.setScaleX(2.5);
-
-        CounterLabel.setScaleY(2.5);
-
-        CounterLabel.setLayoutX(1225);
-
-        CounterLabel.setLayoutY(115);
-
-        CounterTextLabel.setScaleX(2.75);
-
-        CounterTextLabel.setScaleY(2.75);
-
-        CounterTextLabel.setLayoutX(1200);
-
-        CounterTextLabel.setLayoutY(75);
-
-        setRoot(gameSceneLayout);
-
         gameSceneLayout.getChildren().add(CounterLabel);
-
         gameSceneLayout.getChildren().add(CounterTextLabel);
 
         // Generate a random level
@@ -220,7 +218,21 @@ public class RushModeRestrictedScene extends QuadScene {
 
         Button backButton = new Button("Back");
         backButton.setOnAction(e -> {
-            Main.mainStage.setScene(new RushModeSelectionScene());
+            System.out.println("back button is now loaded!");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/FXMLDeneme/RushPage.fxml"));
+            Scene scene = null;
+            try {
+                scene = new Scene(loader.load(), 1600, 900);
+            } catch (IOException ev) {
+                ev.printStackTrace();
+            }
+
+            Main.mainStage.setTitle("My Little Quadrillion - v0.01");
+            Main.mainStage.setScene(scene);
+            Main.mainStage.show();
+            Stage stg2 = (Stage) backButton.getScene().getWindow();
+            stg2.close();
         });
         gameSceneLayout.getChildren().add(backButton);
 
@@ -508,7 +520,49 @@ public class RushModeRestrictedScene extends QuadScene {
                     }
 
                     // PLACE //
+                    IntegerProperty CounterProperty = new SimpleIntegerProperty(0);
+                    if(moveCounter>0) {
+                        moveCounter--;
+                    }
+                    else{
+                        Stage popupwindow=new Stage();
 
+                        popupwindow.initModality(Modality.APPLICATION_MODAL);
+                        popupwindow.setTitle("Game Over");
+                        popupwindow.setHeight(400);
+                        popupwindow.setWidth(600);
+
+
+                        Label label1= new Label("You solved " + puzzleCount + " puzzles within " + fixedMove + " moves");
+                        label1.setScaleX(2);
+                        label1.setScaleY(2);
+
+
+                        Button button1= new Button("OK");
+
+
+                        button1.setOnAction(e -> {
+                            popupwindow.close();
+                            Main.mainStage.setScene(new PlayScene(new MediaView()));
+                        });
+
+
+
+                        VBox layout= new VBox(10);
+
+
+                        layout.getChildren().addAll(label1, button1);
+
+                        layout.setAlignment(Pos.CENTER);
+
+                        Scene scene1= new Scene(layout, 300, 250);
+
+                        popupwindow.setScene(scene1);
+
+                        popupwindow.showAndWait();
+                    }
+                    CounterProperty.set(moveCounter);
+                    CounterLabel.textProperty().bind(CounterProperty.asString());
                     // Snap the grid to game board guidelines
                     pv.setLayoutX(NearestGL(pv.getLayoutX() - gameBoardOffsetX) + gameBoardOffsetX);
                     pv.setLayoutY(NearestGL(pv.getLayoutY() - gameBoardOffsetY) + gameBoardOffsetY);
