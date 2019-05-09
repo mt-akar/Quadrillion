@@ -6,12 +6,16 @@ import ViewModels.PieceViews.*;
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
+import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.stage.Popup;
+import javafx.stage.Stage;
 import sample.*;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseButton;
@@ -41,10 +45,60 @@ public class RushModeThreeMinuteScene extends QuadScene {
     TimerTask secTask = new TimerTask() {
         @Override
         public void run() {
-            if(sec>0) {
+            if(sec>0)
+            {
                 sec--;
             }
-            else{
+            else
+                {
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            secTask.cancel();
+                            myTimer.cancel();
+                            Stage popupwindow=new Stage();
+
+                            popupwindow.initModality(Modality.APPLICATION_MODAL);
+                            popupwindow.setTitle("Game Over");
+                            popupwindow.setHeight(400);
+                            popupwindow.setWidth(600);
+
+
+                            Label label1= new Label("You solved " + puzzleCount + " puzzles with "+ moveCounter + " moves");
+                            label1.setScaleX(2);
+                            label1.setScaleY(2);
+
+
+                            Button button1= new Button("OK");
+
+
+                            button1.setOnAction(e -> {
+                                popupwindow.close();
+                                Main.mainStage.setScene(new PlayScene(new MediaView()));
+                            });
+
+
+
+                            VBox layout= new VBox(10);
+
+
+                            layout.getChildren().addAll(label1, button1);
+
+                            layout.setAlignment(Pos.CENTER);
+
+                            Scene scene1= new Scene(layout, 300, 250);
+
+                            popupwindow.setScene(scene1);
+
+                            popupwindow.showAndWait();
+
+
+
+                        }
+
+                    });
+
+
             }
             Platform.runLater(new Runnable() {
                 @Override

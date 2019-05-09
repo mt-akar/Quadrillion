@@ -6,10 +6,14 @@ import ViewModels.PieceViews.*;
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
+import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import sample.*;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseButton;
@@ -399,20 +403,58 @@ public class ArcadeGameScene extends QuadScene {
                     // GAME ENDED CHECK //
 
                     boolean ended = true;
-                    for (int i = 0; i < 4; i++){
-                        for (int j = -1; j <= 2; j++){
-                            for (int k = -1; k <= 2; k++){
-                                if (gameBoardLayout[gridPositions[i][0] + k][gridPositions[i][1] + j]){
+                    for (int i = 0; i < 4; i++) {
+                        for (int j = -1; j <= 2; j++) {
+                            for (int k = -1; k <= 2; k++) {
+                                if (gameBoardLayout[gridPositions[i][0] + k][gridPositions[i][1] + j]) {
                                     ended = false;
                                 }
                             }
                         }
                     }
-                    if(ended)
+                    if (ended) {
                         System.out.println("Game over");
-                }
-            };
+                        secTask.cancel();
+                        myTimer.cancel();
+                        Stage popupwindow = new Stage();
 
+                        popupwindow.initModality(Modality.APPLICATION_MODAL);
+                        popupwindow.setTitle("Game Over");
+                        popupwindow.setHeight(400);
+                        popupwindow.setWidth(600);
+
+
+                        Label label1 = new Label("You solved the puzzle in " + sec + " seconds \n with " + moveCounter + " moves");
+                        label1.setScaleX(2);
+                        label1.setScaleY(2);
+
+
+                        Button button1 = new Button("OK");
+
+
+                        button1.setOnAction(e -> {
+                            popupwindow.close();
+                            Main.mainStage.setScene(new ArcadeScene());
+                        });
+
+
+                        VBox layout = new VBox(10);
+
+
+                        layout.getChildren().addAll(label1, button1);
+
+                        layout.setAlignment(Pos.CENTER);
+
+                        Scene scene1 = new Scene(layout, 300, 250);
+
+                        popupwindow.setScene(scene1);
+
+                        popupwindow.showAndWait();
+                    }
+                }
+
+                ;
+            };
 
 
 
