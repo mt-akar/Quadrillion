@@ -1,5 +1,4 @@
 package sample;
-import Scenes.CustomLevelsScene;
 import Scenes.LevelEditorScene;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,7 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
-import sample.Main;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,14 +20,14 @@ public class LevelEditorPageController implements Initializable {
     Button backButton;
 
     @FXML
-    ComboBox<String> combo;
+    private ComboBox<String> comboBox;
 
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("View is now loaded!");
 
+        ObservableList<String> comboItems = FXCollections.observableArrayList();
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
@@ -47,13 +45,29 @@ public class LevelEditorPageController implements Initializable {
 
             String query11 = "SELECT COUNT(*) FROM createdLevel;";
             ResultSet tab = st.executeQuery(query11);
-            System.out.println(tab);
+
+            //comboBox.setVisibleRowCount(1);
+
+            String query12 = "SELECT * FROM createdLevel;";
+            ResultSet rs = st.executeQuery(query12);
+
+            while(rs.next()){
+                String name = rs.getString("name");
+                String gridPlaces = rs.getString("gridPlaces");
+                String prePieces = rs.getString("prePieces");
+                String username = rs.getString("username");
+                //comboItems.add(name + " by " + username);
+                System.out.println("item added: " + name + " by " + username);
+                comboBox.getItems().add(name + " by " + username);
+                //comboBox.setItems(FXCollections.observableArrayList("Element 1"));
+            }
+
         }
         catch (SQLException except) {
             System.out.println(except.getMessage());
         }
-
-
+        System.out.println("items: " + comboBox.getItems());
+        //comboBox.setItems(comboItems);
     }
 
     public void backButton(ActionEvent event) throws IOException {
@@ -67,11 +81,12 @@ public class LevelEditorPageController implements Initializable {
         Stage stg2 = (Stage) backButton.getScene().getWindow();
         stg2.close();
     }
+
     public void createButton(ActionEvent event) throws IOException {
         Main.mainStage.setScene(new LevelEditorScene());
     }
 
     public void comboChoice(ActionEvent event) throws IOException {
-
+        System.out.println(event.toString());
     }
 }

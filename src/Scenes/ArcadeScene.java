@@ -21,7 +21,7 @@ public class ArcadeScene extends QuadScene {
             mainLayout.getChildren().add(levelButton);
             final int level = i;
             levelButton.setOnAction(e -> {
-                Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(level)));
+                Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(level), true));
             });
         }
     }

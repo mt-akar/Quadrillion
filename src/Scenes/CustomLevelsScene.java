@@ -40,7 +40,7 @@ public class CustomLevelsScene extends QuadScene {
             Button levelButton = new Button("Play " + "Level Name");
             mainLayout.getChildren().add(levelButton);
             levelButton.setOnAction(e -> {
-                Main.mainStage.setScene(new ArcadeGameScene(new GameLevel()));
+                Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(), false));
             });
         }
     }

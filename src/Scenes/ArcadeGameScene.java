@@ -3,52 +3,26 @@ package Scenes;
 import DataModels.GameLevel;
 import ViewModels.*;
 import ViewModels.PieceViews.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import sample.*;
-import javafx.event.EventHandler;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.Scene;
-
-import java.util.Timer;
-import DataModels.GameLevel;
-
-import ViewModels.*;
-
-import ViewModels.PieceViews.*;
-
 import javafx.application.Platform;
-
 import javafx.beans.property.IntegerProperty;
-
 import javafx.beans.property.SimpleIntegerProperty;
-
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-
 import javafx.scene.control.Label;
-
 import javafx.scene.layout.*;
-
+import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
-
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import sample.*;
-
 import javafx.event.EventHandler;
-
 import javafx.scene.input.MouseButton;
-
 import javafx.scene.input.MouseEvent;
-
 import javafx.scene.Scene;
-
 
 import java.io.IOException;
 import java.util.Timer;
-
 import java.util.TimerTask;
 
 public class ArcadeGameScene extends QuadScene {
@@ -59,125 +33,77 @@ public class ArcadeGameScene extends QuadScene {
     private double gameBoardOffsetX = Glob.windowWidth() / 2 - gl * 8;
     private  double gameBoardOffsetY = 30;
 
+    private boolean isArcade;
+
     private boolean[][] gameBoardLayout = new boolean[16][16];
     private int[][] gridPositions;
     int moveCounter = 0;
-
     int sec = 0;
-
     Timer myTimer = new Timer();
-
     TimerTask secTask = new TimerTask() {
-
         @Override
-
         public void run() {
-
             sec++;
-
             Platform.runLater(new Runnable() {
-
                 @Override
-
                 public void run() {
-
                     property.set(sec);
-
                     start();
-
                 }
-
 
             });
 
 
         }
 
-
+    };
+    IntegerProperty property = new SimpleIntegerProperty();
+    public void start(){
+        myTimer.scheduleAtFixedRate(secTask,1000,1000);
     };
 
-    IntegerProperty property = new SimpleIntegerProperty();
-
-    public void start() {
-
-        myTimer.scheduleAtFixedRate(secTask, 1000, 1000);
-
-    }
-
-    ;
-
-
     Label CounterLabel = new Label("0");
-
     Label CounterTextLabel = new Label("Move Counter");
-
     Label TimerLabel = new Label("Start");
-
     Label SecondsLabel = new Label("Seconds");
-
     Label ElapsedLabel = new Label("Elapsed Time");
 
-
-    public ArcadeGameScene(GameLevel level) {
+    public ArcadeGameScene(GameLevel level, boolean isArcade) {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
+
+        this.isArcade = isArcade;
+
         TimerLabel.textProperty().bind(property.asString());
-
         TimerLabel.setScaleX(4);
-
         TimerLabel.setScaleY(4);
-
         TimerLabel.setLayoutX(200);
-
         TimerLabel.setLayoutY(100);
-
         SecondsLabel.setScaleX(2);
-
         SecondsLabel.setScaleY(2);
-
         SecondsLabel.setLayoutX(300);
-
         SecondsLabel.setLayoutY(100);
-
         ElapsedLabel.setScaleX(2.5);
-
         ElapsedLabel.setScaleY(2.5);
-
         ElapsedLabel.setLayoutX(200);
-
         ElapsedLabel.setLayoutY(50);
-
         CounterLabel.setScaleX(2.5);
-
         CounterLabel.setScaleY(2.5);
-
         CounterLabel.setLayoutX(1225);
-
         CounterLabel.setLayoutY(115);
-
         CounterTextLabel.setScaleX(2.75);
-
         CounterTextLabel.setScaleY(2.75);
-
         CounterTextLabel.setLayoutX(1200);
-
         CounterTextLabel.setLayoutY(75);
-
         start();
+
 
         Pane gameSceneLayout = new Pane();
         setRoot(gameSceneLayout);
-
         gameSceneLayout.getChildren().add(CounterLabel);
-
         gameSceneLayout.getChildren().add(CounterTextLabel);
-
         gameSceneLayout.getChildren().add(TimerLabel);
-
         gameSceneLayout.getChildren().add(SecondsLabel);
-
         gameSceneLayout.getChildren().add(ElapsedLabel);
-
-
         GridView[] gridViews = new GridView[4];
 
         gridViews[0] = new GridView(xCoordinateToWindow(level.gridInfos[0].coordX), yCoordinateToWindow(level.gridInfos[0].coordY), level.gridInfos[0].type);
@@ -210,10 +136,10 @@ public class ArcadeGameScene extends QuadScene {
 
         // Update grid view positions
         gridPositions = new int[][] {
-            {level.gridInfos[0].coordX, level.gridInfos[0].coordY},
-            {level.gridInfos[1].coordX, level.gridInfos[1].coordY},
-            {level.gridInfos[2].coordX, level.gridInfos[2].coordY},
-            {level.gridInfos[3].coordX, level.gridInfos[3].coordY}
+                {level.gridInfos[0].coordX, level.gridInfos[0].coordY},
+                {level.gridInfos[1].coordX, level.gridInfos[1].coordY},
+                {level.gridInfos[2].coordX, level.gridInfos[2].coordY},
+                {level.gridInfos[3].coordX, level.gridInfos[3].coordY}
         };
 
         // Update gameSceneLayout for grids
@@ -339,8 +265,8 @@ public class ArcadeGameScene extends QuadScene {
             }
 
             // Set position of the piece
-            pv.setLayoutX(placeOnScreenOffset < 6 ? 120 + (int)(placeOnScreenOffset / 3) * 230 : 810 + (int)(placeOnScreenOffset / 3) * 230);
-            pv.setLayoutY(200 + (placeOnScreenOffset % 3) * 180);
+            pv.setLayoutX(150 + placeOnScreenOffset * 180);
+            pv.setLayoutY(700);
 
             // Set stroke
             pv.setStroke(Color.BLACK);
@@ -358,17 +284,19 @@ public class ArcadeGameScene extends QuadScene {
         Button backButton = new Button("Back");
         gameSceneLayout.getChildren().add(backButton);
         backButton.setOnAction(e -> {
+            System.out.println("this is a back button!");
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/FXMLDeneme/ArcadePage.fxml"));
             Scene scene = null;
             try {
                 scene = new Scene(loader.load(), 1600, 900);
-            } catch (IOException ev) {
-                ev.printStackTrace();
+            } catch (IOException e1) {
+                e1.printStackTrace();
             }
 
             Main.mainStage.setTitle("My Little Quadrillion - v0.01");
             Main.mainStage.setScene(scene);
+            //Main.mainStage.setMaximized(true);
             Main.mainStage.show();
         });
     }
@@ -468,7 +396,10 @@ public class ArcadeGameScene extends QuadScene {
                     }
 
                     // PLACE //
-
+                    IntegerProperty CounterProperty = new SimpleIntegerProperty(0);
+                    moveCounter++;
+                    CounterProperty.set(moveCounter);
+                    CounterLabel.textProperty().bind(CounterProperty.asString());
                     // Snap the grid to game board guidelines
                     pv.setLayoutX(NearestGL(pv.getLayoutX() - gameBoardOffsetX) + gameBoardOffsetX);
                     pv.setLayoutY(NearestGL(pv.getLayoutY() - gameBoardOffsetY) + gameBoardOffsetY);
@@ -492,20 +423,67 @@ public class ArcadeGameScene extends QuadScene {
                     // GAME ENDED CHECK //
 
                     boolean ended = true;
-                    for (int i = 0; i < 4; i++){
-                        for (int j = -1; j <= 2; j++){
-                            for (int k = -1; k <= 2; k++){
-                                if (gameBoardLayout[gridPositions[i][0] + k][gridPositions[i][1] + j]){
+                    for (int i = 0; i < 4; i++) {
+                        for (int j = -1; j <= 2; j++) {
+                            for (int k = -1; k <= 2; k++) {
+                                if (gameBoardLayout[gridPositions[i][0] + k][gridPositions[i][1] + j]) {
                                     ended = false;
                                 }
                             }
                         }
                     }
-                    if(ended)
+                    if (ended) {
                         System.out.println("Game over");
-                }
-            };
+                        secTask.cancel();
+                        myTimer.cancel();
+                        Stage popupwindow = new Stage();
 
+                        popupwindow.initModality(Modality.APPLICATION_MODAL);
+                        popupwindow.setTitle("Game Over");
+                        popupwindow.setHeight(400);
+                        popupwindow.setWidth(600);
+
+
+                        Label label1 = new Label("You solved the puzzle in " + sec + " seconds \n with " + moveCounter + " moves");
+                        label1.setScaleX(2);
+                        label1.setScaleY(2);
+
+                        Button button1 = new Button("OK");
+                        button1.setOnAction(e -> {
+                            popupwindow.close();
+                            FXMLLoader loader = new FXMLLoader();
+                            loader.setLocation(getClass().getResource(isArcade ? "/FXMLDeneme/ArcadePage.fxml" : "/FXMLDeneme/LevelEditorPage.fxml"));
+                            Scene scene = null;
+                            try {
+                                scene = new Scene(loader.load(), 1600, 900);
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
+
+                            Main.mainStage.setTitle("My Little Quadrillion - v0.01");
+                            Main.mainStage.setScene(scene);
+                            //Main.mainStage.setMaximized(true);
+                            Main.mainStage.show();
+                        });
+
+
+                        VBox layout = new VBox(10);
+
+
+                        layout.getChildren().addAll(label1, button1);
+
+                        layout.setAlignment(Pos.CENTER);
+
+                        Scene scene1 = new Scene(layout, 300, 250);
+
+                        popupwindow.setScene(scene1);
+
+                        popupwindow.showAndWait();
+                    }
+                }
+
+                ;
+            };
 
 
 

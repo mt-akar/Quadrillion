@@ -17,6 +17,9 @@ public class Player {
     public LinkedList<GameLevel> levels;
 
     public Player(String name, String pass){
+
+        System.out.println(name + " " + pass);
+
         username = name;
         password = pass;
         arcadeLevelStars = new int[4][10];

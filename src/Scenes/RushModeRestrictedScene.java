@@ -3,6 +3,8 @@ package Scenes;
 import DataModels.GameLevel;
 import ViewModels.*;
 import ViewModels.PieceViews.*;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
@@ -11,6 +13,8 @@ import sample.*;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+
+import java.io.IOException;
 import java.util.Random;
 
 public class RushModeRestrictedScene extends QuadScene {
@@ -220,7 +224,19 @@ public class RushModeRestrictedScene extends QuadScene {
 
         Button backButton = new Button("Back");
         backButton.setOnAction(e -> {
-            Main.mainStage.setScene(new RushModeSelectionScene());
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/FXMLDeneme/RushPage.fxml"));
+            Scene scene = null;
+            try {
+                scene = new Scene(loader.load(), 1600, 900);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+            Main.mainStage.setTitle("My Little Quadrillion - v0.01");
+            Main.mainStage.setScene(scene);
+            //Main.mainStage.setMaximized(true);
+            Main.mainStage.show();
         });
         gameSceneLayout.getChildren().add(backButton);
 

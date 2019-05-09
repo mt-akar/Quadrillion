@@ -38,88 +38,88 @@ public class ArcadePageController implements Initializable {
     public void sendArcadeButton() {
         for (int i = 1; i <= 40; i++) {
             final int level = i;
-            Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(level)));
+            Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(level), true));
         }
     }
 
     public void easy1() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(1)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(1), true));
     }
 
     public void easy2() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(2)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(2), true));
     }
 
     public void easy3() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(3)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(3), true));
     }
 
     public void easy4() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(4)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(4), true));
     }
 
     public void easy5() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(5)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(5), true));
     }
 
     public void med1() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(6)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(6), true));
     }
 
     public void med2() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(7)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(7), true));
     }
 
     public void med3() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(8)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(8), true));
     }
 
     public void med4() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(9)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(9), true));
     }
 
     public void med5() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(10)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(10), true));
     }
 
     public void hard1() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(11)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(11), true));
     }
 
     public void hard2() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(12)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(12), true));
     }
 
     public void hard3() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(13)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(13), true));
     }
 
     public void hard4() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(14)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(14), true));
     }
 
     public void hard5() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(15)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(15), true));
     }
 
     public void h1() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(16)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(16), true));
     }
 
     public void h2() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(17)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(17), true));
     }
 
     public void h3() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(18)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(18), true));
     }
 
     public void h4() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(19)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(19), true));
     }
 
     public void h5() {
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(20)));
+        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(20), true));
     }
 
 

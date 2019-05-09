@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.layout.BorderPane?>
 
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
 <BorderPane fx:id="gsdsds" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LevelEditorPageController">
    <bottom>
       <Button fx:id="sdfdfsf" mnemonicParsing="false" onAction="#createButton" text="Create New Level" BorderPane.alignment="CENTER">
@@ -23,7 +22,7 @@
       </Button>
    </top>
    <center>
-       <ComboBox fx:id="myCombobox" id="comboId" layoutX="210.0" layoutY="108.0" prefHeight="27.0" prefWidth="102.0" promptText="Select">
+       <ComboBox id="comboId" fx:id="myCombobox" layoutX="210.0" layoutY="108.0" onAction="#comboChoice" prefHeight="27.0" prefWidth="102.0" promptText="Select">
            <items>
                <FXCollections fx:factory="observableArrayList">
 

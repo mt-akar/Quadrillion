@@ -327,7 +327,7 @@ public class LevelEditorScene extends QuadScene {
 
 
                 try {
-                    Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+                    Class.forName("com.mysql.jdbc.Driver").newInstance();
                 } catch (InstantiationException e) {
                     e.printStackTrace();
                 } catch (IllegalAccessException e) {
@@ -343,6 +343,8 @@ public class LevelEditorScene extends QuadScene {
                     Statement st = con.createStatement();
                     System.out.println("CONNECTED TO DATABASE");
 
+                    System.out.println("username in level editor: " + Main.player.username);
+
                     String query03 = "INSERT INTO createdLevel VALUES('" + levelNameTextField.getText() + "', '" + gridInfo + "', '" + pieceInfo +"', '" + Main.player.username + "');";
                     int isSuccess = st.executeUpdate(query03);
                     System.out.println("query03: " + query03);
@@ -352,7 +354,7 @@ public class LevelEditorScene extends QuadScene {
                 }
 
                 // For now, you immediately play the created level
-                Main.mainStage.setScene(new ArcadeGameScene(newLevel));
+                Main.mainStage.setScene(new ArcadeGameScene(newLevel, false));
             }
         });
         nextPhase.setDisable(true);

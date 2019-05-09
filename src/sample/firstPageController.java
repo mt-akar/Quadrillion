@@ -1,5 +1,6 @@
 package sample;
 import DataModels.GameLevel;
+import DataModels.Player;
 import Scenes.ArcadeGameScene;
 import Scenes.SettingsScene;
 import javafx.event.ActionEvent;
@@ -28,28 +29,23 @@ public class firstPageController implements Initializable {
     Button loginButton, registerButton, creditsButton, backButton;
 
     public void initialize(URL location, ResourceBundle resources) {
-
-        System.out.println("View is now loaded!");
     }
 
     public void loginButton(ActionEvent event){
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/FXMLDeneme/LoginPage.fxml"));
-        System.out.println("login button is now loaded!");
         Scene scene = null;
         try {
-            scene = new Scene(loader.load(), 800, 600);
+            scene = new Scene(loader.load(), 1600, 900);
         } catch (IOException e) {
             e.printStackTrace();
         }
         Main.mainStage.setScene(scene);
-        Main.mainStage.setMaximized(true);
         Main.mainStage.show();
     }
     public void registerButton(){
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/FXMLDeneme/RegisterPage.fxml"));
-        System.out.println("register button is now loaded!");
         Scene scene = null;
         try {
             scene = new Scene(loader.load(), 1600, 900);
@@ -59,7 +55,6 @@ public class firstPageController implements Initializable {
 
         Main.mainStage.setTitle("My Little Quadrillion - v0.01");
         Main.mainStage.setScene(scene);
-        Main.mainStage.setMaximized(true);
         Main.mainStage.show();
     }
 
@@ -67,7 +62,6 @@ public class firstPageController implements Initializable {
         FXMLLoader loader = new FXMLLoader();
 
         loader.setLocation(getClass().getResource("/FXMLDeneme/creditsPage.fxml"));
-        System.out.println("settings is now loaded!");
         Scene scene = null;
         try {
             scene = new Scene(loader.load(), 1600, 900);
@@ -92,7 +86,7 @@ public class firstPageController implements Initializable {
     public void sendMenuButton(ActionEvent event) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
         FXMLLoader loader = new FXMLLoader();
         System.out.println("LOGIN BUTTON CLICKED!");
-        Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
         String url = "jdbc:mysql://dijkstra.ug.bcc.bilkent.edu.tr/talha_sen";
         try {
             Connection con = DriverManager.getConnection(url, "talha.sen", "p2yjILda");
@@ -106,14 +100,12 @@ public class firstPageController implements Initializable {
                     "WHERE username = '" + usernameLog.getText() + "' AND password = '" + passwordLog.getText() + "';";
             System.out.println(query01);
             ResultSet tableR = st.executeQuery(query01);
-            System.out.print("****tableR.getString(1)  ");
-            //System.out.println(tableR.getString(1));
-            System.out.println("----------------THE ONES YOU ENTERED--------------------");
-            System.out.println(usernameLog.getText() + "  " + passwordLog.getText());
-            System.out.println(tableR.getRow());
 
             if(tableR.next()) {
                 statusLog.setText("Login Successful!");
+                // Setting the arttributes of the player in the main class
+                Main.player = new Player(usernameLog.getText(), passwordLog.getText());
+
                 loader.setLocation(getClass().getResource("/FXMLDeneme/samplex.fxml"));
                 Scene scene = null;
 
@@ -152,7 +144,7 @@ public class firstPageController implements Initializable {
     public void sendMenuButtonByAutoLog(ActionEvent event) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
         FXMLLoader loader = new FXMLLoader();
         System.out.println("REGISTER BUTTON CLICKED!");
-        Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
         String url = "jdbc:mysql://dijkstra.ug.bcc.bilkent.edu.tr/talha_sen";
         try {
             Connection con = DriverManager.getConnection(url, "talha.sen", "p2yjILda");
@@ -206,7 +198,6 @@ public class firstPageController implements Initializable {
         Scene scene = new Scene(loader.load(), 1600, 900);
         Main.mainStage.setTitle("My Little Quadrillion - v0.01");
         Main.mainStage.setScene(scene);
-        //Main.mainStage.setMaximized(true);
         Main.mainStage.show();
         Stage stg2 = (Stage) backButton.getScene().getWindow();
         stg2.close();
