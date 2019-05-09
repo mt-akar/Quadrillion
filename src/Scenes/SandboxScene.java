@@ -2,6 +2,7 @@ package Scenes;
 
 import ViewModels.*;
 import ViewModels.PieceViews.*;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -12,6 +13,8 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.Scene;
 import javafx.scene.shape.Line;
+
+import java.io.IOException;
 
 public class SandboxScene extends QuadScene {
 
@@ -197,6 +200,24 @@ public class SandboxScene extends QuadScene {
             startGamePhase.setDisable(true);
         });
         startGamePhase.setDisable(true);
+
+
+        Button backButton = new Button("Back");
+        levelEditorLayout.getChildren().add(backButton);
+        backButton.setOnAction(e -> {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/FXMLDeneme/PlayMenu.fxml"));
+            Scene scene = null;
+            try {
+                scene = new Scene(loader.load(), 1600, 900);
+            } catch (IOException ev) {
+                ev.printStackTrace();
+            }
+
+            Main.mainStage.setTitle("My Little Quadrillion - v0.01");
+            Main.mainStage.setScene(scene);
+            Main.mainStage.show();
+        });
     }
 
     private EventHandler<MouseEvent> OnMousePressedOnGridEventHandler =

@@ -50,6 +50,31 @@ public class Controller implements Initializable {
         //Main.mainStage.setMaximized(true);
         Main.mainStage.show();
     }
+
+    public void sendLevelEditor(){
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/FXMLDeneme/LevelEditorPage.fxml"));
+        System.out.println("play menu button is now loaded!");
+        Scene scene = null;
+        try {
+            scene = new Scene(loader.load(), 1600, 900);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Main.mainStage.setTitle("My Little Quadrillion - v0.01");
+        Main.mainStage.setScene(scene);
+        //Main.mainStage.setMaximized(true);
+        Main.mainStage.show();
+
+    }
+
+
+
+
+
+
+
     public void sendRushPage(){
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/FXMLDeneme/RushPage.fxml"));

@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.MediaView;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import sample.Glob;
 import sample.Main;
 
@@ -18,6 +19,8 @@ public class CustomLevelsScene extends QuadScene {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
         VBox mainLayout = new VBox();
         setRoot(mainLayout);
+
+        System.out.println("here");
 
         // Change after this
         Button newButton = new Button("New");

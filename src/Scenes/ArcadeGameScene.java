@@ -358,7 +358,18 @@ public class ArcadeGameScene extends QuadScene {
         Button backButton = new Button("Back");
         gameSceneLayout.getChildren().add(backButton);
         backButton.setOnAction(e -> {
-            Main.mainStage.setScene(new ArcadeScene());
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/FXMLDeneme/ArcadePage.fxml"));
+            Scene scene = null;
+            try {
+                scene = new Scene(loader.load(), 1600, 900);
+            } catch (IOException ev) {
+                ev.printStackTrace();
+            }
+
+            Main.mainStage.setTitle("My Little Quadrillion - v0.01");
+            Main.mainStage.setScene(scene);
+            Main.mainStage.show();
         });
     }
 
