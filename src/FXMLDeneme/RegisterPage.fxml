@@ -2,25 +2,14 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.firstPageController">
-   <center>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="259.0" prefWidth="255.0" BorderPane.alignment="CENTER">
-         <children>
-            <TextField promptText="enter your name" />
-            <TextField promptText="enter your password" />
-            <TextField promptText="re-enter your password" />
-            <Button fx:id="reg1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#sendMenuButton" prefHeight="45.0" prefWidth="115.0" text="Register">
-               <VBox.margin>
-                  <Insets left="160.0" />
-               </VBox.margin>
-            </Button>
-         </children>
-      </VBox>
-   </center>
    <bottom>
       <Button fx:id="back4" mnemonicParsing="false" onAction="#backButton" text="Back" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -28,4 +17,34 @@
          </BorderPane.margin>
       </Button>
    </bottom>
+   <center>
+      <AnchorPane layoutX="72.0" layoutY="89.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="527.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="statusReg" layoutX="72.0" layoutY="44.0" prefHeight="45.0" prefWidth="395.0" text="Status" textFill="#9e2525">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernameReg" layoutX="72.0" layoutY="89.0" prefHeight="27.0" prefWidth="395.0" promptText="Enter a new username">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
+            <Button fx:id="Register" layoutX="372.0" layoutY="214.0" mnemonicParsing="false" onAction="#sendMenuButtonByAutoLog" text="Register">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <PasswordField fx:id="passwordReg" layoutX="72.0" layoutY="124.0" prefHeight="35.0" prefWidth="395.0" promptText="Enter a valid password">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </PasswordField>
+            <PasswordField fx:id="passwordRegRep" layoutX="72.0" layoutY="159.0" prefHeight="27.0" prefWidth="395.0" promptText="Re-enter the password">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </PasswordField>
+         </children>
+      </AnchorPane>
+   </center>
 </BorderPane>
