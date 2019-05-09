@@ -25,6 +25,7 @@ public class SettingsScene extends QuadScene {
     Image speaker;
     Image speakerOff;
     boolean volumeOn;
+    public static ChoiceBox<String> themes = new ChoiceBox<>();
 
     public SettingsScene(MediaView view) {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
@@ -54,13 +55,15 @@ public class SettingsScene extends QuadScene {
         speakerView = new ImageView(speaker);
 
         Button themeConfirmButton = new Button("Set theme");
-        ChoiceBox<String> themes = new ChoiceBox<>();
+
 
         themes.getItems().add("Classic Theme");
         themes.getItems().add("Summer Theme");
         themes.getItems().add("Bilkent Theme");
 
         themes.setValue("Classic Theme");
+
+        //themes.getValue();
 
         themeConfirmButton.setOnAction(event -> getChoice(themes));
 
@@ -87,9 +90,10 @@ public class SettingsScene extends QuadScene {
 
     }
 
-    private void getChoice(ChoiceBox<String> themes){
+    public static String getChoice(ChoiceBox<String> themes){
         String theme = themes.getValue();
         System.out.println(theme);
+        return theme;
     }
 
     private void toggleSpeaker(double value){

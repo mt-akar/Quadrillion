@@ -58,7 +58,6 @@ public class Main extends Application {
             player.setAutoPlay(true);
             primaryStage.show();
 
-
         }
         catch (Exception e){
             e.printStackTrace();

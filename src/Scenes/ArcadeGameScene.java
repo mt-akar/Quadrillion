@@ -6,8 +6,9 @@ import ViewModels.PieceViews.*;
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
@@ -21,8 +22,47 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.Scene;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
+import java.util.Timer;
+import DataModels.GameLevel;
+
+import ViewModels.*;
+
+import ViewModels.PieceViews.*;
+
+import javafx.application.Platform;
+
+import javafx.beans.property.IntegerProperty;
+
+import javafx.beans.property.SimpleIntegerProperty;
+
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+
+import javafx.scene.control.Label;
+
+import javafx.scene.layout.*;
+import javafx.scene.media.MediaView;
+import javafx.scene.paint.Color;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import sample.*;
+
+import javafx.event.EventHandler;
+
+import javafx.scene.input.MouseButton;
+
+import javafx.scene.input.MouseEvent;
+
+import javafx.scene.Scene;
+
+
 import java.io.IOException;
 import java.util.Timer;
+
 import java.util.TimerTask;
 
 public class ArcadeGameScene extends QuadScene {
@@ -38,34 +78,53 @@ public class ArcadeGameScene extends QuadScene {
     private boolean[][] gameBoardLayout = new boolean[16][16];
     private int[][] gridPositions;
     int moveCounter = 0;
+
     int sec = 0;
+
     Timer myTimer = new Timer();
+
     TimerTask secTask = new TimerTask() {
+
         @Override
+
         public void run() {
+
             sec++;
+
             Platform.runLater(new Runnable() {
+
                 @Override
+
                 public void run() {
+
                     property.set(sec);
+
                     start();
+
                 }
+
 
             });
 
 
         }
 
+
     };
+
     IntegerProperty property = new SimpleIntegerProperty();
     public void start(){
         myTimer.scheduleAtFixedRate(secTask,1000,1000);
     };
 
     Label CounterLabel = new Label("0");
+
     Label CounterTextLabel = new Label("Move Counter");
+
     Label TimerLabel = new Label("Start");
+
     Label SecondsLabel = new Label("Seconds");
+
     Label ElapsedLabel = new Label("Elapsed Time");
 
     public ArcadeGameScene(GameLevel level, boolean isArcade) {
@@ -74,36 +133,63 @@ public class ArcadeGameScene extends QuadScene {
         this.isArcade = isArcade;
 
         TimerLabel.textProperty().bind(property.asString());
-        TimerLabel.setScaleX(4);
-        TimerLabel.setScaleY(4);
-        TimerLabel.setLayoutX(200);
-        TimerLabel.setLayoutY(100);
-        SecondsLabel.setScaleX(2);
-        SecondsLabel.setScaleY(2);
-        SecondsLabel.setLayoutX(300);
-        SecondsLabel.setLayoutY(100);
-        ElapsedLabel.setScaleX(2.5);
-        ElapsedLabel.setScaleY(2.5);
-        ElapsedLabel.setLayoutX(200);
-        ElapsedLabel.setLayoutY(50);
-        CounterLabel.setScaleX(2.5);
-        CounterLabel.setScaleY(2.5);
-        CounterLabel.setLayoutX(1225);
-        CounterLabel.setLayoutY(115);
-        CounterTextLabel.setScaleX(2.75);
-        CounterTextLabel.setScaleY(2.75);
-        CounterTextLabel.setLayoutX(1200);
-        CounterTextLabel.setLayoutY(75);
-        start();
 
+        TimerLabel.setScaleX(4);
+
+        TimerLabel.setScaleY(4);
+
+        TimerLabel.setLayoutX(200);
+
+        TimerLabel.setLayoutY(100);
+
+        SecondsLabel.setScaleX(2);
+
+        SecondsLabel.setScaleY(2);
+
+        SecondsLabel.setLayoutX(300);
+
+        SecondsLabel.setLayoutY(100);
+
+        ElapsedLabel.setScaleX(2.5);
+
+        ElapsedLabel.setScaleY(2.5);
+
+        ElapsedLabel.setLayoutX(200);
+
+        ElapsedLabel.setLayoutY(50);
+
+        CounterLabel.setScaleX(2.5);
+
+        CounterLabel.setScaleY(2.5);
+
+        CounterLabel.setLayoutX(1225);
+
+        CounterLabel.setLayoutY(115);
+
+        CounterTextLabel.setScaleX(2.75);
+
+        CounterTextLabel.setScaleY(2.75);
+
+        CounterTextLabel.setLayoutX(1200);
+
+        CounterTextLabel.setLayoutY(75);
+
+        start();
 
         Pane gameSceneLayout = new Pane();
         setRoot(gameSceneLayout);
+
         gameSceneLayout.getChildren().add(CounterLabel);
+
         gameSceneLayout.getChildren().add(CounterTextLabel);
+
         gameSceneLayout.getChildren().add(TimerLabel);
+
         gameSceneLayout.getChildren().add(SecondsLabel);
+
         gameSceneLayout.getChildren().add(ElapsedLabel);
+
+
         GridView[] gridViews = new GridView[4];
 
         gridViews[0] = new GridView(xCoordinateToWindow(level.gridInfos[0].coordX), yCoordinateToWindow(level.gridInfos[0].coordY), level.gridInfos[0].type);
@@ -136,10 +222,10 @@ public class ArcadeGameScene extends QuadScene {
 
         // Update grid view positions
         gridPositions = new int[][] {
-                {level.gridInfos[0].coordX, level.gridInfos[0].coordY},
-                {level.gridInfos[1].coordX, level.gridInfos[1].coordY},
-                {level.gridInfos[2].coordX, level.gridInfos[2].coordY},
-                {level.gridInfos[3].coordX, level.gridInfos[3].coordY}
+            {level.gridInfos[0].coordX, level.gridInfos[0].coordY},
+            {level.gridInfos[1].coordX, level.gridInfos[1].coordY},
+            {level.gridInfos[2].coordX, level.gridInfos[2].coordY},
+            {level.gridInfos[3].coordX, level.gridInfos[3].coordY}
         };
 
         // Update gameSceneLayout for grids
@@ -265,8 +351,8 @@ public class ArcadeGameScene extends QuadScene {
             }
 
             // Set position of the piece
-            pv.setLayoutX(150 + placeOnScreenOffset * 180);
-            pv.setLayoutY(700);
+            pv.setLayoutX(placeOnScreenOffset < 6 ? 120 + (int)(placeOnScreenOffset / 3) * 230 : 810 + (int)(placeOnScreenOffset / 3) * 230);
+            pv.setLayoutY(200 + (placeOnScreenOffset % 3) * 180);
 
             // Set stroke
             pv.setStroke(Color.BLACK);
@@ -284,20 +370,21 @@ public class ArcadeGameScene extends QuadScene {
         Button backButton = new Button("Back");
         gameSceneLayout.getChildren().add(backButton);
         backButton.setOnAction(e -> {
-            System.out.println("this is a back button!");
+            System.out.println("back button is now loaded!");
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/FXMLDeneme/ArcadePage.fxml"));
+            loader.setLocation(getClass().getResource("/FXMLDeneme/RushPage.fxml"));
             Scene scene = null;
             try {
                 scene = new Scene(loader.load(), 1600, 900);
-            } catch (IOException e1) {
-                e1.printStackTrace();
+            } catch (IOException ev) {
+                ev.printStackTrace();
             }
 
             Main.mainStage.setTitle("My Little Quadrillion - v0.01");
             Main.mainStage.setScene(scene);
-            //Main.mainStage.setMaximized(true);
             Main.mainStage.show();
+            Stage stg2 = (Stage) backButton.getScene().getWindow();
+            stg2.close();
         });
     }
 
@@ -481,9 +568,8 @@ public class ArcadeGameScene extends QuadScene {
                         popupwindow.showAndWait();
                     }
                 }
-
-                ;
             };
+
 
 
 

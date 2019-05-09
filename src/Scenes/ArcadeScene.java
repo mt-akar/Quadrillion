@@ -12,7 +12,8 @@ import sample.Main;
 public class ArcadeScene extends QuadScene {
 
     public ArcadeScene() {
-        super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
+        //super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
+        super(new Pane(), 800, 600);
         VBox mainLayout = new VBox();
         setRoot(mainLayout);
 
