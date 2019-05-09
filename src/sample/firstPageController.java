@@ -3,6 +3,7 @@ import DataModels.GameLevel;
 import Scenes.ArcadeGameScene;
 import Scenes.SettingsScene;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import java.io.IOException;
@@ -11,15 +12,19 @@ import java.util.ResourceBundle;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
+import java.lang.reflect.InvocationTargetException;
+import java.sql.*;
 
 import javafx.fxml.Initializable;
 
 public class firstPageController implements Initializable {
 
     Button loginButton, registerButton, creditsButton, backButton;
+
     public void initialize(URL location, ResourceBundle resources) {
 
         System.out.println("View is now loaded!");
@@ -73,27 +78,126 @@ public class firstPageController implements Initializable {
         //Main.mainStage.setMaximized(true);
         Main.mainStage.show();
     }
-    public void getUserName() {
-        TextField username = new TextField();
 
+    @FXML
+    private Label statusLog;
 
-    }
-    public void sendMenuButton(ActionEvent event){
+    @FXML
+    private TextField usernameLog;
+
+    @FXML
+    private TextField passwordLog;
+
+    public void sendMenuButton(ActionEvent event) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
         FXMLLoader loader = new FXMLLoader();
-
-        loader.setLocation(getClass().getResource("/FXMLDeneme/samplex.fxml"));
-        System.out.println("settings is now loaded!");
-        Scene scene = null;
+        System.out.println("LOGIN BUTTON CLICKED!");
+        Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+        String url = "jdbc:mysql://dijkstra.ug.bcc.bilkent.edu.tr/talha_sen";
         try {
-            scene = new Scene(loader.load(), 1600, 900);
-        } catch (IOException e) {
-            e.printStackTrace();
+            Connection con = DriverManager.getConnection(url, "talha.sen", "p2yjILda");
+            Statement st = con.createStatement();
+            System.out.println("CONNECTED TO DATABASE");
+
+            //DatabaseMetaData meta = con.getMetaData();
+            //ResultSet result = meta.getTables(null, null, "%", null);
+
+            String query01 = "SELECT * FROM player " +
+                    "WHERE username = '" + usernameLog.getText() + "' AND password = '" + passwordLog.getText() + "';";
+            System.out.println(query01);
+            ResultSet tableR = st.executeQuery(query01);
+            System.out.print("****tableR.getString(1)  ");
+            //System.out.println(tableR.getString(1));
+            System.out.println("----------------THE ONES YOU ENTERED--------------------");
+            System.out.println(usernameLog.getText() + "  " + passwordLog.getText());
+            System.out.println(tableR.getRow());
+
+            if(tableR.next()) {
+                statusLog.setText("Login Successful!");
+                loader.setLocation(getClass().getResource("/FXMLDeneme/samplex.fxml"));
+                Scene scene = null;
+
+                try {
+                    scene = new Scene(loader.load(), 1600, 900);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                Main.mainStage.setTitle("My Little Quadrillion - v0.01");
+                Main.mainStage.setScene(scene);
+                //Main.mainStage.setMaximized(true);
+                Main.mainStage.show();
+            } else {
+                statusLog.setText("Username and Password do NOT match!");
+            }
+
+        } catch (SQLException except) {
+            System.out.println(except.getMessage());
         }
-        Main.mainStage.setTitle("My Little Quadrillion - v0.01");
-        Main.mainStage.setScene(scene);
-        //Main.mainStage.setMaximized(true);
-        Main.mainStage.show();
+
     }
+
+    @FXML
+    private Label statusReg;
+
+    @FXML
+    private TextField usernameReg;
+
+    @FXML
+    private TextField passwordReg;
+
+    @FXML
+    private TextField passwordRegRep;
+
+    public void sendMenuButtonByAutoLog(ActionEvent event) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
+        FXMLLoader loader = new FXMLLoader();
+        System.out.println("REGISTER BUTTON CLICKED!");
+        Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+        String url = "jdbc:mysql://dijkstra.ug.bcc.bilkent.edu.tr/talha_sen";
+        try {
+            Connection con = DriverManager.getConnection(url, "talha.sen", "p2yjILda");
+            Statement st = con.createStatement();
+            System.out.println("CONNECTED TO DATABASE");
+
+            /*
+                                DON'T FORGET TO CHANGE THE STYLE OF LEVELS!*************************
+             */
+            //System.out.println(passwordReg.getText().equals(passwordRegRep.getText()));
+
+            if(!passwordReg.getText().equals(passwordRegRep.getText())) {
+                statusReg.setText("Passwords do NOT match!");
+            } else {
+                System.out.println(usernameReg.getText() + "    " + passwordReg.getText());
+                String query02 = "INSERT INTO player VALUES('" + usernameReg.getText() + "', '" + passwordReg.getText() + "', 'a', 'b', 'c', 'd', '0');";
+                System.out.println(query02);
+                int isSucccess = st.executeUpdate(query02);
+                System.out.println(isSucccess);
+                con.close();
+
+
+                if( isSucccess  == 1) {
+                    statusReg.setText("--------Register Successful!----------");
+                    loader.setLocation(getClass().getResource("/FXMLDeneme/samplex.fxml"));
+                    Scene scene = null;
+
+                    try {
+                        scene = new Scene(loader.load(), 1600, 900);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    Main.mainStage.setTitle("My Little Quadrillion - v0.01");
+                    Main.mainStage.setScene(scene);
+                    //Main.mainStage.setMaximized(true);
+                    Main.mainStage.show();
+                }
+
+            }
+
+        } catch (SQLException except) {
+            System.out.println(except.getMessage());
+        }
+    }
+
     public void backButton(ActionEvent event) throws IOException {
         System.out.println("back button is now loaded!");
         FXMLLoader loader = new FXMLLoader();
