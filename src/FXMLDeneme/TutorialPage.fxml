@@ -8,14 +8,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="865.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="865.0"
+            xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <center>
       <TextArea maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="419.0" prefWidth="615.0" text="  &#10;   1. Choose mode: Campaign or Rush&#10;   2. Choose Level&#10;   3. Place the pieces appropriately&#10;   4. If the places are wrong, repeat step 3 &#10;   5. Continue step 3 and 4 until you get the whole puzzle done&#10;&#10;  * Beware of the time and movement constraints!!&#10;   GOOD LUCK  :)&#10;&#10;   For the gameplay please visit the link =&gt; &#10;&#10;" BorderPane.alignment="CENTER" />
    </center>
    <top>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="back6" mnemonicParsing="false" onAction="#backButton" text="Button">
+            <Button fx:id="back6" mnemonicParsing="false" onAction="#back3Button" text="Button">
                <HBox.margin>
                   <Insets left="15.0" top="15.0" />
                </HBox.margin></Button>

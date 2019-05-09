@@ -6,6 +6,7 @@ import javafx.animation.ScaleTransition;
 import javafx.geometry.Point3D;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Scale;
+import javafx.scene.transform.Translate;
 import javafx.util.Duration;
 import sample.Glob;
 
@@ -47,7 +48,7 @@ public class ZPieceView extends PieceView {
                 sca.setNode(this);
                 sca.play();
                 sca.setOnFinished(e2 ->
-                    rotating = false
+                        rotating = false
                 );
             }
             else
@@ -57,9 +58,19 @@ public class ZPieceView extends PieceView {
 
     public void rotateWOAnimating(){
         // Rotate the visual
-        this.getTransforms().add(new Rotate(90));
-        if (p.getRotationEnum() == 2 || p.getRotationEnum() == 0) {
-            this.getTransforms().add(new Scale(p.getRotationEnum() == 2 ? -1 : 1, 0));
+        this.getTransforms().add(new Rotate(p.getRotationEnum() <= 1 ? 90 : -90));
+
+        // Compensate for incorrect rotation axis
+        if(p.getRotationEnum() <= 1) {
+            this.getTransforms().add(new Translate(0, gl));
+        }
+
+        if (p.getRotationEnum() == 1) {
+            this.getTransforms().add(new Scale(-1, 1));
+        }
+
+        if(p.getRotationEnum() >= 1){
+            this.getTransforms().add(new Translate(gl, 0));
         }
 
         // Rotate the structure

@@ -65,9 +65,9 @@ public class PPieceView extends PieceView {
 
     public void rotateWOAnimating(){
         // Rotate the visual
-        this.getTransforms().add(new Rotate(90));
-        if (p.getRotationEnum() == 3 || p.getRotationEnum() == 7) {
-            this.getTransforms().add(new Scale(1, p.getRotationEnum() == 3 ? -1 : 1));
+        this.getTransforms().add(new Rotate(p.getRotationEnum() <= 3 ? 90 : -90));
+        if (p.getRotationEnum() == 3) {
+            this.getTransforms().add(new Scale(-1, 1));
         }
 
         // Rotate the structure

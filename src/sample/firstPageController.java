@@ -21,7 +21,7 @@ import javafx.fxml.Initializable;
 
 public class firstPageController implements Initializable {
 
-    Button loginButton, registerButton, creditsButton, backButton;
+    Button backButton;
     public void initialize(URL location, ResourceBundle resources) {
 
         System.out.println("View is now loaded!");

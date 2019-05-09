@@ -47,7 +47,7 @@ public class SPieceView extends PieceView {
                 sca.setNode(this);
                 sca.play();
                 sca.setOnFinished(e2 ->
-                    rotating = false
+                        rotating = false
                 );
             }
             else

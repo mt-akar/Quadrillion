@@ -50,7 +50,20 @@ public class Controller implements Initializable {
         //Main.mainStage.setMaximized(true);
         Main.mainStage.show();
     }
-
+    public void sendRushPage(){
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/FXMLDeneme/RushPage.fxml"));
+        System.out.println("play menu button is now loaded!");
+        Scene scene = null;
+        try {
+            scene = new Scene(loader.load(), 1600, 900);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Main.mainStage.setTitle("My Little Quadrillion - v0.01");
+        Main.mainStage.setScene(scene);
+        Main.mainStage.show();
+    }
     public void tutorialButton(){
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/FXMLDeneme/TutorialPage.fxml"));
@@ -69,9 +82,19 @@ public class Controller implements Initializable {
     }
 
     public void playButton(ActionEvent event){
-        System.out.println("play is now loaded!");
-        Main.mainStage.setScene(new ArcadeGameScene(new GameLevel()));
-        Main.mainStage.setMaximized(true);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/FXMLDeneme/ArcadePage.fxml"));
+        System.out.println("play menu button is now loaded!");
+        Scene scene = null;
+        try {
+            scene = new Scene(loader.load(), 1600, 900);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Main.mainStage.setTitle("My Little Quadrillion - v0.01");
+        Main.mainStage.setScene(scene);
+        //Main.mainStage.setMaximized(true);
         Main.mainStage.show();
     }
     public void sandboxButton(ActionEvent event){
@@ -106,11 +129,22 @@ public class Controller implements Initializable {
     public void back2Button(ActionEvent event) throws IOException {
         System.out.println("back button is now loaded!");
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/FXMLDeneme/PlayMenu.fxml"));
+        loader.setLocation(getClass().getResource("/FXMLDeneme/samplex.fxml"));
         Scene scene = new Scene(loader.load(), 1600, 900);
         Main.mainStage.setTitle("My Little Quadrillion - v0.01");
         Main.mainStage.setScene(scene);
         //Main.mainStage.setMaximized(true);
+        Main.mainStage.show();
+        Stage stg2 = (Stage) backButton.getScene().getWindow();
+        stg2.close();
+    }
+    public void back3Button(ActionEvent event) throws IOException {
+        System.out.println("back button is now loaded!");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/FXMLDeneme/PlayMenu.fxml"));
+        Scene scene = new Scene(loader.load(), 1600, 900);
+        Main.mainStage.setTitle("My Little Quadrillion - v0.01");
+        Main.mainStage.setScene(scene);
         Main.mainStage.show();
         Stage stg2 = (Stage) backButton.getScene().getWindow();
         stg2.close();

@@ -27,7 +27,7 @@ public abstract class PieceView extends Polygon{
         rot.play();
         rotating = true;
         rot.setOnFinished(e ->
-            rotating = false
+                rotating = false
         );
     }
 

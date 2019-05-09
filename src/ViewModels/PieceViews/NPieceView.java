@@ -57,7 +57,7 @@ public class NPieceView extends PieceView {
                 sca.setNode(this);
                 sca.play();
                 sca.setOnFinished(e2 ->
-                    rotating = false
+                        rotating = false
                 );
             }
             else
@@ -67,9 +67,23 @@ public class NPieceView extends PieceView {
 
     public void rotateWOAnimating(){
         // Rotate the visual
-        this.getTransforms().add(new Rotate(90));
-        if (p.getRotationEnum() == 2 || p.getRotationEnum() == 0) {
-            this.getTransforms().add(new Scale(p.getRotationEnum() == 2 ? -1 : 1, 0));
+        this.getTransforms().add(new Rotate(p.getRotationEnum() <= 3 ? 90 : -90));
+
+        // Compensate for incorrect rotation axis
+        if(p.getRotationEnum() <= 1) {
+            this.getTransforms().add(new Translate(0, gl));
+        }
+
+        if (p.getRotationEnum() == 1) {
+            this.getTransforms().add(new Scale(-1, 1));
+        }
+
+        if(p.getRotationEnum() >= 1){
+            this.getTransforms().add(new Translate(gl, 0));
+        }
+
+        if(p.getRotationEnum() > 1){
+            this.getTransforms().add(new Translate(-gl, 2 * gl));
         }
 
         // Rotate the structure

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ArcadePageController">
+   <left>
+      <VBox alignment="CENTER" prefHeight="335.0" prefWidth="201.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="easy1" mnemonicParsing="false" onAction="#sendArcadeButton" text="Easy">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin></Button>
+            <Button fx:id="med" mnemonicParsing="false" onAction="#sendArcadeButton" prefHeight="45.0" prefWidth="120.0" text="Medium">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin></Button>
+            <Button fx:id="hard1" mnemonicParsing="false" onAction="#sendArcadeButton" text="Hard">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin></Button>
+            <Button fx:id="ex1" mnemonicParsing="false" onAction="#sendArcadeButton" text="Expert">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin></Button>
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <Button fx:id="backplay" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#backButton" prefHeight="31.0" prefWidth="82.0" text="Back" BorderPane.alignment="TOP_LEFT">
+         <BorderPane.margin>
+            <Insets left="20.0" top="20.0" />
+         </BorderPane.margin>
+      </Button>
+   </top>
+   <center>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="258.0" prefWidth="348.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="aaa" mnemonicParsing="false" onAction="#easy1" text="1">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="aaaaa" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#easy2" text="2">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="adfsdf" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#easy3" text="3">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="sdfsd" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#easy4" text="4">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="jjgh" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#easy5" text="5">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="sdfs" mnemonicParsing="false" onAction="#med1" text="1">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="sfddgd" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#med2" text="2">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="s" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#med3" text="3">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="u" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#med4" text="4">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="k" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#med5" text="5">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="465.0">
+               <children>
+                  <Button fx:id="v" mnemonicParsing="false" onAction="#hard1" text="1">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="l" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#hard2" text="2">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="o" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#hard3" text="3">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="cc" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#hard4" text="4">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="ooo" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#hard5" text="5">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="ff" mnemonicParsing="false" onAction="#h1" text="1">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="kk" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#h2" text="2">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="mm" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#h3" text="3">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="yy" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#h4" text="4">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="zz" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#h5" text="5">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>
