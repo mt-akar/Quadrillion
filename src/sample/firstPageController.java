@@ -1,21 +1,14 @@
 package sample;
-import DataModels.GameLevel;
-import Scenes.ArcadeGameScene;
-import Scenes.SettingsScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.scene.Parent;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
-import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
-
-import javafx.fxml.Initializable;
 
 //THIS CONTROLLER MANAGES FirstPageLoginRegister.fxml & LOGINPAGE.fxml & REGISTERPAGE.fxml
 
@@ -34,7 +27,16 @@ public class firstPageController implements Initializable {
         Scene scene = null;
         try {
             scene = new Scene(loader.load(), 800, 600);
-            scene.getStylesheets().add("Style.css");
+            if (SettingsController.nightMode) {
+                scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                System.out.println("Dark");
+            } else {
+                if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                    scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                } else {
+                    scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -49,7 +51,16 @@ public class firstPageController implements Initializable {
         Scene scene = null;
         try {
             scene = new Scene(loader.load(), 800, 600);
-            scene.getStylesheets().add("Style.css");
+            if (SettingsController.nightMode) {
+                scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                System.out.println("Dark");
+            } else {
+                if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                    scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                } else {
+                    scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -67,7 +78,16 @@ public class firstPageController implements Initializable {
         Scene scene = null;
         try {
             scene = new Scene(loader.load(), 800, 600);
-            scene.getStylesheets().add("Style.css");
+            if (SettingsController.nightMode) {
+                scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                System.out.println("Dark");
+            } else {
+                if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                    scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                } else {
+                    scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -83,7 +103,16 @@ public class firstPageController implements Initializable {
         Scene scene = null;
         try {
             scene = new Scene(loader.load(), 800, 600);
-            scene.getStylesheets().add("Style.css");
+            if (SettingsController.nightMode) {
+                scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                System.out.println("Dark");
+            } else {
+                if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                    scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                } else {
+                    scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -99,7 +128,16 @@ public class firstPageController implements Initializable {
         Scene scene = null;
         try {
             scene = new Scene(loader.load(), 800, 600);
-            scene.getStylesheets().add("Style.css");
+            if (SettingsController.nightMode) {
+                scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                System.out.println("Dark");
+            } else {
+                if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                    scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                } else {
+                    scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
