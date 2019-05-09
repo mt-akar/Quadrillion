@@ -22,8 +22,18 @@ public class creditsController implements Initializable {
     public void backButton(ActionEvent event) throws IOException {
         System.out.println("back button is now loaded!");
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/FXMLDeneme/FirstPageLoginRegister.fxml"));
-        Scene scene = new Scene(loader.load(), 1600, 900);
+        loader.setLocation(getClass().getResource("/FXMLDeneme/SettingsPage.fxml"));
+        Scene scene = new Scene(loader.load(), 800, 600);
+        if (SettingsController.nightMode) {
+            scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+            System.out.println("Dark");
+        } else {
+            if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+            } else {
+                scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+            }
+        }
         Main.mainStage.setTitle("My Little Quadrillion - v0.01");
         Main.mainStage.setScene(scene);
         Main.mainStage.show();

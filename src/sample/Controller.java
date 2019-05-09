@@ -40,7 +40,17 @@ public class Controller implements Initializable {
         System.out.println("play menu button is now loaded!");
         Scene scene = null;
         try {
-            scene = new Scene(loader.load(), 1600, 900);
+            scene = new Scene(loader.load(), 800, 600);
+            if (SettingsController.nightMode) {
+                scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                System.out.println("Dark");
+            } else {
+                if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                    scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                } else {
+                    scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -70,7 +80,17 @@ public class Controller implements Initializable {
         System.out.println("play menu button is now loaded!");
         Scene scene = null;
         try {
-            scene = new Scene(loader.load(), 1600, 900);
+            scene = new Scene(loader.load(), 800, 600);
+            if (SettingsController.nightMode) {
+                scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                System.out.println("Dark");
+            } else {
+                if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                    scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                } else {
+                    scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -104,8 +124,27 @@ public class Controller implements Initializable {
         Main.mainStage.show();
     }
     public void settingsButton(ActionEvent event){
-        System.out.println("setting is now loaded!");
-        Main.mainStage.setScene(new SettingsScene(view));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/FXMLDeneme/SettingsPage.fxml"));
+        System.out.println("settings is now loaded!");
+        Scene scene = null;
+        try {
+            scene = new Scene(loader.load(), 800, 600);
+            if (SettingsController.nightMode) {
+                scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                System.out.println("Dark");
+            } else {
+                if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                    scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                } else {
+                    scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Main.mainStage.setTitle("My Little Quadrillion - v0.01");
+        Main.mainStage.setScene(scene);
         //Main.mainStage.setMaximized(true);
         Main.mainStage.show();
     }
@@ -117,7 +156,17 @@ public class Controller implements Initializable {
         System.out.println("back button is now loaded!");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/FXMLDeneme/FirstPageLoginRegister.fxml"));
-        Scene scene = new Scene(loader.load(), 1600, 900);
+        Scene scene = new Scene(loader.load(), 800, 600);
+        if (SettingsController.nightMode) {
+            scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+            System.out.println("Dark");
+        } else {
+            if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+            } else {
+                scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+            }
+        }
         Main.mainStage.setTitle("My Little Quadrillion - v0.01");
         Main.mainStage.setScene(scene);
         //Main.mainStage.setMaximized(true);
@@ -142,7 +191,17 @@ public class Controller implements Initializable {
         System.out.println("back button is now loaded!");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/FXMLDeneme/PlayMenu.fxml"));
-        Scene scene = new Scene(loader.load(), 1600, 900);
+        Scene scene = new Scene(loader.load(), 800, 600);
+        if (SettingsController.nightMode) {
+            scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+            System.out.println("Dark");
+        } else {
+            if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+            } else {
+                scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+            }
+        }
         Main.mainStage.setTitle("My Little Quadrillion - v0.01");
         Main.mainStage.setScene(scene);
         Main.mainStage.show();

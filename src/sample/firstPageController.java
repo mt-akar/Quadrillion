@@ -39,11 +39,21 @@ public class firstPageController implements Initializable {
         Scene scene = null;
         try {
             scene = new Scene(loader.load(), 800, 600);
+            if (SettingsController.nightMode) {
+                scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                System.out.println("Dark");
+            } else {
+                if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                    scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                } else {
+                    scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
         Main.mainStage.setScene(scene);
-        Main.mainStage.setMaximized(true);
+        //Main.mainStage.setMaximized(true);
         Main.mainStage.show();
     }
     public void registerButton(){
@@ -52,14 +62,24 @@ public class firstPageController implements Initializable {
         System.out.println("register button is now loaded!");
         Scene scene = null;
         try {
-            scene = new Scene(loader.load(), 1600, 900);
+            scene = new Scene(loader.load(), 800, 600);
+            if (SettingsController.nightMode) {
+                scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                System.out.println("Dark");
+            } else {
+                if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                    scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                } else {
+                    scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         Main.mainStage.setTitle("My Little Quadrillion - v0.01");
         Main.mainStage.setScene(scene);
-        Main.mainStage.setMaximized(true);
+        //Main.mainStage.setMaximized(true);
         Main.mainStage.show();
     }
 
@@ -70,7 +90,17 @@ public class firstPageController implements Initializable {
         System.out.println("settings is now loaded!");
         Scene scene = null;
         try {
-            scene = new Scene(loader.load(), 1600, 900);
+            scene = new Scene(loader.load(), 800, 600);
+            if (SettingsController.nightMode) {
+                scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                System.out.println("Dark");
+            } else {
+                if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                    scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                } else {
+                    scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -92,7 +122,7 @@ public class firstPageController implements Initializable {
     public void sendMenuButton(ActionEvent event) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
         FXMLLoader loader = new FXMLLoader();
         System.out.println("LOGIN BUTTON CLICKED!");
-        Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
         String url = "jdbc:mysql://dijkstra.ug.bcc.bilkent.edu.tr/talha_sen";
         try {
             Connection con = DriverManager.getConnection(url, "talha.sen", "p2yjILda");
@@ -152,7 +182,7 @@ public class firstPageController implements Initializable {
     public void sendMenuButtonByAutoLog(ActionEvent event) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
         FXMLLoader loader = new FXMLLoader();
         System.out.println("REGISTER BUTTON CLICKED!");
-        Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
         String url = "jdbc:mysql://dijkstra.ug.bcc.bilkent.edu.tr/talha_sen";
         try {
             Connection con = DriverManager.getConnection(url, "talha.sen", "p2yjILda");
@@ -177,14 +207,30 @@ public class firstPageController implements Initializable {
 
                 if( isSucccess  == 1) {
                     statusReg.setText("--------Register Successful!----------");
-                    loader.setLocation(getClass().getResource("/FXMLDeneme/samplex.fxml"));
-                    Scene scene = null;
 
+
+                    loader.setLocation(getClass().getResource("/FXMLDeneme/samplex.fxml"));
+                    System.out.println("settings is now loaded!");
+                    Scene scene = null;
                     try {
-                        scene = new Scene(loader.load(), 1600, 900);
+                        scene = new Scene(loader.load(), 800, 600);
+                        if (SettingsController.nightMode) {
+                            scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                            System.out.println("Dark");
+                        } else {
+                            if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                                scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                            } else {
+                                scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                            }
+                        }
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                    Main.mainStage.setTitle("My Little Quadrillion - v0.01");
+                    Main.mainStage.setScene(scene);
+                    //Main.mainStage.setMaximized(true);
+                    Main.mainStage.show();
 
                     Main.mainStage.setTitle("My Little Quadrillion - v0.01");
                     Main.mainStage.setScene(scene);
@@ -197,13 +243,29 @@ public class firstPageController implements Initializable {
         } catch (SQLException except) {
             System.out.println(except.getMessage());
         }
+
     }
 
     public void backButton(ActionEvent event) throws IOException {
         System.out.println("back button is now loaded!");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/FXMLDeneme/FirstPageLoginRegister.fxml"));
-        Scene scene = new Scene(loader.load(), 1600, 900);
+        Scene scene = null;
+        try {
+            scene = new Scene(loader.load(), 800, 600);
+            if (SettingsController.nightMode) {
+                scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                System.out.println("Dark");
+            } else {
+                if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                    scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                } else {
+                    scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Main.mainStage.setTitle("My Little Quadrillion - v0.01");
         Main.mainStage.setScene(scene);
         //Main.mainStage.setMaximized(true);
