@@ -73,6 +73,16 @@ public class RushModeThreePuzzleScene extends QuadScene {
 
     public RushModeThreePuzzleScene() {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
+        if (SettingsController.nightMode) {
+            getStylesheets().add("CSS_StyleSheets/Dark.css");
+            System.out.println("Dark");
+        } else {
+            if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+            } else {
+                getStylesheets().add("CSS_StyleSheets/Style.css");
+            }
+        }
         TimerLabel.textProperty().bind(property.asString());
         TimerLabel.setScaleX(4);
         TimerLabel.setScaleY(4);
@@ -105,7 +115,7 @@ public class RushModeThreePuzzleScene extends QuadScene {
 
         // Generate a random level
         Random r = new Random();
-        GameLevel level = new GameLevel(r.nextInt(4) + 1);
+        GameLevel level = new GameLevel(r.nextInt(20) + 1);
 
         final GridView[] gridViews = new GridView[4];
 
@@ -270,8 +280,18 @@ public class RushModeThreePuzzleScene extends QuadScene {
             Scene scene = null;
             try {
                 scene = new Scene(loader.load(), 1600, 900);
-            } catch (IOException ev) {
-                ev.printStackTrace();
+                if (SettingsController.nightMode) {
+                    scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                    System.out.println("Dark");
+                } else {
+                    if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                        scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                    } else {
+                        scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                    }
+                }
+            } catch (IOException e1) {
+                e1.printStackTrace();
             }
 
             Main.mainStage.setTitle("My Little Quadrillion - v0.01");
@@ -467,13 +487,13 @@ public class RushModeThreePuzzleScene extends QuadScene {
 
                 popupwindow.initModality(Modality.APPLICATION_MODAL);
                 popupwindow.setTitle("Game Over");
-                popupwindow.setHeight(400);
-                popupwindow.setWidth(600);
+                popupwindow.setHeight(450);
+                popupwindow.setWidth(800);
 
 
                 Label label1= new Label("You solved three puzzles in " + sec + " seconds \n with "+ moveCounter + " moves");
-                label1.setScaleX(2);
-                label1.setScaleY(2);
+                label1.setScaleX(1.5);
+                label1.setScaleY(1.5);
 
 
                 Button button1= new Button("OK");
@@ -494,13 +514,46 @@ public class RushModeThreePuzzleScene extends QuadScene {
                 layout.setAlignment(Pos.CENTER);
 
                 Scene scene1= new Scene(layout, 300, 250);
+                if (SettingsController.nightMode) {
+                    scene1.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                    System.out.println("Dark");
+                } else {
+                    if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                        scene1.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                    } else {
+                        scene1.getStylesheets().add("CSS_StyleSheets/Style.css");
+                    }
+                }
 
                 popupwindow.setScene(scene1);
 
                 popupwindow.showAndWait();
 
                 // For now, it puts you back to selection scene
-                Main.mainStage.setScene(new RushModeSelectionScene());
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("/FXMLDeneme/RushPage.fxml"));
+                Scene scene = null;
+                try {
+                    scene = new Scene(loader.load(), 1600, 900);
+                    if (SettingsController.nightMode) {
+                        scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                        System.out.println("Dark");
+                    } else {
+                        if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                            scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                        } else {
+                            scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                        }
+                    }
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
+                Main.mainStage.setTitle("My Little Quadrillion - v0.01");
+                Main.mainStage.setScene(scene);
+                Main.mainStage.show();
+                Stage stg2 = (Stage) backButton.getScene().getWindow();
+                stg2.close();
             }
 
             nextButton.setDisable(true);

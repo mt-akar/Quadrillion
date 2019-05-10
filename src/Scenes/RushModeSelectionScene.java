@@ -6,6 +6,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import sample.Glob;
 import sample.Main;
+import sample.SettingsController;
 
 public class RushModeSelectionScene extends QuadScene {
 	
@@ -13,6 +14,16 @@ public class RushModeSelectionScene extends QuadScene {
 
     public RushModeSelectionScene() {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
+        if (SettingsController.nightMode) {
+            getStylesheets().add("CSS_StyleSheets/Dark.css");
+            System.out.println("Dark");
+        } else {
+            if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+            } else {
+                getStylesheets().add("CSS_StyleSheets/Style.css");
+            }
+        }
         VBox mainLayout = new VBox();
         setRoot(mainLayout);
 

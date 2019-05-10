@@ -37,7 +37,6 @@ public class firstPageController implements Initializable {
         Scene scene = null;
         try {
             scene = new Scene(loader.load(), 1600, 900);
-            scene = new Scene(loader.load(), 800, 600);
             if (SettingsController.nightMode) {
                 scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
                 System.out.println("Dark");
@@ -59,7 +58,7 @@ public class firstPageController implements Initializable {
         loader.setLocation(getClass().getResource("/FXMLDeneme/RegisterPage.fxml"));
         Scene scene = null;
         try {
-            scene = new Scene(loader.load(), 800, 600);
+            scene = new Scene(loader.load(), 1600, 900);
             if (SettingsController.nightMode) {
                 scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
                 System.out.println("Dark");
@@ -85,7 +84,7 @@ public class firstPageController implements Initializable {
         loader.setLocation(getClass().getResource("/FXMLDeneme/creditsPage.fxml"));
         Scene scene = null;
         try {
-            scene = new Scene(loader.load(), 800, 600);
+            scene = new Scene(loader.load(), 1600, 900);
             if (SettingsController.nightMode) {
                 scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
                 System.out.println("Dark");
@@ -142,6 +141,16 @@ public class firstPageController implements Initializable {
 
                 try {
                     scene = new Scene(loader.load(), 1600, 900);
+                    if (SettingsController.nightMode) {
+                        scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                        System.out.println("Dark");
+                    } else {
+                        if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                            scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                        } else {
+                            scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                        }
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -191,7 +200,7 @@ public class firstPageController implements Initializable {
                 statusReg.setText("Passwords do NOT match!");
             } else {
                 System.out.println(usernameReg.getText() + "    " + passwordReg.getText());
-                String query02 = "INSERT INTO player VALUES('" + usernameReg.getText() + "', '" + passwordReg.getText() + "', 'a', 'b', 'c', 'd', '0');";
+                String query02 = "INSERT INTO player VALUES('" + usernameReg.getText() + "', '" + passwordReg.getText() + "', 0, 0, 0, 0, '0');";
                 System.out.println(query02);
                 int isSucccess = st.executeUpdate(query02);
                 System.out.println(isSucccess);
@@ -200,10 +209,14 @@ public class firstPageController implements Initializable {
 
                 if( isSucccess  == 1) {
                     statusReg.setText("--------Register Successful!----------");
+
+                    // Setting the arttributes of the player in the main class
+                    Main.player = new Player(usernameReg.getText(), passwordReg.getText());
+
                     loader.setLocation(getClass().getResource("/FXMLDeneme/samplex.fxml"));
                     Scene scene = null;
                     try {
-                        scene = new Scene(loader.load(), 800, 600);
+                        scene = new Scene(loader.load(), 1600, 900);
                         if (SettingsController.nightMode) {
                             scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
                             System.out.println("Dark");
