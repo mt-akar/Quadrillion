@@ -22,13 +22,13 @@ public class SettingsController implements Initializable{
 
     Button backButton;
     ToggleButton nightModeButton, colorBlindModeButton;
-    static boolean nightMode = false;
-    static boolean colorBlindMode = true;
+    public static boolean nightMode = false;
+    static boolean colorBlindMode = false;
     static int nightModeCount;
     static int colorBlindCount;
     @FXML
     ComboBox<String> theme; // Value injected by FXMLLoader
-    static String themeSelection = "Classic Theme";
+    public static String themeSelection = "Classic Theme";
 
     public void initialize(URL location, ResourceBundle resources) { System.out.println("View is now loaded!"); }
     public void backButton(ActionEvent event) throws IOException {
@@ -37,7 +37,7 @@ public class SettingsController implements Initializable{
         loader.setLocation(getClass().getResource("/FXMLDeneme/samplex.fxml"));
         Scene scene = null;
         try {
-            scene = new Scene(loader.load(), 800, 600);
+            scene = new Scene(loader.load(), 1600, 900);
             if (SettingsController.nightMode) {
                 scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
                 System.out.println("Dark");
@@ -65,7 +65,7 @@ public class SettingsController implements Initializable{
         loader.setLocation(getClass().getResource("/FXMLDeneme/SettingsPage.fxml"));
         Scene scene = null;
         try {
-            scene = new Scene(loader.load(), 800, 600);
+            scene = new Scene(loader.load(), 1600, 900);
             if (SettingsController.nightMode) {
                 scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
                 System.out.println("Dark");
@@ -99,7 +99,7 @@ public class SettingsController implements Initializable{
         loader.setLocation(getClass().getResource("/FXMLDeneme/SettingsPage.fxml"));
         Scene scene = null;
         try {
-            scene = new Scene(loader.load(), 800, 600);
+            scene = new Scene(loader.load(), 1600, 900);
             if (nightMode) {
                 //scene.getStylesheets().add("CSS_StyleSheets/ColorB.scss");
                 scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
@@ -134,7 +134,7 @@ public class SettingsController implements Initializable{
         loader.setLocation(getClass().getResource("/FXMLDeneme/creditsPage.fxml"));
         Scene scene = null;
         try {
-            scene = new Scene(loader.load(), 800, 600);
+            scene = new Scene(loader.load(), 1600, 900);
             if (SettingsController.themeSelection.equals("Bilkent Theme")) {
                 scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
             } else {

@@ -34,7 +34,22 @@ public class RushController implements Initializable {
         System.out.println("back button is now loaded!");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/FXMLDeneme/PlayMenu.fxml"));
-        Scene scene = new Scene(loader.load(), 1600, 900);
+        Scene scene = null;
+        try {
+            scene = new Scene(loader.load(), 1600, 900);
+            if (SettingsController.nightMode) {
+                scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                System.out.println("Dark");
+            } else {
+                if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                    scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                } else {
+                    scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Main.mainStage.setTitle("My Little Quadrillion - v0.01");
         Main.mainStage.setScene(scene);
         Main.mainStage.show();

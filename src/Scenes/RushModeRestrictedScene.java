@@ -49,6 +49,16 @@ public class RushModeRestrictedScene extends QuadScene {
 
     public RushModeRestrictedScene(boolean isColorBlind) {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
+        if (SettingsController.nightMode) {
+            getStylesheets().add("CSS_StyleSheets/Dark.css");
+            System.out.println("Dark");
+        } else {
+            if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+            } else {
+                getStylesheets().add("CSS_StyleSheets/Style.css");
+            }
+        }
         Pane gameSceneLayout = new Pane();
         setRoot(gameSceneLayout);
 
@@ -243,8 +253,18 @@ public class RushModeRestrictedScene extends QuadScene {
             Scene scene = null;
             try {
                 scene = new Scene(loader.load(), 1600, 900);
-            } catch (IOException ev) {
-                ev.printStackTrace();
+                if (SettingsController.nightMode) {
+                    scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                    System.out.println("Dark");
+                } else {
+                    if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                        scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                    } else {
+                        scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                    }
+                }
+            } catch (IOException e1) {
+                e1.printStackTrace();
             }
 
             Main.mainStage.setTitle("My Little Quadrillion - v0.01");
@@ -548,13 +568,13 @@ public class RushModeRestrictedScene extends QuadScene {
 
                         popupwindow.initModality(Modality.APPLICATION_MODAL);
                         popupwindow.setTitle("Game Over");
-                        popupwindow.setHeight(400);
-                        popupwindow.setWidth(600);
+                        popupwindow.setHeight(450);
+                        popupwindow.setWidth(800);
 
 
                         Label label1= new Label("You solved " + puzzleCount + " puzzles within " + fixedMove + " moves");
-                        label1.setScaleX(2);
-                        label1.setScaleY(2);
+                        label1.setScaleX(1.5);
+                        label1.setScaleY(1.5);
 
 
                         Button button1= new Button("OK");
@@ -575,10 +595,42 @@ public class RushModeRestrictedScene extends QuadScene {
                         layout.setAlignment(Pos.CENTER);
 
                         Scene scene1= new Scene(layout, 300, 250);
+                        if (SettingsController.nightMode) {
+                            scene1.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                            System.out.println("Dark");
+                        } else {
+                            if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                                scene1.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                            } else {
+                                scene1.getStylesheets().add("CSS_StyleSheets/Style.css");
+                            }
+                        }
 
                         popupwindow.setScene(scene1);
 
                         popupwindow.showAndWait();
+                        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("/FXMLDeneme/RushPage.fxml"));
+                        Scene scene = null;
+                        try {
+                            scene = new Scene(loader.load(), 1600, 900);
+                            if (SettingsController.nightMode) {
+                                scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                                System.out.println("Dark");
+                            } else {
+                                if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                                    scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                                } else {
+                                    scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                                }
+                            }
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+
+                        Main.mainStage.setTitle("My Little Quadrillion - v0.01");
+                        Main.mainStage.setScene(scene);
+                        Main.mainStage.show();
                     }
                     CounterProperty.set(moveCounter);
                     CounterLabel.textProperty().bind(CounterProperty.asString());

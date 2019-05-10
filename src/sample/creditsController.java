@@ -23,7 +23,7 @@ public class creditsController implements Initializable {
         System.out.println("back button is now loaded!");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/FXMLDeneme/SettingsPage.fxml"));
-        Scene scene = new Scene(loader.load(), 800, 600);
+        Scene scene = new Scene(loader.load(), 1600, 900);
         if (SettingsController.nightMode) {
             scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
             System.out.println("Dark");

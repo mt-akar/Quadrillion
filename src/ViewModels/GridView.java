@@ -94,7 +94,7 @@ public class GridView extends Group {
             Circle c1 = new Circle(gl / 2, -3 * gl / 2, gl / 3, Color.BLACK);
             getChildren().addAll(c1);
         } else {
-            System.out.println("Invalid grid type");
+            System.out.println("Invalid grid type: " + type);
         }
 
         g = new Grid(type);
