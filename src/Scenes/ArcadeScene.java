@@ -13,7 +13,7 @@ public class ArcadeScene extends QuadScene {
 
     public ArcadeScene() {
         //super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
-        super(new Pane(), 800, 600);
+        super(new Pane(), 1600, 900);
         VBox mainLayout = new VBox();
         setRoot(mainLayout);
 

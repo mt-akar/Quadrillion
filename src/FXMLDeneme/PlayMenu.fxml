@@ -5,10 +5,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <center>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="268.0" prefWidth="152.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="268.0" prefWidth="559.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="fghgh" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#tutorialButton" text="Tutorial">
                <VBox.margin>
@@ -22,7 +21,7 @@
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin></Button>
-            <Button fx:id="fdgfd" mnemonicParsing="false" onAction="#sendLevelEditor" text="Level Editor" />
+            <Button fx:id="fdgfd" mnemonicParsing="false" onAction="#sendLevelEditor" prefHeight="25.0" prefWidth="285.0" text="Level Editor" />
             <Button fx:id="sand1" mnemonicParsing="false" onAction="#sandboxButton" text="Sandbox">
                <VBox.margin>
                   <Insets top="5.0" />

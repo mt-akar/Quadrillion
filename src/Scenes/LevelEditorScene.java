@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import sample.*;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -48,6 +49,16 @@ public class LevelEditorScene extends QuadScene {
 
     public LevelEditorScene() {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
+        if (SettingsController.nightMode) {
+            getStylesheets().add("CSS_StyleSheets/Dark.css");
+            System.out.println("Dark");
+        } else {
+            if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+            } else {
+                getStylesheets().add("CSS_StyleSheets/Style.css");
+            }
+        }
         Pane levelEditorLayout = new Pane();
         setRoot(levelEditorLayout);
 
@@ -303,6 +314,7 @@ public class LevelEditorScene extends QuadScene {
                 levelNameTextField.setLayoutY(770);
                 levelEditorLayout.getChildren().add(levelNameTextField);
 
+
             } else if (phase == 2) {
 
                 String gridInfo = "";
@@ -314,16 +326,17 @@ public class LevelEditorScene extends QuadScene {
                     }
                 }
 
+                int count = 0;
                 String pieceInfo = "";
                 for (int i = 0; i < 12; i++) {
-                    if(pieces.get(i).placed){
-                        pieceInfo += "" + pieces.get(i).p.getType() + "," + pieces.get(i).coordX + "," + pieces.get(i).coordY + "," + pieces.get(i).p.getRotationEnum();
-                        System.out.println("" + pieces.get(i).p.getType() + "," + pieces.get(i).coordX + "," + pieces.get(i).coordY + "," + pieces.get(i).p.getRotationEnum());
-                    }
-                    if (i != 11) {
-                        pieceInfo += ",";
+                    if (newLevel.pieceInfos[i].placed) {
+                        count++;
+                        pieceInfo += "" + newLevel.pieceInfos[i].type + "," + newLevel.pieceInfos[i].coordX + "," + newLevel.pieceInfos[i].coordY + "," + newLevel.pieceInfos[i].rotationEnum + ",";
+                        System.out.println("" + newLevel.pieceInfos[i].type + "," + newLevel.pieceInfos[i].coordX + "," + newLevel.pieceInfos[i].coordY + "," + newLevel.pieceInfos[i].rotationEnum);
                     }
                 }
+                pieceInfo = pieceInfo.substring(0, pieceInfo.length() - 1);
+                System.out.println("preplaced piece number: " + count);
 
 
                 try {
@@ -345,7 +358,7 @@ public class LevelEditorScene extends QuadScene {
 
                     System.out.println("username in level editor: " + Main.player.username);
 
-                    String query03 = "INSERT INTO createdLevel VALUES('" + levelNameTextField.getText() + "', '" + gridInfo + "', '" + pieceInfo +"', '" + Main.player.username + "');";
+                    String query03 = "INSERT INTO createdLevel VALUES('" + levelNameTextField.getText() + "', '" + gridInfo + "', '" + pieceInfo + "', '" + Main.player.username + "');";
                     int isSuccess = st.executeUpdate(query03);
                     System.out.println("query03: " + query03);
                     System.out.println("isSuccess: " + isSuccess);
@@ -353,8 +366,29 @@ public class LevelEditorScene extends QuadScene {
                     System.out.println(except.getMessage());
                 }
 
-                // For now, you immediately play the created level
-                Main.mainStage.setScene(new ArcadeGameScene(newLevel, false));
+
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("/FXMLDeneme/LevelEditorPage.fxml"));
+                Scene scene = null;
+                try {
+                    scene = new Scene(loader.load(), 1600, 900);
+                    if (SettingsController.nightMode) {
+                        scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                        System.out.println("Dark");
+                    } else {
+                        if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                            scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                        } else {
+                            scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                        }
+                    }
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
+                Main.mainStage.setTitle("My Little Quadrillion - v0.01");
+                Main.mainStage.setScene(scene);
+                Main.mainStage.show();
             }
         });
         nextPhase.setDisable(true);
@@ -368,8 +402,18 @@ public class LevelEditorScene extends QuadScene {
             Scene scene = null;
             try {
                 scene = new Scene(loader.load(), 1600, 900);
-            } catch (IOException ev) {
-                ev.printStackTrace();
+                if (SettingsController.nightMode) {
+                    scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
+                    System.out.println("Dark");
+                } else {
+                    if (SettingsController.themeSelection.equals("Bilkent Theme")) {
+                        scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
+                    } else {
+                        scene.getStylesheets().add("CSS_StyleSheets/Style.css");
+                    }
+                }
+            } catch (IOException e1) {
+                e1.printStackTrace();
             }
 
             Main.mainStage.setTitle("My Little Quadrillion - v0.01");
