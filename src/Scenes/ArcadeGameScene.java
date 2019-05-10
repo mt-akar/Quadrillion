@@ -26,7 +26,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import java.util.Timer;
-
 import DataModels.GameLevel;
 
 import ViewModels.*;
@@ -72,7 +71,7 @@ public class ArcadeGameScene extends QuadScene {
     private double gl = Glob.gl;
 
     private double gameBoardOffsetX = Glob.windowWidth() / 2 - gl * 8;
-    private double gameBoardOffsetY = 30;
+    private  double gameBoardOffsetY = 30;
 
     private boolean isArcade;
 
@@ -114,12 +113,9 @@ public class ArcadeGameScene extends QuadScene {
     };
 
     IntegerProperty property = new SimpleIntegerProperty();
-
-    public void start() {
-        myTimer.scheduleAtFixedRate(secTask, 1000, 1000);
-    }
-
-    ;
+    public void start(){
+        myTimer.scheduleAtFixedRate(secTask,1000,1000);
+    };
 
     Label CounterLabel = new Label("0");
 
@@ -133,16 +129,7 @@ public class ArcadeGameScene extends QuadScene {
 
     public ArcadeGameScene(GameLevel level, boolean isArcade) {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
-        if (SettingsController.nightMode) {
-            getStylesheets().add("CSS_StyleSheets/Dark.css");
-            System.out.println("Dark");
-        } else {
-            if (SettingsController.themeSelection.equals("Bilkent Theme")) {
-                getStylesheets().add("CSS_StyleSheets/FlatBee.css");
-            } else {
-                getStylesheets().add("CSS_StyleSheets/Style.css");
-            }
-        }
+
         this.isArcade = isArcade;
 
         TimerLabel.textProperty().bind(property.asString());
@@ -234,11 +221,11 @@ public class ArcadeGameScene extends QuadScene {
         gameSceneLayout.getChildren().add(gridViews[3]);
 
         // Update grid view positions
-        gridPositions = new int[][]{
-                {level.gridInfos[0].coordX, level.gridInfos[0].coordY},
-                {level.gridInfos[1].coordX, level.gridInfos[1].coordY},
-                {level.gridInfos[2].coordX, level.gridInfos[2].coordY},
-                {level.gridInfos[3].coordX, level.gridInfos[3].coordY}
+        gridPositions = new int[][] {
+            {level.gridInfos[0].coordX, level.gridInfos[0].coordY},
+            {level.gridInfos[1].coordX, level.gridInfos[1].coordY},
+            {level.gridInfos[2].coordX, level.gridInfos[2].coordY},
+            {level.gridInfos[3].coordX, level.gridInfos[3].coordY}
         };
 
         // Update gameSceneLayout for grids
@@ -249,35 +236,46 @@ public class ArcadeGameScene extends QuadScene {
                         gameBoardLayout[j + gridViews[i].coordX - 1][k + gridViews[i].coordY - 1] = true;
 
         // Add pre-placed pieces
-        for (int i = 0; i < level.pieceInfos.length; i++) {
+        for (int i = 0; i < level.pieceInfos.length; i++){
             if (!level.pieceInfos[i].placed)
                 continue;
 
             PieceView pv;
 
-            if (level.pieceInfos[i].type == 1) {
+            if (level.pieceInfos[i].type == 1){
                 pv = new LPieceView();
-            } else if (level.pieceInfos[i].type == 2) {
+            }
+            else if (level.pieceInfos[i].type == 2){
                 pv = new YPieceView();
-            } else if (level.pieceInfos[i].type == 3) {
+            }
+            else if (level.pieceInfos[i].type == 3){
                 pv = new PPieceView();
-            } else if (level.pieceInfos[i].type == 4) {
+            }
+            else if (level.pieceInfos[i].type == 4){
                 pv = new UPieceView();
-            } else if (level.pieceInfos[i].type == 5) {
+            }
+            else if (level.pieceInfos[i].type == 5){
                 pv = new ZPieceView();
-            } else if (level.pieceInfos[i].type == 6) {
+            }
+            else if (level.pieceInfos[i].type == 6){
                 pv = new FPieceView();
-            } else if (level.pieceInfos[i].type == 7) {
+            }
+            else if (level.pieceInfos[i].type == 7){
                 pv = new TPieceView();
-            } else if (level.pieceInfos[i].type == 8) {
+            }
+            else if (level.pieceInfos[i].type == 8){
                 pv = new WPieceView();
-            } else if (level.pieceInfos[i].type == 9) {
+            }
+            else if (level.pieceInfos[i].type == 9){
                 pv = new SPieceView();
-            } else if (level.pieceInfos[i].type == 10) {
+            }
+            else if (level.pieceInfos[i].type == 10){
                 pv = new VPieceView();
-            } else if (level.pieceInfos[i].type == 11) {
+            }
+            else if (level.pieceInfos[i].type == 11){
                 pv = new NPieceView();
-            } else {
+            }
+            else{
                 pv = new RPieceView();
             }
 
@@ -315,34 +313,45 @@ public class ArcadeGameScene extends QuadScene {
 
             PieceView pv;
 
-            if (level.pieceInfos[i].type == 1) {
+            if (level.pieceInfos[i].type == 1){
                 pv = new LPieceView();
-            } else if (level.pieceInfos[i].type == 2) {
+            }
+            else if (level.pieceInfos[i].type == 2){
                 pv = new YPieceView();
-            } else if (level.pieceInfos[i].type == 3) {
+            }
+            else if (level.pieceInfos[i].type == 3){
                 pv = new PPieceView();
-            } else if (level.pieceInfos[i].type == 4) {
+            }
+            else if (level.pieceInfos[i].type == 4){
                 pv = new UPieceView();
-            } else if (level.pieceInfos[i].type == 5) {
+            }
+            else if (level.pieceInfos[i].type == 5){
                 pv = new ZPieceView();
-            } else if (level.pieceInfos[i].type == 6) {
+            }
+            else if (level.pieceInfos[i].type == 6){
                 pv = new FPieceView();
-            } else if (level.pieceInfos[i].type == 7) {
+            }
+            else if (level.pieceInfos[i].type == 7){
                 pv = new TPieceView();
-            } else if (level.pieceInfos[i].type == 8) {
+            }
+            else if (level.pieceInfos[i].type == 8){
                 pv = new WPieceView();
-            } else if (level.pieceInfos[i].type == 9) {
+            }
+            else if (level.pieceInfos[i].type == 9){
                 pv = new SPieceView();
-            } else if (level.pieceInfos[i].type == 10) {
+            }
+            else if (level.pieceInfos[i].type == 10){
                 pv = new VPieceView();
-            } else if (level.pieceInfos[i].type == 11) {
+            }
+            else if (level.pieceInfos[i].type == 11){
                 pv = new NPieceView();
-            } else {
+            }
+            else{
                 pv = new RPieceView();
             }
 
             // Set position of the piece
-            pv.setLayoutX(placeOnScreenOffset < 6 ? 120 + (int) (placeOnScreenOffset / 3) * 230 : 810 + (int) (placeOnScreenOffset / 3) * 230);
+            pv.setLayoutX(placeOnScreenOffset < 6 ? 120 + (int)(placeOnScreenOffset / 3) * 230 : 810 + (int)(placeOnScreenOffset / 3) * 230);
             pv.setLayoutY(200 + (placeOnScreenOffset % 3) * 180);
 
             // Set stroke
@@ -363,22 +372,12 @@ public class ArcadeGameScene extends QuadScene {
         backButton.setOnAction(e -> {
             System.out.println("back button is now loaded!");
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource(isArcade ? "/FXMLDeneme/ArcadePage.fxml" : "/FXMLDeneme/LevelEditorPage.fxml"));
+            loader.setLocation(getClass().getResource("/FXMLDeneme/RushPage.fxml"));
             Scene scene = null;
             try {
                 scene = new Scene(loader.load(), 1600, 900);
-                if (SettingsController.nightMode) {
-                    scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
-                    System.out.println("Dark");
-                } else {
-                    if (SettingsController.themeSelection.equals("Bilkent Theme")) {
-                        scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
-                    } else {
-                        scene.getStylesheets().add("CSS_StyleSheets/Style.css");
-                    }
-                }
-            } catch (IOException e1) {
-                e1.printStackTrace();
+            } catch (IOException ev) {
+                ev.printStackTrace();
             }
 
             Main.mainStage.setTitle("My Little Quadrillion - v0.01");
@@ -402,7 +401,7 @@ public class ArcadeGameScene extends QuadScene {
                     pv.toFront();
 
                     // REMOVE
-                    if (pv.placed) {
+                    if (pv.placed){
                         // Update gameBoardLayout
                         for (int i = 0; i < pv.p.structure.length; i++)
                             for (int j = 0; j < pv.p.structure[0].length; j++)
@@ -443,7 +442,7 @@ public class ArcadeGameScene extends QuadScene {
 
                     // Move the piece
                     pw.setLayoutX(Math.min(Math.max(gl / 2, pw.getLayoutX() + t.getSceneX() - mousePrevX), Glob.windowWidth()));
-                    pw.setLayoutY(Math.min(Math.max(gl / 2, pw.getLayoutY() + t.getSceneY() - mousePrevY), Glob.windowHeight()));
+                    pw.setLayoutY(Math.min(Math.max(gl / 2, pw.getLayoutY() + t.getSceneY() - mousePrevY),Glob.windowHeight()));
 
                     // Update the mouse position AFTER the drag happens
                     mousePrevX = t.getSceneX();
@@ -528,13 +527,13 @@ public class ArcadeGameScene extends QuadScene {
 
                         popupwindow.initModality(Modality.APPLICATION_MODAL);
                         popupwindow.setTitle("Game Over");
-                        popupwindow.setHeight(450);
-                        popupwindow.setWidth(800);
+                        popupwindow.setHeight(400);
+                        popupwindow.setWidth(600);
 
 
                         Label label1 = new Label("You solved the puzzle in " + sec + " seconds \n with " + moveCounter + " moves");
-                        label1.setScaleX(1.5);
-                        label1.setScaleY(1.5);
+                        label1.setScaleX(2);
+                        label1.setScaleY(2);
 
                         Button button1 = new Button("OK");
                         button1.setOnAction(e -> {
@@ -544,16 +543,6 @@ public class ArcadeGameScene extends QuadScene {
                             Scene scene = null;
                             try {
                                 scene = new Scene(loader.load(), 1600, 900);
-                                if (SettingsController.nightMode) {
-                                    scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
-                                    System.out.println("Dark");
-                                } else {
-                                    if (SettingsController.themeSelection.equals("Bilkent Theme")) {
-                                        scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
-                                    } else {
-                                        scene.getStylesheets().add("CSS_StyleSheets/Style.css");
-                                    }
-                                }
                             } catch (IOException e1) {
                                 e1.printStackTrace();
                             }
@@ -572,22 +561,7 @@ public class ArcadeGameScene extends QuadScene {
 
                         layout.setAlignment(Pos.CENTER);
 
-                        Scene scene1 = new Scene(layout, 640, 480);
-
-                        FXMLLoader loader = new FXMLLoader();
-                        loader.setLocation(getClass().getResource("/FXMLDeneme/LevelEditorPage.fxml"));
-
-                        if (SettingsController.nightMode) {
-                            scene1.getStylesheets().add("CSS_StyleSheets/Dark.css");
-                            System.out.println("Dark");
-                        } else {
-                            if (SettingsController.themeSelection.equals("Bilkent Theme")) {
-                                scene1.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
-                            } else {
-                                scene1.getStylesheets().add("CSS_StyleSheets/Style.css");
-                            }
-                        }
-
+                        Scene scene1 = new Scene(layout, 300, 250);
 
                         popupwindow.setScene(scene1);
 
@@ -595,6 +569,8 @@ public class ArcadeGameScene extends QuadScene {
                     }
                 }
             };
+
+
 
 
     // Helper func that gives the nearest multiple of 'gl' to a given double
@@ -615,22 +591,19 @@ public class ArcadeGameScene extends QuadScene {
     // This method takes a window position and converts it to board coordinates.
     // Coordinate 1, 1 means corresponds to the left-top-most 4 by 4 grid.
     // There are 13x13 different coordinates on the board.
-    private int windowToXCoordinate(double pos) {
+    private int windowToXCoordinate(double pos){
         return (int) ((NearestGL(pos - gameBoardOffsetX)) / gl) - 1;
     }
-
-    private int windowToYCoordinate(double pos) {
+    private int windowToYCoordinate(double pos){
         return (int) ((NearestGL(pos - gameBoardOffsetY)) / gl) - 1;
     }
 
     // This method reverses windowToXCoordinate method
-    private double xCoordinateToWindow(int pos) {
+    private double xCoordinateToWindow(int pos){
         return (pos + 1) * gl + gameBoardOffsetX;
     }
-
-    private double yCoordinateToWindow(int pos) {
+    private double yCoordinateToWindow(int pos){
         return (pos + 1) * gl + gameBoardOffsetY;
     }
-
 
 }

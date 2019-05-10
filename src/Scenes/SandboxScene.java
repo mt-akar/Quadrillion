@@ -30,16 +30,6 @@ public class SandboxScene extends QuadScene {
 
     public SandboxScene() {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
-        if (SettingsController.nightMode) {
-            getStylesheets().add("CSS_StyleSheets/Dark.css");
-            System.out.println("Dark");
-        } else {
-            if (SettingsController.themeSelection.equals("Bilkent Theme")) {
-                getStylesheets().add("CSS_StyleSheets/FlatBee.css");
-            } else {
-                getStylesheets().add("CSS_StyleSheets/Style.css");
-            }
-        }
         Pane levelEditorLayout = new Pane();
         setRoot(levelEditorLayout);
 
@@ -220,18 +210,8 @@ public class SandboxScene extends QuadScene {
             Scene scene = null;
             try {
                 scene = new Scene(loader.load(), 1600, 900);
-                if (SettingsController.nightMode) {
-                    scene.getStylesheets().add("CSS_StyleSheets/Dark.css");
-                    System.out.println("Dark");
-                } else {
-                    if (SettingsController.themeSelection.equals("Bilkent Theme")) {
-                        scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
-                    } else {
-                        scene.getStylesheets().add("CSS_StyleSheets/Style.css");
-                    }
-                }
-            } catch (IOException e1) {
-                e1.printStackTrace();
+            } catch (IOException ev) {
+                ev.printStackTrace();
             }
 
             Main.mainStage.setTitle("My Little Quadrillion - v0.01");

@@ -47,24 +47,11 @@ public class Main extends Application {
             //LevelEditorScene gameScene = new LevelEditorScene();
 
             Parent root = FXMLLoader.load(getClass().getResource("/FXMLDeneme/FirstPageLoginRegister.fxml"));
-            root.getStylesheets().add("CSS_StyleSheets/Style.css");
+            root.setStyle("-fx-background-color: #fcdece;");
             primaryStage.setTitle("My Little Quadrillion - v0.01");
-
+            primaryStage.getIcons().add(new Image("file:src/Images/logo.png"));
             primaryStage.setResizable(false);
             primaryStage.setScene(new Scene(root, 1600 , 900));
-
-
-
-
-
-
-
-
-
-
-
-            //  --------------------- Media ---------------------
-            primaryStage.getIcons().add(new Image("file:src/Images/logo.png"));
             Media media = new Media(new File("src/Playlist/tetris.mp3").toURI().toString());
             MediaPlayer player = new MediaPlayer(media);
             MediaView view = new MediaView(player);
