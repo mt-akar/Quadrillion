@@ -15,10 +15,14 @@ public class CustomLevelsScene extends QuadScene {
 
     public QuadButton[] buttons;
 
-    public CustomLevelsScene() {
+    private boolean colorBlind;
+
+    public CustomLevelsScene(boolean isColorBlind) {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
         VBox mainLayout = new VBox();
         setRoot(mainLayout);
+
+        colorBlind = isColorBlind;
 
         System.out.println("here");
 
@@ -28,7 +32,7 @@ public class CustomLevelsScene extends QuadScene {
         mainLayout.getChildren().addAll(newButton);
 
         newButton.setOnAction(e -> {
-            Main.mainStage.setScene(new LevelEditorScene());
+            Main.mainStage.setScene(new LevelEditorScene(colorBlind));
         });
 
         // TODO: Fetch custom levels from database and display
@@ -40,7 +44,7 @@ public class CustomLevelsScene extends QuadScene {
             Button levelButton = new Button("Play " + "Level Name");
             mainLayout.getChildren().add(levelButton);
             levelButton.setOnAction(e -> {
-                Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(), false));
+                Main.mainStage.setScene(new ArcadeGameScene(new GameLevel(), false, colorBlind));
             });
         }
     }

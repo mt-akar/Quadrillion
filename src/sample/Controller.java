@@ -30,7 +30,15 @@ public class Controller implements Initializable {
     MediaPlayer player = new MediaPlayer(media);
     MediaView view = new MediaView(player);
 
+    boolean isColorBlind;
+
     public void initialize(URL location, ResourceBundle resources) {
+        if (SettingsController.colorBlindMode){
+            isColorBlind = true;
+        }
+        else{
+            isColorBlind = false;
+        }
         System.out.println("View is now loaded!");
     }
 
@@ -144,7 +152,7 @@ public class Controller implements Initializable {
     }
     public void sandboxButton(ActionEvent event){
         System.out.println("sandbox is now loaded!");
-        Main.mainStage.setScene(new SandboxScene());
+        Main.mainStage.setScene(new SandboxScene(isColorBlind));
         //Main.mainStage.setMaximized(true);
         Main.mainStage.show();
     }

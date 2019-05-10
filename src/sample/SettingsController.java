@@ -23,8 +23,9 @@ public class SettingsController implements Initializable{
     Button backButton;
     ToggleButton nightModeButton, colorBlindModeButton;
     static boolean nightMode = false;
-    static boolean colorBlindMode = false;
+    static boolean colorBlindMode = true;
     static int nightModeCount;
+    static int colorBlindCount;
     @FXML
     ComboBox<String> theme; // Value injected by FXMLLoader
     static String themeSelection = "Classic Theme";
@@ -116,31 +117,16 @@ public class SettingsController implements Initializable{
         stg2.close();
     }
 
-    /*
+
     public void colorBlindMode(ActionEvent event) throws IOException {
         System.out.println("Color blind mode is now loaded!");
-        themeSelection = theme.getSelectionModel().selectedItemProperty().getValue();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/FXMLDeneme/SettingsPage.fxml"));
-        Scene scene = null;
-        try {
-            scene = new Scene(loader.load(), 800, 600);
-            if (SettingsController.themeSelection.equals("Bilkent Theme")) {
-                //scene.getStylesheets().add("CSS_StyleSheets/ColorB.scss");
-                scene.getStylesheets().add("CSS_StyleSheets/FlatBee.css");
-                System.out.println("done");
-            } else {
-                scene.getStylesheets().add("CSS_StyleSheets/Style.css");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        colorBlindCount++;
+        if (colorBlindCount % 2 == 0) {
+            colorBlindMode = false;
+        } else {
+            colorBlindMode = true;
         }
-        Main.mainStage.setTitle("My Little Quadrillion - v0.01");
-        Main.mainStage.setScene(scene);
-        Main.mainStage.show();
-        Stage stg2 = (Stage) backButton.getScene().getWindow();
-        stg2.close();
-    }*/
+    }
 
     public void credits(ActionEvent event) throws IOException {
         System.out.println("back button is now loaded!");

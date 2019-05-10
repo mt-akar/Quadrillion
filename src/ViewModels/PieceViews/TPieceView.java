@@ -7,9 +7,13 @@ import sample.Glob;
 
 public class TPieceView extends PieceView {
 
-    public TPieceView(){
+    boolean colorBlind;
+
+    public TPieceView(boolean isColorBlind){
         // Create the piece
         p = new TPiece();
+
+        colorBlind = isColorBlind;
 
 //change
         // Draw the shape
@@ -23,8 +27,15 @@ public class TPieceView extends PieceView {
                 gl*-2, gl*-1);
 
         // Paint the piece
-        this.setFill(Glob.TPieceDisplacedColor);
-        this.setStroke(Glob.TPiecePlacedColor);
+        if(colorBlind){
+            this.setFill(Glob.TPieceCBColor);
+            this.setStroke(Glob.TPieceCBColor);
+
+        }else {
+            // Paint the piece
+            this.setFill(Glob.TPieceDisplacedColor);
+            this.setStroke(Glob.TPiecePlacedColor);
+        }
     }
 
     public void rotateWOAnimating(){
@@ -39,9 +50,14 @@ public class TPieceView extends PieceView {
     }
 
     public void adjustColor(){
-        if (placed)
-            this.setFill(Glob.TPiecePlacedColor);
-        else
-            this.setFill(Glob.TPieceDisplacedColor);
+        if (colorBlind){
+            this.setFill(Glob.TPieceCBColor);
+        }
+        else {
+            if (placed)
+                this.setFill(Glob.TPiecePlacedColor);
+            else
+                this.setFill(Glob.TPieceDisplacedColor);
+        }
     }
 }

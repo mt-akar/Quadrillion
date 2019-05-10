@@ -13,10 +13,14 @@ public class MenuScene extends QuadScene {
 
 	public QuadButton[] buttons;
 
-	public MenuScene(MediaView mediaView) {
+	private boolean colorBlind;
+
+	public MenuScene(MediaView mediaView, boolean isColorBlind) {
 		super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
 		VBox mainLayout = new VBox();
 		setRoot(mainLayout);
+
+		colorBlind = isColorBlind;
 
 		Button playButton = new Button("Play");
 		Button settingsButton = new Button("Settings");
@@ -24,7 +28,7 @@ public class MenuScene extends QuadScene {
 		mainLayout.getChildren().addAll(playButton, mediaView);
 
 		playButton.setOnAction(e -> {
-			Main.mainStage.setScene(new PlayScene(mediaView));
+			Main.mainStage.setScene(new PlayScene(mediaView, colorBlind));
 		});
 
 		settingsButton.setOnAction(e -> {

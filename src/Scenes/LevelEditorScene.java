@@ -46,10 +46,14 @@ public class LevelEditorScene extends QuadScene {
     private TextField levelNameTextField;
     private Button nextPhase;
 
-    public LevelEditorScene() {
+    private boolean colorBlind;
+
+    public LevelEditorScene(boolean isColorBlind) {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
         Pane levelEditorLayout = new Pane();
         setRoot(levelEditorLayout);
+
+        colorBlind = isColorBlind;
 
         levelEditorLayout.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(0), new Insets(0))));
 
@@ -125,7 +129,7 @@ public class LevelEditorScene extends QuadScene {
 
                 pieces = new ArrayList<PieceView>();
 
-                LPieceView l = new LPieceView();
+                LPieceView l = new LPieceView(colorBlind);
                 l.setLayoutX(120);
                 l.setLayoutY(200);
                 l.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -134,7 +138,7 @@ public class LevelEditorScene extends QuadScene {
                 pieces.add(l);
                 levelEditorLayout.getChildren().add(l);
 
-                YPieceView y = new YPieceView();
+                YPieceView y = new YPieceView(colorBlind);
                 y.setLayoutX(120);
                 y.setLayoutY(380);
                 y.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -143,7 +147,7 @@ public class LevelEditorScene extends QuadScene {
                 pieces.add(y);
                 levelEditorLayout.getChildren().add(y);
 
-                PPieceView p = new PPieceView();
+                PPieceView p = new PPieceView(colorBlind);
                 p.setLayoutX(120);
                 p.setLayoutY(560);
                 p.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -152,7 +156,7 @@ public class LevelEditorScene extends QuadScene {
                 pieces.add(p);
                 levelEditorLayout.getChildren().add(p);
 
-                UPieceView u = new UPieceView();
+                UPieceView u = new UPieceView(colorBlind);
                 u.setLayoutX(350);
                 u.setLayoutY(200);
                 u.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -161,7 +165,7 @@ public class LevelEditorScene extends QuadScene {
                 pieces.add(u);
                 levelEditorLayout.getChildren().add(u);
 
-                ZPieceView z = new ZPieceView();
+                ZPieceView z = new ZPieceView(colorBlind);
                 z.setLayoutX(350);
                 z.setLayoutY(380);
                 z.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -170,7 +174,7 @@ public class LevelEditorScene extends QuadScene {
                 pieces.add(z);
                 levelEditorLayout.getChildren().add(z);
 
-                FPieceView f = new FPieceView();
+                FPieceView f = new FPieceView(colorBlind);
                 f.setLayoutX(350);
                 f.setLayoutY(560);
                 f.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -179,7 +183,7 @@ public class LevelEditorScene extends QuadScene {
                 pieces.add(f);
                 levelEditorLayout.getChildren().add(f);
 
-                TPieceView t = new TPieceView();
+                TPieceView t = new TPieceView(colorBlind);
                 t.setLayoutX(1270);
                 t.setLayoutY(200);
                 t.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -188,7 +192,7 @@ public class LevelEditorScene extends QuadScene {
                 pieces.add(t);
                 levelEditorLayout.getChildren().add(t);
 
-                WPieceView w = new WPieceView();
+                WPieceView w = new WPieceView(colorBlind);
                 w.setLayoutX(1270);
                 w.setLayoutY(380);
                 w.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -197,7 +201,7 @@ public class LevelEditorScene extends QuadScene {
                 pieces.add(w);
                 levelEditorLayout.getChildren().add(w);
 
-                SPieceView s = new SPieceView();
+                SPieceView s = new SPieceView(colorBlind);
                 s.setLayoutX(1270);
                 s.setLayoutY(560);
                 s.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -206,7 +210,7 @@ public class LevelEditorScene extends QuadScene {
                 pieces.add(s);
                 levelEditorLayout.getChildren().add(s);
 
-                VPieceView v = new VPieceView();
+                VPieceView v = new VPieceView(colorBlind);
                 v.setLayoutX(1480);
                 v.setLayoutY(200);
                 v.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -215,7 +219,7 @@ public class LevelEditorScene extends QuadScene {
                 pieces.add(v);
                 levelEditorLayout.getChildren().add(v);
 
-                NPieceView n = new NPieceView();
+                NPieceView n = new NPieceView(colorBlind);
                 n.setLayoutX(1480);
                 n.setLayoutY(380);
                 n.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -224,7 +228,7 @@ public class LevelEditorScene extends QuadScene {
                 pieces.add(n);
                 levelEditorLayout.getChildren().add(n);
 
-                RPieceView r = new RPieceView();
+                RPieceView r = new RPieceView(colorBlind);
                 r.setLayoutX(1480);
                 r.setLayoutY(560);
                 r.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -354,7 +358,7 @@ public class LevelEditorScene extends QuadScene {
                 }
 
                 // For now, you immediately play the created level
-                Main.mainStage.setScene(new ArcadeGameScene(newLevel, false));
+                Main.mainStage.setScene(new ArcadeGameScene(newLevel, false, colorBlind));
             }
         });
         nextPhase.setDisable(true);

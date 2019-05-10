@@ -19,10 +19,19 @@ import java.util.ResourceBundle;
 public class LevelEditorPageController implements Initializable {
     Button backButton;
 
+    boolean isColorBlind;
+
     @FXML
     private ComboBox<String> comboBox;
 
     public void initialize(URL location, ResourceBundle resources) {
+
+        if(SettingsController.colorBlindMode){
+            isColorBlind = true;
+        }
+        else{
+            isColorBlind = false;
+        }
 
         ObservableList<String> comboItems = FXCollections.observableArrayList();
 
@@ -83,7 +92,7 @@ public class LevelEditorPageController implements Initializable {
     }
 
     public void createButton(ActionEvent event) throws IOException {
-        Main.mainStage.setScene(new LevelEditorScene());
+        Main.mainStage.setScene(new LevelEditorScene(isColorBlind));
     }
 
     public void comboChoice(ActionEvent event) throws IOException {

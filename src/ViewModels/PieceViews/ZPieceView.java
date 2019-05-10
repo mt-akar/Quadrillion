@@ -12,9 +12,13 @@ import sample.Glob;
 
 public class ZPieceView extends PieceView {
 
-    public ZPieceView(){
+    boolean colorBlind;
+
+    public ZPieceView( boolean isColorBlind){
         // Create the piece
         p = new ZPiece();
+
+        colorBlind = isColorBlind;
 
         // Draw the shape
         this.getPoints().addAll(gl*-2, gl*-2,
@@ -27,8 +31,15 @@ public class ZPieceView extends PieceView {
                 gl*-2, gl*-1);
 
         // Paint the piece
-        this.setFill(Glob.ZPieceDisplacedColor);
-        this.setStroke(Glob.ZPiecePlacedColor);
+        if(colorBlind){
+            this.setFill(Glob.ZPieceCBColor);
+            this.setStroke(Glob.ZPieceCBColor);
+
+        }else {
+            // Paint the piece
+            this.setFill(Glob.ZPieceDisplacedColor);
+            this.setStroke(Glob.ZPiecePlacedColor);
+        }
     }
 
     public void rotate(){
@@ -78,9 +89,14 @@ public class ZPieceView extends PieceView {
     }
 
     public void adjustColor(){
-        if (placed)
-            this.setFill(Glob.ZPiecePlacedColor);
-        else
-            this.setFill(Glob.ZPieceDisplacedColor);
+        if (colorBlind){
+            this.setFill(Glob.ZPieceCBColor);
+        }
+        else {
+            if (placed)
+                this.setFill(Glob.ZPiecePlacedColor);
+            else
+                this.setFill(Glob.ZPieceDisplacedColor);
+        }
     }
 }

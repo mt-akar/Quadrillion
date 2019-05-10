@@ -14,10 +14,13 @@ public class PlayScene extends QuadScene {
 
 	public QuadButton[] buttons;
 
-	public PlayScene(MediaView mediaView) {
+	private boolean colorBlind;
+
+	public PlayScene(MediaView mediaView, boolean isColorBlind) {
 		super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
 		VBox mainLayout = new VBox();
 		setRoot(mainLayout);
+		colorBlind = isColorBlind;
 
 		// Change after this
 		Button tutorialButton = new Button("Tutorial");
@@ -29,19 +32,19 @@ public class PlayScene extends QuadScene {
 		mainLayout.getChildren().addAll(tutorialButton, playButton, rushModeButton, levelEditorButton, sandboxButtonButton, mediaView);
 
 		playButton.setOnAction(e -> {
-			Main.mainStage.setScene(new ArcadeScene());
+			Main.mainStage.setScene(new ArcadeScene(colorBlind));
 		});
 
 		rushModeButton.setOnAction(e -> {
-			Main.mainStage.setScene(new RushModeSelectionScene());
+			Main.mainStage.setScene(new RushModeSelectionScene(colorBlind));
 		});
 
 		levelEditorButton.setOnAction(e -> {
-			Main.mainStage.setScene(new CustomLevelsScene());
+			Main.mainStage.setScene(new CustomLevelsScene(colorBlind));
 		});
 
 		sandboxButtonButton.setOnAction(e -> {
-			Main.mainStage.setScene(new SandboxScene());
+			Main.mainStage.setScene(new SandboxScene(colorBlind));
 		});
 	}
 }

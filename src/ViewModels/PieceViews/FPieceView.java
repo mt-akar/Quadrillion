@@ -12,9 +12,13 @@ import sample.Glob;
 
 public class FPieceView extends PieceView {
 
-    public FPieceView(){
+    boolean colorBlind;
+
+    public FPieceView(boolean isColorBlind){
         // Create the piece
         p = new FPiece();
+
+        colorBlind = isColorBlind;
 
         // Draw the shape
         this.getPoints().addAll(gl*-1, gl*-2,
@@ -29,8 +33,15 @@ public class FPieceView extends PieceView {
                 gl*-1, gl*-1);
 
         // Paint the piece
-        this.setFill(Glob.FPieceDisplacedColor);
-        this.setStroke(Glob.FPiecePlacedColor);
+        if(colorBlind){
+            this.setFill(Glob.FPieceCBColor);
+            this.setStroke(Glob.FPieceCBColor);
+
+        }else {
+            // Paint the piece
+            this.setFill(Glob.FPieceDisplacedColor);
+            this.setStroke(Glob.FPiecePlacedColor);
+        }
     }
 
     public void rotate(){
@@ -81,9 +92,14 @@ public class FPieceView extends PieceView {
     }
 
     public void adjustColor(){
-        if (placed)
-            this.setFill(Glob.FPiecePlacedColor);
-        else
-            this.setFill(Glob.FPieceDisplacedColor);
+        if (colorBlind){
+            this.setFill(Glob.FPieceCBColor);
+        }
+        else {
+            if (placed)
+                this.setFill(Glob.FPiecePlacedColor);
+            else
+                this.setFill(Glob.FPieceDisplacedColor);
+        }
     }
 }

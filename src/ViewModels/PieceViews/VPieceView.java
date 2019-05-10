@@ -6,9 +6,13 @@ import sample.Glob;
 
 public class VPieceView extends PieceView {
 
-    public VPieceView(){
+    boolean colorBlind;
+
+    public VPieceView(boolean isColorBlind){
         // Create the piece
         p = new VPiece();
+
+        colorBlind = isColorBlind;
 
         // Draw the shape
         this.getPoints().addAll(gl*-1, gl*-2,
@@ -28,14 +32,26 @@ public class VPieceView extends PieceView {
         this.setTranslateY(gl/2);
 
         // Paint the piece
-        this.setFill(Glob.VPieceDisplacedColor);
-        this.setStroke(Glob.VPiecePlacedColor);
+        if(colorBlind){
+            this.setFill(Glob.VPieceCBColor);
+            this.setStroke(Glob.VPieceCBColor);
+
+        }else {
+            // Paint the piece
+            this.setFill(Glob.VPieceDisplacedColor);
+            this.setStroke(Glob.VPiecePlacedColor);
+        }
     }
 
     public void adjustColor(){
-        if (placed)
-            this.setFill(Glob.VPiecePlacedColor);
-        else
-            this.setFill(Glob.VPieceDisplacedColor);
+        if (colorBlind){
+            this.setFill(Glob.VPieceCBColor);
+        }
+        else {
+            if (placed)
+                this.setFill(Glob.VPiecePlacedColor);
+            else
+                this.setFill(Glob.VPieceDisplacedColor);
+        }
     }
 }

@@ -12,9 +12,13 @@ import sample.Glob;
 
 public class PPieceView extends PieceView {
 
-    public PPieceView(){
+    boolean colorBlind;
+
+    public PPieceView(boolean isColorBlind){
         // Create the piece
         p = new PPiece();
+
+        colorBlind = isColorBlind;
 
 //change
         // Draw the shape
@@ -34,8 +38,15 @@ public class PPieceView extends PieceView {
         this.setTranslateY(-gl/2);
 
         // Paint the piece
-        this.setFill(Glob.PPieceDisplacedColor);
-        this.setStroke(Glob.PPiecePlacedColor);
+        if(colorBlind){
+            this.setFill(Glob.PPieceCBColor);
+            this.setStroke(Glob.PPieceCBColor);
+
+        }else {
+            // Paint the piece
+            this.setFill(Glob.PPieceDisplacedColor);
+            this.setStroke(Glob.PPiecePlacedColor);
+        }
     }
 
     public void rotate(){
@@ -75,9 +86,14 @@ public class PPieceView extends PieceView {
     }
 
     public void adjustColor(){
-        if (placed)
-            this.setFill(Glob.PPiecePlacedColor);
-        else
-            this.setFill(Glob.PPieceDisplacedColor);
+        if (colorBlind){
+            this.setFill(Glob.PPieceCBColor);
+        }
+        else {
+            if (placed)
+                this.setFill(Glob.PPiecePlacedColor);
+            else
+                this.setFill(Glob.PPieceDisplacedColor);
+        }
     }
 }

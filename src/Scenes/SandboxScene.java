@@ -28,10 +28,14 @@ public class SandboxScene extends QuadScene {
     private int[][] gridPositions = new int[4][2];
     private Button startGamePhase;
 
-    public SandboxScene() {
+    private boolean colorBlind;
+
+    public SandboxScene(boolean isColorBlind) {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
         Pane levelEditorLayout = new Pane();
         setRoot(levelEditorLayout);
+
+        colorBlind = isColorBlind;
 
         levelEditorLayout.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(0), new Insets(0))));
 
@@ -99,7 +103,7 @@ public class SandboxScene extends QuadScene {
             });
 
             for (int i = 0; i < 10; i++) {
-                LPieceView l = new LPieceView();
+                LPieceView l = new LPieceView(colorBlind);
                 l.setLayoutX(120);
                 l.setLayoutY(200);
                 l.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -107,7 +111,7 @@ public class SandboxScene extends QuadScene {
                 l.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
                 levelEditorLayout.getChildren().add(l);
 
-                YPieceView y = new YPieceView();
+                YPieceView y = new YPieceView(colorBlind);
                 y.setLayoutX(120);
                 y.setLayoutY(380);
                 y.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -115,7 +119,7 @@ public class SandboxScene extends QuadScene {
                 y.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
                 levelEditorLayout.getChildren().add(y);
 
-                PPieceView p = new PPieceView();
+                PPieceView p = new PPieceView(colorBlind);
                 p.setLayoutX(120);
                 p.setLayoutY(560);
                 p.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -123,7 +127,7 @@ public class SandboxScene extends QuadScene {
                 p.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
                 levelEditorLayout.getChildren().add(p);
 
-                UPieceView u = new UPieceView();
+                UPieceView u = new UPieceView(colorBlind);
                 u.setLayoutX(350);
                 u.setLayoutY(200);
                 u.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -131,7 +135,7 @@ public class SandboxScene extends QuadScene {
                 u.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
                 levelEditorLayout.getChildren().add(u);
 
-                ZPieceView z = new ZPieceView();
+                ZPieceView z = new ZPieceView(colorBlind);
                 z.setLayoutX(350);
                 z.setLayoutY(380);
                 z.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -139,7 +143,7 @@ public class SandboxScene extends QuadScene {
                 z.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
                 levelEditorLayout.getChildren().add(z);
 
-                FPieceView f = new FPieceView();
+                FPieceView f = new FPieceView(colorBlind);
                 f.setLayoutX(350);
                 f.setLayoutY(560);
                 f.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -147,7 +151,7 @@ public class SandboxScene extends QuadScene {
                 f.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
                 levelEditorLayout.getChildren().add(f);
 
-                TPieceView t = new TPieceView();
+                TPieceView t = new TPieceView(colorBlind);
                 t.setLayoutX(1270);
                 t.setLayoutY(200);
                 t.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -155,7 +159,7 @@ public class SandboxScene extends QuadScene {
                 t.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
                 levelEditorLayout.getChildren().add(t);
 
-                WPieceView w = new WPieceView();
+                WPieceView w = new WPieceView(colorBlind);
                 w.setLayoutX(1270);
                 w.setLayoutY(380);
                 w.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -163,7 +167,7 @@ public class SandboxScene extends QuadScene {
                 w.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
                 levelEditorLayout.getChildren().add(w);
 
-                SPieceView s = new SPieceView();
+                SPieceView s = new SPieceView(colorBlind);
                 s.setLayoutX(1270);
                 s.setLayoutY(560);
                 s.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -171,7 +175,7 @@ public class SandboxScene extends QuadScene {
                 s.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
                 levelEditorLayout.getChildren().add(s);
 
-                VPieceView y1 = new VPieceView();
+                VPieceView y1 = new VPieceView(colorBlind);
                 y1.setLayoutX(1480);
                 y1.setLayoutY(200);
                 y1.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -179,7 +183,7 @@ public class SandboxScene extends QuadScene {
                 y1.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
                 levelEditorLayout.getChildren().add(y1);
 
-                NPieceView n = new NPieceView();
+                NPieceView n = new NPieceView(colorBlind);
                 n.setLayoutX(1480);
                 n.setLayoutY(380);
                 n.setOnMousePressed(OnMousePressedOnPieceEventHandler);
@@ -187,7 +191,7 @@ public class SandboxScene extends QuadScene {
                 n.setOnMouseReleased(OnMouseReleasedPieceEventHandler);
                 levelEditorLayout.getChildren().add(n);
 
-                RPieceView r = new RPieceView();
+                RPieceView r = new RPieceView(colorBlind);
                 r.setLayoutX(1480);
                 r.setLayoutY(560);
                 r.setOnMousePressed(OnMousePressedOnPieceEventHandler);

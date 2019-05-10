@@ -18,7 +18,15 @@ public class RushController implements Initializable {
 
     Button backButton;
 
+    boolean isColorBlind;
+
     public void initialize(URL location, ResourceBundle resources) {
+        if(SettingsController.colorBlindMode){
+            isColorBlind = true;
+        }
+        else{
+            isColorBlind = false;
+        }
         System.out.println("View is now loaded!");
     }
 
@@ -34,12 +42,12 @@ public class RushController implements Initializable {
         stg2.close();
     }
     public void ThreeMinutesButton(ActionEvent event){
-        Main.mainStage.setScene(new RushModeThreeMinuteScene());
+        Main.mainStage.setScene(new RushModeThreeMinuteScene(isColorBlind));
     }
     public void ThreePuzzlesButton(ActionEvent event){
-        Main.mainStage.setScene(new RushModeThreePuzzleScene());
+        Main.mainStage.setScene(new RushModeThreePuzzleScene(isColorBlind));
     }
     public void RestrictedModeButton(ActionEvent event){
-        Main.mainStage.setScene(new RushModeRestrictedScene());
+        Main.mainStage.setScene(new RushModeRestrictedScene(isColorBlind));
     }
 }

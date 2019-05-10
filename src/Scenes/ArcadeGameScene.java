@@ -83,6 +83,8 @@ public class ArcadeGameScene extends QuadScene {
 
     Timer myTimer = new Timer();
 
+    private boolean colorBlind;
+
     TimerTask secTask = new TimerTask() {
 
         @Override
@@ -127,8 +129,10 @@ public class ArcadeGameScene extends QuadScene {
 
     Label ElapsedLabel = new Label("Elapsed Time");
 
-    public ArcadeGameScene(GameLevel level, boolean isArcade) {
+    public ArcadeGameScene(GameLevel level, boolean isArcade, boolean isColorBlind) {
         super(new Pane(), Glob.windowWidth(), Glob.windowHeight());
+
+        this.colorBlind = isColorBlind;
 
         this.isArcade = isArcade;
 
@@ -243,40 +247,40 @@ public class ArcadeGameScene extends QuadScene {
             PieceView pv;
 
             if (level.pieceInfos[i].type == 1){
-                pv = new LPieceView();
+                pv = new LPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 2){
-                pv = new YPieceView();
+                pv = new YPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 3){
-                pv = new PPieceView();
+                pv = new PPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 4){
-                pv = new UPieceView();
+                pv = new UPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 5){
-                pv = new ZPieceView();
+                pv = new ZPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 6){
-                pv = new FPieceView();
+                pv = new FPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 7){
-                pv = new TPieceView();
+                pv = new TPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 8){
-                pv = new WPieceView();
+                pv = new WPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 9){
-                pv = new SPieceView();
+                pv = new SPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 10){
-                pv = new VPieceView();
+                pv = new VPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 11){
-                pv = new NPieceView();
+                pv = new NPieceView(colorBlind);
             }
             else{
-                pv = new RPieceView();
+                pv = new RPieceView(colorBlind);
             }
 
             // Update pw members
@@ -314,40 +318,40 @@ public class ArcadeGameScene extends QuadScene {
             PieceView pv;
 
             if (level.pieceInfos[i].type == 1){
-                pv = new LPieceView();
+                pv = new LPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 2){
-                pv = new YPieceView();
+                pv = new YPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 3){
-                pv = new PPieceView();
+                pv = new PPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 4){
-                pv = new UPieceView();
+                pv = new UPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 5){
-                pv = new ZPieceView();
+                pv = new ZPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 6){
-                pv = new FPieceView();
+                pv = new FPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 7){
-                pv = new TPieceView();
+                pv = new TPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 8){
-                pv = new WPieceView();
+                pv = new WPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 9){
-                pv = new SPieceView();
+                pv = new SPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 10){
-                pv = new VPieceView();
+                pv = new VPieceView(colorBlind);
             }
             else if (level.pieceInfos[i].type == 11){
-                pv = new NPieceView();
+                pv = new NPieceView(colorBlind);
             }
             else{
-                pv = new RPieceView();
+                pv = new RPieceView(colorBlind);
             }
 
             // Set position of the piece

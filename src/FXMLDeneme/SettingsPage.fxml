@@ -36,7 +36,7 @@
           </items>
         </ComboBox>
         <ToggleButton id="night1" fx:id="nightMode1" minHeight="28.0" mnemonicParsing="false" onAction="#nightMode" prefHeight="36.0" prefWidth="238.0" text="Night Mode" />
-        <ToggleButton id="colorBlind1" minHeight="28.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="238.0" text="Colorblind Mode" />
+        <ToggleButton id="colorBlind1" fx:id="coloBlindMode1" minHeight="28.0" mnemonicParsing="false" onAction="#colorBlindMode" prefHeight="36.0" prefWidth="238.0" text="Colorblind Mode" />
         <Slider />
       </children>
     </VBox>

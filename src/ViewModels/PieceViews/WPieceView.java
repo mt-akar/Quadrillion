@@ -7,9 +7,12 @@ import sample.Glob;
 
 public class WPieceView extends PieceView {
 
-    public WPieceView(){
+    boolean colorBlind;
+
+    public WPieceView(boolean isColorBlind){
         // Create the piece
         p = new WPiece();
+        colorBlind = isColorBlind;
 
 //change
         // Draw the shape
@@ -24,9 +27,16 @@ public class WPieceView extends PieceView {
                 gl*-1, gl*0,
                 gl*-2, gl*0);
 
-        // Paint the piece
-        this.setFill(Glob.WPieceDisplacedColor);
-        this.setStroke(Glob.WPiecePlacedColor);
+        if(colorBlind){
+            this.setFill(Glob.WPieceCBColor);
+            this.setFill(Glob.WPieceCBColor);
+
+        }else {
+            // Paint the piece
+            this.setFill(Glob.WPieceDisplacedColor);
+            this.setStroke(Glob.WPiecePlacedColor);
+        }
+
     }
 
     public void rotateWOAnimating(){
@@ -41,9 +51,15 @@ public class WPieceView extends PieceView {
     }
 
     public void adjustColor(){
-        if (placed)
-            this.setFill(Glob.WPiecePlacedColor);
-        else
-            this.setFill(Glob.WPieceDisplacedColor);
+        if (colorBlind){
+            this.setFill(Glob.WPieceCBColor);
+        }
+        else {
+            if (placed)
+                this.setFill(Glob.WPiecePlacedColor);
+            else
+                this.setFill(Glob.WPieceDisplacedColor);
+        }
+
     }
 }

@@ -12,11 +12,16 @@ import sample.Glob;
 
 public class NPieceView extends PieceView {
 
-    public NPieceView(){
+    boolean colorBlind;
+
+    public NPieceView(boolean isColorBlind){
         // Create the piece
         p = new NPiece();
 
 //change
+
+        colorBlind = isColorBlind;
+
         // Draw the shape
         this.getPoints().addAll(gl*-1, gl*-2,
                 gl*1, gl*-2,
@@ -36,8 +41,14 @@ public class NPieceView extends PieceView {
         this.setTranslateY(gl/2);
 
         // Paint the piece
-        this.setFill(Glob.NPieceDisplacedColor);
-        this.setStroke(Glob.NPiecePlacedColor);
+        if(colorBlind){
+            this.setFill(Glob.NPieceCBColor);
+            this.setStroke(Glob.NPieceCBColor);
+
+        }else {
+            this.setFill(Glob.NPieceDisplacedColor);
+            this.setStroke(Glob.NPiecePlacedColor);
+        }
     }
 
     public void rotate(){
@@ -91,9 +102,14 @@ public class NPieceView extends PieceView {
     }
 
     public void adjustColor(){
-        if (placed)
-            this.setFill(Glob.NPiecePlacedColor);
-        else
-            this.setFill(Glob.NPieceDisplacedColor);
+        if (colorBlind){
+            this.setFill(Glob.NPieceCBColor);
+        }
+        else {
+            if (placed)
+                this.setFill(Glob.NPiecePlacedColor);
+            else
+                this.setFill(Glob.NPieceDisplacedColor);
+        }
     }
 }

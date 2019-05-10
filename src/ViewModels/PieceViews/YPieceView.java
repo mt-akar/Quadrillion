@@ -11,9 +11,13 @@ import sample.Glob;
 
 public class YPieceView extends PieceView {
 
-    public YPieceView(){
+    boolean colorBlind;
+
+    public YPieceView(boolean isColorBlind){
         // Create the piece
         p = new YPiece();
+
+        colorBlind = isColorBlind;
 
         // Draw the shape
         this.getPoints().addAll(gl*0, gl*-1,
@@ -26,8 +30,15 @@ public class YPieceView extends PieceView {
                 gl*0, gl*0);
 
         // Paint the piece
-        this.setFill(Glob.YPieceDisplacedColor);
-        this.setStroke(Glob.YPiecePlacedColor);
+        if(colorBlind){
+            this.setFill(Glob.YPieceCBColor);
+            this.setStroke(Glob.YPieceCBColor);
+
+        }else {
+            // Paint the piece
+            this.setFill(Glob.YPieceDisplacedColor);
+            this.setStroke(Glob.YPiecePlacedColor);
+        }
     }
 
     public void rotate(){
@@ -67,10 +78,15 @@ public class YPieceView extends PieceView {
     }
 
     public void adjustColor(){
-        if (placed)
-            this.setFill(Glob.YPiecePlacedColor);
-        else
-            this.setFill(Glob.YPieceDisplacedColor);
+        if (colorBlind){
+            this.setFill(Glob.YPieceCBColor);
+        }
+        else {
+            if (placed)
+                this.setFill(Glob.YPiecePlacedColor);
+            else
+                this.setFill(Glob.YPieceDisplacedColor);
+        }
     }
 }
 

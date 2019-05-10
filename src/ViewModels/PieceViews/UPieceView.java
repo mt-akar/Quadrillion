@@ -7,9 +7,13 @@ import sample.Glob;
 
 public class UPieceView extends PieceView {
 
-    public UPieceView(){
+    boolean colorBlind;
+
+    public UPieceView(boolean isColorBlind){
         // Create the piece
         p = new UPiece();
+
+        colorBlind = isColorBlind;
 
 //change
         // Draw the shape
@@ -31,8 +35,15 @@ public class UPieceView extends PieceView {
         this.setTranslateY(gl/2);
 
         // Paint the piece
-        this.setFill(Glob.UPieceDisplacedColor);
-        this.setStroke(Glob.UPiecePlacedColor);
+        if(colorBlind){
+            this.setFill(Glob.UPieceCBColor);
+            this.setStroke(Glob.UPieceCBColor);
+
+        }else {
+            // Paint the piece
+            this.setFill(Glob.UPieceDisplacedColor);
+            this.setStroke(Glob.UPiecePlacedColor);
+        }
     }
 
     public void rotateWOAnimating(){
@@ -47,9 +58,14 @@ public class UPieceView extends PieceView {
     }
 
     public void adjustColor(){
-        if (placed)
-            this.setFill(Glob.UPiecePlacedColor);
-        else
-            this.setFill(Glob.UPieceDisplacedColor);
+        if (colorBlind){
+            this.setFill(Glob.UPieceCBColor);
+        }
+        else {
+            if (placed)
+                this.setFill(Glob.UPiecePlacedColor);
+            else
+                this.setFill(Glob.UPieceDisplacedColor);
+        }
     }
 }
