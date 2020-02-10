@@ -75,7 +75,7 @@ Players will be able to create custom levels using the level editor. Players wil
 
 Players will be able to place grids and pieces at will, without any restrictions.
 
-### Hint*
+### Hint
 
 Give position of a piece for the solution. Taking hints will decrease the stars earned by solving puzzle.
 
@@ -98,5 +98,3 @@ Nothing is complete without the good'ol night mode.
 ### Color blind mode
 
 Color palette of the game gets replaced by a color blind friendly one.
-
-*The feature is not decided upon
